@@ -1,0 +1,16 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+node_modules/
+.vercel
+.env*
+!.env.example
+STATUS.md
+DESIGN.md
+# Vite builds into public/ during the Vercel build; never commit the output.
+/public/
+test-results/
+playwright-report/
+# Generated documents are rebuilt by synth/generate.py; only the ground truth is kept.
+/synth/out/

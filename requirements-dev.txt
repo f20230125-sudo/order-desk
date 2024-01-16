@@ -1,0 +1,4 @@
+-r requirements.txt
+reportlab>=4.4,<6
+pytest>=8.4
+ruff>=0.13
