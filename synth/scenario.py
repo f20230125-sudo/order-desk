@@ -120,7 +120,7 @@ def _serial(rng: random.Random, prefix: str) -> str:
 def _tracking(rng: random.Random, carrier: Party) -> str:
     fmt = TRACKING_FORMATS[carrier.short_code]
     for n in (10, 9, 8):
-        fmt = fmt.replace("{d%d}" % n, "".join(rng.choice(string.digits) for _ in range(n)))
+        fmt = fmt.replace(f"{{d{n}}}", "".join(rng.choice(string.digits) for _ in range(n)))
     return fmt
 
 
