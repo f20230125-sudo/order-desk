@@ -423,7 +423,11 @@ def build(seed: int = 2027) -> list[SynthOrder]:
                     withs[0].serials[-1] = dup
                     planted.append(Planted("DUPLICATE_SERIAL", "DUPLICATE_SERIAL", withs[0].part_number))
             if partial:
-                planted.append(Planted("PARTIAL_SHIPMENT", "PARTIAL_SHIPMENT", ship_lines[0].part_number))
+                # Every confirmed part that this part delivery leaves short is a part-delivery finding.
+                shipped = {sl.part_number: sl.qty for sl in ship_lines}
+                for line in source:
+                    if shipped.get(line.part_number, 0) < line.qty:
+                        planted.append(Planted("PARTIAL_SHIPMENT", "PARTIAL_SHIPMENT", line.part_number))
             dn = f"DN-{distributor.short_code}-{rng.randint(10000, 99999)}"
             order.inbound.append(Shipment("inbound", dn, ship_lines, received=True, marked_partial=partial))
             order.tracking[dn] = _tracking(rng, carrier)
