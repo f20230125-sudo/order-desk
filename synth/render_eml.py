@@ -9,7 +9,7 @@ from email.message import EmailMessage
 from email.utils import format_datetime
 
 from synth.catalogue import PRODUCT_BY_PART, US
-from synth.scenario import TODAY, SynthOrder
+from synth.scenario import SynthOrder
 
 GST = timezone(timedelta(hours=4))
 
@@ -18,7 +18,7 @@ def dispatch_email(o: SynthOrder, k: int = 0) -> bytes:
     ship = o.inbound[k]
     tracking = o.tracking[ship.reference]
     domain = o.distributor.short_code.lower() + "-distribution.example"
-    sent = datetime.combine(TODAY - timedelta(days=o.days_ago.get("received", 0) + 1), time(10, 42), GST)
+    sent = datetime.combine(o.today - timedelta(days=o.days_ago.get("received", 0) + 1), time(10, 42), GST)
 
     msg = EmailMessage()
     msg["From"] = f"{o.distributor.name} Dispatch <dispatch@{domain}>"
