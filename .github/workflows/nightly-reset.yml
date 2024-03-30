@@ -1,0 +1,31 @@
+name: nightly demo reset
+
+# The public demo lets visitors add documents and settle problems. Every night the database goes back to the
+# synthetic orders, dated against the current day, so the demo always starts from the same story.
+on:
+  schedule:
+    - cron: "30 22 * * *" # 02:30 in Dubai
+  workflow_dispatch:
+
+concurrency:
+  group: demo-database
+  cancel-in-progress: false
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    env:
+      # Direct (unpooled) connection: the reset needs a session for its advisory lock and one long transaction.
+      DATABASE_URL_UNPOOLED: ${{ secrets.DATABASE_URL_UNPOOLED }}
+      # The reset refuses to run unless the database host is exactly this one.
+      ORDER_DESK_RESET_HOST: ${{ secrets.ORDER_DESK_RESET_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install --only-binary=:all: -r requirements-dev.txt
+      # Migrate, then empty and reload in one transaction: visitors see the old data or the new, never half.
+      - run: python -m backend.db.seed --reset
