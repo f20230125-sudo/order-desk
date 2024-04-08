@@ -1,0 +1,63 @@
+/* Order Desk tokens. Source of truth: DESIGN.md sections 0 and 5. */
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/overpass-mono/wght.css";
+
+:root {
+  color-scheme: light;
+  --paper: #f8f9f5;
+  --sheet: #fdfdfb;
+  --ink: #1d211c;
+  --ink-2: #495046;
+  --ink-3: #5f665b;
+  --rule: #c9d6b9; /* ledger green: decorative hairlines only */
+  --rule-strong: #7d9662; /* header rule, input edges (3:1) */
+  --tie: #466b29; /* intake only: where a value came from */
+  --pencil: #b3261e; /* an open problem, and nothing else */
+  --pencil-wash: #fbe8e4;
+  --select: #eef2e6;
+
+  --sans: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  --mono: "Overpass Mono Variable", "Overpass Mono", ui-monospace, monospace;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 40px;
+  --s7: 64px;
+  --radius: 2px;
+  --page: 1392px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121413;
+    --sheet: #181b19;
+    --ink: #e6e9e4;
+    --ink-2: #b4bab1;
+    --ink-3: #969d93;
+    --rule: #2b322b;
+    --rule-strong: #5c6d55;
+    --tie: #9fcb7c;
+    --pencil: #f08a7c;
+    --pencil-wash: #3a1f1b;
+    --select: #212622;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #121413;
+  --sheet: #181b19;
+  --ink: #e6e9e4;
+  --ink-2: #b4bab1;
+  --ink-3: #969d93;
+  --rule: #2b322b;
+  --rule-strong: #5c6d55;
+  --tie: #9fcb7c;
+  --pencil: #f08a7c;
+  --pencil-wash: #3a1f1b;
+  --select: #212622;
+}
