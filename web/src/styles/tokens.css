@@ -1,20 +1,22 @@
-/* Order Desk tokens. Source of truth: DESIGN.md sections 0 and 5. */
+/* Order Desk tokens. Source of truth: DESIGN.md sections 0 and 5.
+   Neutral greys only (Uzair, 21 Oct: "just use normal colors"). Red marks an open problem; blue only shows
+   where a value came from on the intake screen. */
 @import "@fontsource-variable/archivo/wdth.css";
 @import "@fontsource-variable/overpass-mono/wght.css";
 
 :root {
   color-scheme: light;
-  --paper: #f8f9f5;
-  --sheet: #fdfdfb;
-  --ink: #1d211c;
-  --ink-2: #495046;
-  --ink-3: #5f665b;
-  --rule: #c9d6b9; /* ledger green: decorative hairlines only */
-  --rule-strong: #7d9662; /* header rule, input edges (3:1) */
-  --tie: #466b29; /* intake only: where a value came from */
+  --paper: #f5f5f4;
+  --sheet: #ffffff;
+  --ink: #1a1a1a;
+  --ink-2: #474747;
+  --ink-3: #696969;
+  --rule: #e4e4e2; /* hairlines between rows and columns (decorative) */
+  --rule-strong: #8c8c8c; /* header rule, input edges (3.4:1) */
+  --tie: #2459b8; /* intake only: the box around where a value came from */
   --pencil: #b3261e; /* an open problem, and nothing else */
   --pencil-wash: #fbe8e4;
-  --select: #eef2e6;
+  --select: #efefed;
 
   --sans: "Archivo Variable", "Archivo", system-ui, sans-serif;
   --mono: "Overpass Mono Variable", "Overpass Mono", ui-monospace, monospace;
@@ -33,31 +35,31 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --paper: #121413;
-    --sheet: #181b19;
-    --ink: #e6e9e4;
-    --ink-2: #b4bab1;
-    --ink-3: #969d93;
-    --rule: #2b322b;
-    --rule-strong: #5c6d55;
-    --tie: #9fcb7c;
+    --paper: #141414;
+    --sheet: #1b1b1b;
+    --ink: #ececec;
+    --ink-2: #b9b9b9;
+    --ink-3: #9b9b9b;
+    --rule: #2e2e2e;
+    --rule-strong: #6e6e6e;
+    --tie: #8fb4ff;
     --pencil: #f08a7c;
     --pencil-wash: #3a1f1b;
-    --select: #212622;
+    --select: #262626;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #121413;
-  --sheet: #181b19;
-  --ink: #e6e9e4;
-  --ink-2: #b4bab1;
-  --ink-3: #969d93;
-  --rule: #2b322b;
-  --rule-strong: #5c6d55;
-  --tie: #9fcb7c;
+  --paper: #141414;
+  --sheet: #1b1b1b;
+  --ink: #ececec;
+  --ink-2: #b9b9b9;
+  --ink-3: #9b9b9b;
+  --rule: #2e2e2e;
+  --rule-strong: #6e6e6e;
+  --tie: #8fb4ff;
   --pencil: #f08a7c;
   --pencil-wash: #3a1f1b;
-  --select: #212622;
+  --select: #262626;
 }
