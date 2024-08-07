@@ -1,8 +1,7 @@
 """Orders as stored: turn database rows into the check engine's dataclasses, and store what it finds.
 
-Running the checks again keeps each problem's identity (its fingerprint), so an issue someone accepted
-stays accepted with its note, a new one opens, and an open one the check no longer finds is closed with
-a note saying so.
+Running the checks again keeps each problem's identity (its fingerprint). Decisions stand while the
+evidence stays the same; changed or recurring problems reopen, and open ones no longer found are closed.
 """
 
 from datetime import datetime
@@ -98,12 +97,24 @@ def load_bundle(conn: psycopg.Connection, order_id: int) -> OrderBundle:
             (order_id, order_id),
         )
     }
-    return OrderBundle(customer_po, our_po, confirmations, shipments, serialised, elsewhere)
+    approved = {
+        r["found"]: r["expected"]
+        for r in conn.execute(
+            "select expected, found from discrepancy where customer_order_id = %s "
+            "and code = 'SUBSTITUTION' and stage = 'confirmed' and status = 'accepted' "
+            "and check_run_id = (select max(id) from check_run where customer_order_id = %s)",
+            (order_id, order_id),
+        )
+    }
+    return OrderBundle(customer_po, our_po, confirmations, shipments, serialised, elsewhere, approved)
 
 
 def run_checks(conn: psycopg.Connection, order_id: int, role: str, at: datetime | None = None) -> dict:
     """Check the order and reconcile the stored problems. Call inside a write transaction."""
     findings = check(load_bundle(conn, order_id))
+    previous = conn.execute(
+        "select id from check_run where customer_order_id = %s order by id desc limit 1", (order_id,)
+    ).fetchone()
     run = conn.execute(
         "insert into check_run (customer_order_id, engine_version, ran_at) "
         "values (%s, %s, coalesce(%s, now())) returning id",
@@ -112,13 +123,27 @@ def run_checks(conn: psycopg.Connection, order_id: int, role: str, at: datetime 
     existing = {
         r["fingerprint"]: r
         for r in conn.execute(
-            "select id, fingerprint, status from discrepancy where customer_order_id = %s", (order_id,)
+            "select id, fingerprint, status, expected, found, explanation, check_run_id "
+            "from discrepancy where customer_order_id = %s",
+            (order_id,),
         )
     }
     opened = 0
     for f in findings:
         if f.fingerprint in existing:
-            # Same problem again: keep its status and note, refresh the wording and values.
+            row = existing[f.fingerprint]
+            changed = (row["expected"], row["found"], row["explanation"]) != (
+                f.expected,
+                f.found,
+                f.explanation,
+            )
+            if row["status"] != "open" and (changed or not previous or row["check_run_id"] != previous["id"]):
+                conn.execute(
+                    "update discrepancy set status = 'open', resolved_at = null, resolved_by_role = null, "
+                    "resolution_note = null where id = %s",
+                    (row["id"],),
+                )
+                opened += 1
             conn.execute(
                 "update discrepancy set explanation = %s, expected = %s, found = %s, check_run_id = %s "
                 "where id = %s",

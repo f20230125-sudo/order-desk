@@ -32,7 +32,7 @@ from synth.generate import documents_for
 from synth.scenario import STAGES, SynthOrder, build
 
 TABLES = (
-    "event, rate_limit, pending_upload, discrepancy, check_run, document, serial, shipment_line, shipment, "
+    "event, rate_limit, upload_usage, pending_upload, discrepancy, check_run, document, serial, shipment_line, shipment, "
     "vendor_confirmation_line, vendor_confirmation, purchase_order_line, purchase_order, "
     "customer_order_line, customer_order, product, party"
 )

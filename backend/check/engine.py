@@ -56,7 +56,8 @@ class Finding:
     @property
     def fingerprint(self) -> str:
         """Stable across runs, so a problem found again keeps its status and note."""
-        return f"{self.code}:{self.stage}:{self.part_number or '-'}"
+        key = f"{self.code}:{self.stage}:{self.part_number or '-'}"
+        return f"{key}:{self.found}" if self.code == "DUPLICATE_SERIAL" else key
 
 
 def money(x: Decimal) -> str:
@@ -339,17 +340,17 @@ def check_confirmations(b: OrderBundle) -> list[Finding]:
 
 
 def _expected_inbound(b: OrderBundle) -> dict[str, int]:
+    expected: Counter = Counter()
     if b.confirmations:
         conf = b.confirmations[-1]
         ordered = {x.part_number for x in b.our_po.lines} if b.our_po else set()
-        return dict(
-            Counter(
-                {x.part_number: x.qty for x in conf.lines if x.part_number in ordered or x.substitutes_part}
-            )
-        )
-    if b.our_po:
-        return {x.part_number: x.qty for x in b.our_po.lines}
-    return {}
+        for x in conf.lines:
+            if x.part_number in ordered or x.substitutes_part:
+                expected[x.part_number] += x.qty
+    elif b.our_po:
+        for x in b.our_po.lines:
+            expected[x.part_number] += x.qty
+    return dict(expected)
 
 
 def check_inbound(b: OrderBundle) -> list[Finding]:
@@ -398,6 +399,17 @@ def check_inbound(b: OrderBundle) -> list[Finding]:
                     str(got),
                 )
             )
+    for part in sorted(received.keys() - expected.keys()):
+        out.append(
+            Finding(
+                "EXTRA_LINE",
+                "received",
+                f"{received[part]} {part} arrived, which was not expected on this order.",
+                part,
+                "not expected",
+                f"{received[part]} x {part}",
+            )
+        )
     seen_here: Counter = Counter()
     for s in inbound:
         for sl in s.lines:
@@ -437,9 +449,14 @@ def check_outbound(b: OrderBundle) -> list[Finding]:
     if not outbound:
         return []
     delivered: Counter = Counter()
+    subs = {
+        f.found: f.expected
+        for f in check_confirmations(b)
+        if f.code == "SUBSTITUTION" and b.approved_substitutions.get(f.found) == f.expected
+    }
     for s in outbound:
         for sl in s.lines:
-            delivered[sl.part_number] += sl.qty
+            delivered[subs.get(sl.part_number, sl.part_number)] += sl.qty
     out = []
     for c in b.customer_po.lines:
         got = delivered.get(c.part_number, 0)
