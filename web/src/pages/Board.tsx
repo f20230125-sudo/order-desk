@@ -46,7 +46,6 @@ function Row({ o, role, selected, onSelect }: { o: BoardOrder; role: Role; selec
   return (
     <tr
       className={`order${selected ? " selected" : ""}`}
-      aria-selected={selected}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("a")) return;
         onSelect();
@@ -63,7 +62,7 @@ function Row({ o, role, selected, onSelect }: { o: BoardOrder; role: Role; selec
         )}
       </td>
       <th scope="row" className="ids">
-        <Link to={`/orders/${o.id}`} className="po" tabIndex={selected ? 0 : -1}>
+        <Link to={`/orders/${o.id}`} className="po" onFocus={onSelect}>
           {o.po_number}
         </Link>
         {o.our_po_number ? <span className="sub mono">{o.our_po_number}</span> : <span className="sub">Our PO not sent</span>}
@@ -111,6 +110,7 @@ export function Board() {
   const q = params.get("q") ?? "";
   const stage = params.get("stage") ?? "";
   const problems = params.get("problems") === "1";
+  const [filtersOpen, setFiltersOpen] = useState(Boolean(stage || problems));
   const query = useMemo(() => {
     const p = new URLSearchParams();
     if (q.trim()) p.set("q", q.trim());
@@ -150,9 +150,13 @@ export function Board() {
       if (e.key === "/" && !typing) {
         e.preventDefault();
         search.current?.focus();
-      } else if (!typing && (e.key === "j" || e.key === "k")) {
-        setSelected((i) => Math.max(0, Math.min(visible.length - 1, i + (e.key === "j" ? 1 : -1))));
-      } else if (!typing && e.key === "Enter" && visible[selected]) {
+      } else if (!typing && !e.metaKey && !e.ctrlKey && !e.altKey && (e.key === "j" || e.key === "k")) {
+        e.preventDefault();
+        const next = Math.max(0, Math.min(visible.length - 1, selected + (e.key === "j" ? 1 : -1)));
+        setSelected(next);
+        document.querySelectorAll<HTMLAnchorElement>("tr.order a.po")[next]?.focus();
+      } else if (!typing && e.key === "Enter" && !(e.target as HTMLElement).closest("a, button, summary") && visible[selected]) {
+        e.preventDefault();
         navigate(`/orders/${visible[selected].id}`);
       } else if (!typing && e.key.toLowerCase() === "n" && !e.metaKey && !e.ctrlKey) {
         navigate("/intake");
@@ -187,7 +191,9 @@ export function Board() {
     <div className="page board">
       <div className="board-head">
         <h1>Order board</h1>
+        <p className="board-purpose">Customer orders, from PO to ready to invoice.</p>
         {load.state === "ready" ? <Sentence data={load.data} role={role} /> : <p className="lede quiet">Counting orders.</p>}
+        <p className="board-help">Demo data. Open a customer PO to check its documents and next step.</p>
       </div>
 
       <form className="filters" role="search" onSubmit={(e) => e.preventDefault()}>
@@ -204,26 +210,36 @@ export function Board() {
             spellCheck={false}
           />
         </label>
-        <label className="select">
-          <span>Stage</span>
-          <select value={stage} onChange={(e) => set("stage", e.target.value)}>
-            <option value="">All stages</option>
-            {STAGES.map((s) => (
-              <option key={s.key} value={s.key}>
-                {s.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="check">
-          <input type="checkbox" checked={problems} onChange={(e) => set("problems", e.target.checked ? "1" : "")} />
-          Only orders with a problem
-        </label>
+        <div className="filter-options">
+          <button type="button" className="button filter-toggle" aria-expanded={filtersOpen} aria-controls="board-filter-fields" onClick={() => setFiltersOpen((open) => !open)}>
+            Filters{stage || problems ? ` (${Number(Boolean(stage)) + Number(problems)} on)` : ""}
+          </button>
+          <div id="board-filter-fields" className="filter-fields" hidden={!filtersOpen}>
+            <label className="select">
+              <span>Stage</span>
+              <select value={stage} onChange={(e) => set("stage", e.target.value)}>
+                <option value="">All stages</option>
+                {STAGES.map((s) => (
+                  <option key={s.key} value={s.key}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="check">
+              <input type="checkbox" checked={problems} onChange={(e) => set("problems", e.target.checked ? "1" : "")} />
+              Only orders with a problem
+            </label>
+          </div>
+        </div>
+        {filtered && <button type="button" className="link clear-filters" onClick={() => setParams({}, { replace: true })}>Clear filters</button>}
       </form>
 
       {load.state === "error" ? (
         <div className="state error" role="alert">
+          <h2 className="state-title">The orders did not load</h2>
           <p>{load.message}</p>
+          <p>Your search and filters are kept.</p>
           <button type="button" className="button" onClick={retry}>
             Try again
           </button>
@@ -264,7 +280,7 @@ export function Board() {
             <tbody>
               <tr className="band">
                 <th scope="rowgroup" colSpan={COLS}>
-                  {load.slow ? "Waking the database. This usually takes a few seconds." : "Loading orders."}
+                  <span role="status">{load.slow ? "Still loading orders. The database may need a moment to wake up." : "Loading orders."}</span>
                 </th>
               </tr>
               {Array.from({ length: 8 }, (_, i) => (
@@ -285,7 +301,7 @@ export function Board() {
                       </button>
                     </>
                   ) : (
-                    "No orders yet. Add one from a document."
+                    <>No orders yet. <Link to="/intake">Add from a document</Link>.</>
                   )}
                 </th>
               </tr>

@@ -204,7 +204,7 @@ function CellView({ cell, money, open, resolved, notYet }: { cell: Cell | null; 
         </span>
       );
     }
-    return <span className="quiet">{notYet ? "not yet" : ""}</span>;
+    return <span className="quiet">{notYet ? "not yet" : "not listed"}</span>;
   }
   const value = (
     <span className="cell-value">
@@ -273,6 +273,7 @@ function MatchGrid({ d }: { d: OrderDetail }) {
                   const resolved = !open && ps.some((p) => p.status !== "open");
                   return (
                     <td key={c.key} className={open ? "differs" : ""}>
+                      <span className="mobile-cell-label" aria-hidden="true">{c.label}</span>
                       <CellView cell={row[c.key]} money={c.money} open={open} resolved={resolved} notYet={notYet[c.key] && !row[c.key]} />
                     </td>
                   );
@@ -456,7 +457,7 @@ export function Order() {
         <Link to="/" className="back">
           Order board
         </Link>
-        <p className="quiet">{load.slow ? "Waking the database. This usually takes a few seconds." : "Loading the order."}</p>
+        <p className="quiet" role="status">{load.slow ? "Still loading the order. The database may need a moment to wake up." : "Loading the order."}</p>
       </div>
     );
   }

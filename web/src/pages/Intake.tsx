@@ -360,7 +360,7 @@ export function Intake() {
             {error.message} {error.orderId && <Link to={`/orders/${error.orderId}`}>Open that order</Link>}
           </p>
         )}
-        {busy && <p className="quiet">Reading the document.</p>}
+        {busy && <p className="quiet" role="status">Reading the document.</p>}
         <Tray onFile={(f) => void choose(f)} busy={busy} />
       </div>
     );
@@ -509,25 +509,25 @@ export function Intake() {
                   const err = (k: string) => fieldErrors[`lines.${i}.${k}`];
                   return (
                     <tr key={i} className={low ? "to-check" : ""}>
-                      <td>
+                      <td data-label="Part number">
                         <input id={`f-line${i}.part_number`} className="mono" value={l.part_number} aria-label={`Line ${i + 1} part number`}
                           onFocus={() => setActive(`line${i}.part_number`)} onChange={(e) => setLine(i, "part_number", e.target.value.toUpperCase())}
                           aria-invalid={Boolean(err("part_number"))} />
                         {err("part_number") && <span className="field-error">{err("part_number")}</span>}
                       </td>
                       {priced && (
-                        <td>
+                        <td data-label="Description">
                           <input value={l.description} aria-label={`Line ${i + 1} description`} onFocus={() => setActive(`line${i}.description`)}
                             onChange={(e) => setLine(i, "description", e.target.value)} />
                         </td>
                       )}
-                      <td className="num">
+                      <td className="num" data-label="Quantity">
                         <input id={`f-line${i}.qty`} inputMode="numeric" value={l.qty} aria-label={`Line ${i + 1} quantity`}
                           onFocus={() => setActive(`line${i}.qty`)} onChange={(e) => setLine(i, "qty", e.target.value)} aria-invalid={Boolean(err("qty"))} />
                         {err("qty") && <span className="field-error">{err("qty")}</span>}
                       </td>
                       {priced && (
-                        <td className="num">
+                        <td className="num" data-label="Unit price">
                           <input id={`f-line${i}.unit_price`} inputMode="decimal" value={l.unit_price} aria-label={`Line ${i + 1} unit price`}
                             onFocus={() => setActive(`line${i}.unit_price`)} onChange={(e) => setLine(i, "unit_price", e.target.value)}
                             aria-invalid={Boolean(err("unit_price"))} />
@@ -535,13 +535,13 @@ export function Intake() {
                         </td>
                       )}
                       {kind === "vendor_confirmation" && (
-                        <td>
+                        <td data-label="Replaces part">
                           <input className="mono" value={l.substitutes_part} aria-label={`Line ${i + 1} replaces part`}
                             onChange={(e) => setLine(i, "substitutes_part", e.target.value.toUpperCase())} />
                         </td>
                       )}
                       {goods && (
-                        <td>
+                        <td data-label="Serial numbers">
                           <input className="mono" value={l.serials} aria-label={`Line ${i + 1} serial numbers`}
                             onFocus={() => setActive(`line${i}.serials`)} onChange={(e) => setLine(i, "serials", e.target.value.toUpperCase())} />
                         </td>
