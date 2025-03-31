@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      # Same major version as Neon's default, so the migrations and triggers are tested where they run.
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: orderdesk_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL_TEST: postgresql://postgres:ci@127.0.0.1:5432/orderdesk_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install --only-binary=:all: -r requirements-dev.txt
+      - run: ruff check .
+      - run: ruff format --check .
+      # Unit tests, the database's own rules, the seed and the API, against a real Postgres.
+      - run: pytest -q
+      # The documents are rebuilt from the seed and the ground truth must not change.
+      - run: python -m synth.generate && git diff --exit-code -- synth/ground_truth.json
+      # The measured numbers in the README come from this file; fail if they drift from what is committed.
+      - run: python -m eval.run_eval && git diff --exit-code -- eval/results.json
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
