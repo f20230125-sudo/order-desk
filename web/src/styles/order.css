@@ -1,0 +1,574 @@
+/* Order page, documents and the PDF viewer. Same rules as app.css. */
+
+.back {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--ink-2);
+  margin-bottom: var(--s4);
+}
+.back::before {
+  content: "\2039\00a0";
+}
+.h-page {
+  font-weight: 800;
+  font-stretch: 72%;
+  font-size: 34px;
+  line-height: 36px;
+  margin: 0 0 var(--s3);
+}
+.h-section {
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: 19px;
+  line-height: 24px;
+  margin: var(--s6) 0 var(--s3);
+}
+.h-section .count {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-left: 6px;
+}
+.h-sub {
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: 15px;
+  margin: var(--s5) 0 var(--s2);
+}
+.small {
+  font-size: 13px;
+}
+
+.order-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: var(--s6);
+  align-items: start;
+}
+.caption {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.po-big {
+  margin: 2px 0 var(--s4);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--rule-strong);
+}
+.boxes > div {
+  padding: 8px 12px 10px;
+  border-right: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--sheet);
+  min-width: 0;
+}
+.boxes dt {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.boxes dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.waiting-line {
+  margin: var(--s3) 0 0;
+  color: var(--ink-2);
+}
+
+.next {
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+  border-top: 3px solid var(--ink);
+  padding: var(--s4) var(--s5) var(--s5);
+}
+.next h2 {
+  margin: 0 0 var(--s3);
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: 17px;
+}
+.next-who {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin: 0 0 var(--s2);
+  font-weight: 600;
+  font-size: 14px;
+}
+.next-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.next-actions {
+  margin-top: var(--s4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  align-items: end;
+}
+.next-actions .select {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  font-size: 13px;
+}
+.form-error {
+  margin: var(--s3) 0 0;
+  color: var(--pencil);
+  font-weight: 600;
+}
+.button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* the chain, large: stations on a line */
+.chain {
+  list-style: none;
+  padding: 0;
+  margin: var(--s6) 0 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+.chain-step {
+  position: relative;
+  padding: 18px 12px 0 0;
+}
+.chain-step::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.chain-step.todo {
+  color: var(--ink-3);
+}
+.chain-step.todo::before {
+  background: var(--paper);
+  border: 2px solid var(--ink-3);
+  width: 10px;
+  height: 10px;
+  top: -6px;
+}
+.chain-step.current::before {
+  width: 18px;
+  height: 18px;
+  top: -10px;
+  left: -3px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+}
+.chain-mark .ring {
+  position: absolute;
+  top: -20px;
+  left: -14px;
+  width: 46px;
+  height: 38px;
+}
+.chain-n {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.chain-name {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}
+.chain-step.todo .chain-name {
+  font-weight: 500;
+}
+.chain-when {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+.chain-step.current .chain-when {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* the match grid */
+.grid-wrap {
+  overflow-x: auto;
+}
+.match th[scope="row"] {
+  width: 30%;
+}
+.match .part {
+  display: block;
+  font-weight: 600;
+}
+.match td {
+  vertical-align: top;
+}
+.cell {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 6px;
+}
+.cell.agrees .cell-value {
+  color: var(--ink-3);
+}
+.cell .tick {
+  width: 16px;
+  height: 14px;
+}
+.cell .sub {
+  flex-basis: 100%;
+}
+td.differs {
+  background: var(--pencil-wash);
+}
+.ringed {
+  position: relative;
+  display: inline-block;
+  padding: 2px 8px;
+}
+.ringed .ring {
+  position: absolute;
+  inset: -6px -10px;
+  width: auto;
+  height: auto;
+}
+.ringed .cell-value,
+.ringed strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+tr.explain td {
+  padding: 0 10px 12px 10px !important;
+  border-left: 0 !important;
+  font-size: 14px;
+}
+tr.explain a {
+  color: var(--pencil);
+  font-weight: 600;
+  text-decoration-color: color-mix(in srgb, var(--pencil) 40%, transparent);
+}
+tr.has-problem td,
+tr.has-problem th {
+  border-bottom: 0;
+}
+.match tfoot th {
+  text-align: left;
+}
+.match tfoot th,
+.match tfoot td {
+  padding: 12px 10px;
+  border-top: 1px solid var(--rule-strong);
+  font-weight: 500;
+  color: var(--ink-2);
+  vertical-align: middle;
+}
+.totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3) var(--s6);
+}
+.totals strong {
+  color: var(--ink);
+  margin-left: 6px;
+}
+
+/* problems, documents, history */
+.order-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--s6);
+  align-items: start;
+}
+.problems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+}
+.problem-item {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: var(--s3);
+  padding: var(--s4) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.problem-item:target {
+  background: var(--select);
+}
+.problem-mark {
+  text-align: center;
+  padding-top: 2px;
+}
+.note-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--ink-3);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+.problem-body p {
+  margin: 0 0 4px;
+}
+.problem-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.problem-title .quiet {
+  font-size: 13px;
+}
+.problem-item:not(.open) {
+  color: var(--ink-2);
+}
+.struck {
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-3);
+}
+.resolution {
+  font-size: 14px;
+}
+.problem-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s3);
+}
+.settle {
+  margin-top: var(--s3);
+}
+.settle label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.settle textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  font: 400 15px/22px var(--sans);
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+}
+
+.docs,
+.ships {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+}
+.docs li,
+.ships li {
+  border-bottom: 1px solid var(--rule);
+}
+.ships li {
+  padding: 8px 0;
+  font-size: 14px;
+}
+.doc {
+  display: grid;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 10px 8px;
+  cursor: pointer;
+}
+.doc:hover,
+.doc[aria-pressed="true"] {
+  background: var(--select);
+}
+.doc-kind {
+  font-weight: 600;
+  font-size: 14px;
+}
+.doc-name {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.doc-when {
+  font-size: 13px;
+}
+.serials {
+  margin: 0;
+  border-top: 1px solid var(--ink);
+}
+.serials div {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.serials dt {
+  font-weight: 600;
+  font-size: 13px;
+}
+.serials dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+.viewer-section {
+  margin-top: var(--s6);
+}
+.viewer {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s3);
+}
+.viewer-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+  flex-wrap: wrap;
+  margin-bottom: var(--s2);
+}
+.email {
+  white-space: pre-wrap;
+  font: 400 13px/20px var(--mono);
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+  padding: var(--s4);
+  max-height: 520px;
+  overflow: auto;
+}
+
+/* PDF pages stay white in dark mode: they are documents. Source boxes are always the light blue. */
+.pdf {
+  display: grid;
+  gap: var(--s4);
+  justify-items: center;
+}
+.pdf-page {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--rule-strong);
+}
+.pdf-page.loading {
+  width: 100%;
+  aspect-ratio: 0.707;
+}
+.pdf-page canvas {
+  display: block;
+}
+.src-box {
+  position: absolute;
+  border: 2px solid #2459b8;
+  border-radius: 2px;
+  background: rgba(36, 89, 184, 0.06);
+  padding: 0;
+  cursor: pointer;
+}
+.src-box.active {
+  border-width: 3px;
+  background: rgba(36, 89, 184, 0.14);
+}
+
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  font-size: 14px;
+}
+.history li {
+  display: grid;
+  grid-template-columns: 72px 72px minmax(0, 1fr);
+  gap: var(--s3);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.history time {
+  color: var(--ink-2);
+}
+.history-role {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+@media (max-width: 1080px) {
+  .order-top,
+  .order-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .po-big {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .chain {
+    grid-template-columns: 1fr;
+    border-top: 0;
+    border-left: 2px solid var(--ink);
+    margin-left: 8px;
+  }
+  .chain-step {
+    padding: 0 0 16px 22px;
+  }
+  .chain-step::before {
+    top: 4px;
+    left: -7px;
+  }
+  .chain-step.todo::before {
+    top: 4px;
+    left: -6px;
+  }
+  .chain-step.current::before {
+    top: 1px;
+    left: -10px;
+  }
+  .chain-mark .ring {
+    top: -8px;
+    left: -24px;
+  }
+  .match {
+    min-width: 720px;
+  }
+  .history li {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+  .history-role {
+    display: none;
+  }
+}
+
+.ident {
+  white-space: nowrap;
+  font-size: 0.92em;
+}
+.ringed.missing {
+  color: var(--ink);
+}
