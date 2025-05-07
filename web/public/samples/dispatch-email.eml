@@ -1,0 +1,56 @@
+From: Dune Channel Partners LLC Dispatch <dispatch@dcp-distribution.example>
+To: orders@keystone-data.example
+Subject: Dispatch notice DN-DCP-31877 for your order PO-2026-0127
+Date: Tue, 20 Oct 2026 10:42:00 +0400
+Message-ID: <dn-dcp-31877.176-40418822@dcp-distribution.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3958302267148347330=="
+
+--===============3958302267148347330==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Dear Keystone Data Systems FZ-LLC team,
+
+Your order PO-2026-0127 has been dispatched.
+
+Carrier: Atlas Air Freight
+Tracking number: 176-40418822
+Delivery note: DN-DCP-31877
+
+Items:
+  SFP28-SR-25G     qty  12  SFP28 25GbE SR optical transceiver, 85C
+  S5248F-ON        qty   2  PowerSwitch S5248F-ON, 48x 25GbE, 4x 100GbE
+  PER660-XS1       qty   2  PowerEdge R660 1U server, 1x Xeon Silver 4514Y
+
+Serial numbers are in the attached file.
+
+Regards,
+Dispatch desk
+Dune Channel Partners LLC
+
+--===============3958302267148347330==
+Content-Type: text/csv; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="serials-DN-DCP-31877.csv"
+MIME-Version: 1.0
+
+part_number,serial_number
+SFP28-SR-25G,XS000QX
+SFP28-SR-25G,XS001QX
+SFP28-SR-25G,XS002QX
+SFP28-SR-25G,XS003QX
+SFP28-SR-25G,XS004QX
+SFP28-SR-25G,XS005QX
+SFP28-SR-25G,XS006QX
+SFP28-SR-25G,XS007QX
+SFP28-SR-25G,XS008QX
+SFP28-SR-25G,XS009QX
+SFP28-SR-25G,XS010QX
+SFP28-SR-25G,QN7DPHK
+S5248F-ON,SS100QX
+S5248F-ON,SS101QX
+PER660-XS1,6S200QX
+PER660-XS1,6S201QX
+
+--===============3958302267148347330==--
