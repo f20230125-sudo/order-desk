@@ -76,18 +76,16 @@ function Row({ o, role, selected, onSelect }: { o: BoardOrder; role: Role; selec
         <RouteLine stageNo={o.stage_no} problem={o.problems > 0} />
         <span className="stage">{stage.short}</span>
       </td>
-      <td className="turn">
+      <td className={`waiting num${o.days_in_stage >= 5 && o.whose_turn ? " long" : ""}`}>
         {o.whose_turn === role ? (
           // the band heading already says it is yours; a stamp on every row would only repeat it
-          <span className="visually-hidden">With {ROLE_NAME[role]}</span>
+          <span className="visually-hidden">With {ROLE_NAME[role]}, </span>
         ) : o.whose_turn ? (
           <span className="stamp">{ROLE_NAME[o.whose_turn]}</span>
         ) : (
           <span className="quiet">Handed over</span>
         )}
-      </td>
-      <td className={`waiting num${o.days_in_stage >= 5 && o.whose_turn ? " long" : ""}`}>
-        {o.whose_turn ? days(o.days_in_stage) : ""}
+        {o.whose_turn && <span className="days">{days(o.days_in_stage)}</span>}
       </td>
       <td className="problem">
         {o.first_problem ? (
@@ -105,7 +103,7 @@ function Row({ o, role, selected, onSelect }: { o: BoardOrder; role: Role; selec
   );
 }
 
-const COLS = 8;
+const COLS = 7;
 
 export function Board() {
   const { role } = useRole();
@@ -177,11 +175,11 @@ export function Board() {
   }, [selected]);
 
   const filtered = Boolean(q || stage || problems);
-  let index = -1;
+  // Row positions follow the order the bands are shown in, so j / k move through the page top to bottom.
+  const position = new Map(visible.map((o, i) => [o.id, i]));
   const rows = (list: BoardOrder[]) =>
     list.map((o) => {
-      index += 1;
-      const i = index;
+      const i = position.get(o.id) ?? -1;
       return <Row key={o.id} o={o} role={role} selected={i === selected} onSelect={() => setSelected(i)} />;
     });
 
@@ -233,7 +231,7 @@ export function Board() {
       ) : (
         <table className="pad" aria-busy={load.state === "loading"}>
           <caption className="visually-hidden">
-            Orders, yours first. Columns: problems, order, customer, where it is, whose turn, waiting, first problem,
+            Orders, yours first. Columns: problems, order, customer, where it is, whose turn and how long it has waited, first problem,
             value.
           </caption>
           <colgroup>
@@ -241,7 +239,6 @@ export function Board() {
             <col className="c-ids" />
             <col className="c-customer" />
             <col className="c-where" />
-            <col className="c-turn" />
             <col className="c-waiting" />
             <col className="c-problem" />
             <col className="c-value" />
@@ -254,7 +251,6 @@ export function Board() {
               <th scope="col">Customer PO</th>
               <th scope="col">Customer</th>
               <th scope="col">Where it is</th>
-              <th scope="col">Turn</th>
               <th scope="col" className="num">
                 Waiting
               </th>
