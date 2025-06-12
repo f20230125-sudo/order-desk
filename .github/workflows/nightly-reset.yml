@@ -26,6 +26,6 @@ jobs:
           python-version-file: .python-version
           cache: pip
           cache-dependency-path: requirements-dev.txt
-      - run: pip install --only-binary=:all: -r requirements-dev.txt
+      - run: "pip install --only-binary=:all: -r requirements-dev.txt"
       # Migrate, then empty and reload in one transaction: visitors see the old data or the new, never half.
       - run: python -m backend.db.seed --reset
