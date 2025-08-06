@@ -455,6 +455,10 @@ def extract_pdf(pdf_bytes: bytes, kind: str | None = None) -> dict:
         partial = "part delivery" in text or "balance to follow" in text
         fields["marked_partial"] = _field(partial, None, 0.9, "words: part delivery / balance to follow")
     warnings = []
+    if len(sizes) > 1:
+        warnings.append(
+            "Multipage PDF: extraction is incomplete. Check every page and add any missing lines."
+        )
     missing = [f for f in HEADER_FIELDS[kind] if f not in fields]
     if missing:
         warnings.append("not found: " + ", ".join(missing))
