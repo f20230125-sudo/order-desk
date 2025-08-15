@@ -216,6 +216,27 @@ main {
   line-height: 24px;
   max-width: 68ch;
 }
+.board-purpose {
+  margin: var(--s2) 0 0;
+  color: var(--ink-2);
+}
+.board-help {
+  margin: var(--s2) 0 0;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+.filter-toggle {
+  display: none;
+}
+.filter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3) var(--s5);
+}
+.clear-filters {
+  font-size: 14px;
+}
 
 .filters {
   display: flex;
@@ -328,6 +349,9 @@ main {
   text-align: left;
   font-weight: 400;
 }
+.pad td.num {
+  text-align: right;
+}
 /* column rules, like the pad */
 .pad td + td,
 .pad th + td,
@@ -377,7 +401,7 @@ tr.order.selected th {
   background: var(--select);
 }
 tr.order.selected .margin {
-  box-shadow: inset 3px 0 0 var(--ink);
+  border-left: 3px solid var(--ink);
 }
 
 .margin {
@@ -390,8 +414,9 @@ tr.order.selected .margin {
   display: block;
   font-weight: 600;
   font-size: 14px;
-  text-decoration: none;
-  word-break: break-all;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  overflow-wrap: anywhere;
 }
 tr.order:hover .po {
   text-decoration: underline;
@@ -455,10 +480,11 @@ tr.order:hover .po {
 /* The sentence is ink: the red ring in the margin carries the signal, the words carry the detail. */
 .pencil-text {
   color: var(--ink);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+/* A part, serial or document number is read as one token: never split it at a hyphen. */
+.pencil-text .ident {
+  white-space: nowrap;
 }
 .value {
   white-space: nowrap;
@@ -492,6 +518,14 @@ tr.empty td {
 }
 .state.error p {
   margin: 0 0 var(--s3);
+}
+.state-title {
+  font-size: 19px;
+  line-height: 24px;
+  margin: 0 0 var(--s2);
+}
+.mobile-cell-label {
+  display: none;
 }
 
 /* ------------------------------------------------------------------ pencil marks and the route line */
@@ -586,9 +620,27 @@ tr.empty td {
     padding: var(--s3) var(--s4);
     gap: var(--s3);
   }
-  .role {
-    order: 3;
+  .wordmark {
     width: 100%;
+  }
+  .role {
+    width: 100%;
+  }
+  .top-actions {
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+  }
+  .button,
+  .theme,
+  .link,
+  .back {
+    min-height: 44px;
+  }
+  .link,
+  .back {
+    display: inline-flex;
+    align-items: center;
   }
   .role button {
     flex: 1;
@@ -611,28 +663,43 @@ tr.empty td {
   .search {
     flex: 1 1 100%;
   }
+  .filter-options {
+    flex: 1 1 auto;
+  }
+  .filter-toggle {
+    display: inline-flex;
+  }
+  .filter-fields {
+    gap: var(--s2);
+    margin-top: var(--s2);
+  }
+  .filter-fields[hidden] {
+    display: none;
+  }
   .search input,
   .select select {
     min-height: 44px;
   }
+}
 
+@media (max-width: 1080px) {
   /* the pad becomes one block per order */
-  .pad colgroup,
-  .pad thead {
+  .board .pad colgroup,
+  .board .pad thead {
     display: none;
   }
-  .pad,
-  .pad tbody,
-  .pad tr {
+  .board .pad,
+  .board .pad tbody,
+  .board .pad tr {
     display: block;
   }
   .band th {
     display: block;
     padding: 18px 4px 8px !important;
   }
-  tr.order {
+  .board .pad tr.order {
     display: grid;
-    grid-template-columns: 44px 1fr auto;
+    grid-template-columns: 44px minmax(0, 1fr) auto;
     grid-template-areas:
       "margin ids turn"
       "margin customer customer"
@@ -652,11 +719,9 @@ tr.empty td {
   tr.order:hover {
     background: var(--select);
   }
-  tr.order.selected .margin {
-    box-shadow: none;
-  }
   tr.order.selected {
-    box-shadow: inset 3px 0 0 var(--ink);
+    border-left: 3px solid var(--ink);
+    margin-left: -3px;
   }
   tr.order .margin {
     grid-area: margin;
@@ -665,6 +730,9 @@ tr.empty td {
   }
   tr.order .ids {
     grid-area: ids;
+  }
+  tr.order .ids .po {
+    min-height: 24px;
   }
   tr.order .customer {
     grid-area: customer;
@@ -678,6 +746,7 @@ tr.empty td {
     align-items: center;
     gap: var(--s2);
     padding-top: 6px !important;
+    flex-wrap: wrap;
   }
   tr.order .where .stage {
     margin: 0;
