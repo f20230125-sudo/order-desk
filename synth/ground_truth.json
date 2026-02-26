@@ -6057,6 +6057,26 @@
      "kind": "PARTIAL_SHIPMENT",
      "code": "PARTIAL_SHIPMENT",
      "part_number": "QLE2772-HBA"
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "PER760-XS2"
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "RSA-SID-700-50"
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "FP-DLP-ENT-1Y"
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "PS-PRO-3Y-NBD"
     }
    ]
   },
