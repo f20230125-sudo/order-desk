@@ -35,29 +35,49 @@ def main() -> None:
         samples.append({"file": name, "title": title, "shows": shows, "order": order, "bytes": len(data)})
 
     new = build(seed=99)[2]
-    add("new-customer-po.pdf", CUSTOMER_PO[new.customer_layout](new), f"New PO from {new.customer.name}",
-        "A customer PO not on the board yet. Every value comes with the box it was read from.")
+    add(
+        "new-customer-po.pdf",
+        CUSTOMER_PO[new.customer_layout](new),
+        f"New PO from {new.customer.name}",
+        "A customer PO not on the board yet. Every value comes with the box it was read from.",
+    )
     odd = build(seed=98)[4]
-    add("new-po-unfamiliar-layout.pdf", CUSTOMER_PO["L5"](odd), f"New PO from {odd.customer.name}, unfamiliar layout",
-        "A layout the reader was not written for. Values it is unsure of are marked Check.")
+    add(
+        "new-po-unfamiliar-layout.pdf",
+        CUSTOMER_PO["L5"](odd),
+        f"New PO from {odd.customer.name}, unfamiliar layout",
+        "A layout the reader was not written for. Values it is unsure of are marked Check.",
+    )
 
     # A confirmation that comes back one unit short on a waiting order.
     short = copy.deepcopy(_by_our_po(orders, "PO-2026-0102"))
     lines = list(short.our_po.lines)
     k = next(i for i, ln in enumerate(lines) if PRODUCT_BY_PART[ln.part_number].serialised and ln.qty > 1)
     lines[k] = replace(lines[k], qty=lines[k].qty - 1)
-    short.confirmation = Confirmation("FVD-SOC-604711", short.our_po.our_po_number, lines,
-                                      eta=short.customer_po.required_by)
+    short.confirmation = Confirmation(
+        "FVD-SOC-604711", short.our_po.our_po_number, lines, eta=short.customer_po.required_by
+    )
     short.distributor = replace(short.distributor)
-    add("confirmation-one-short.pdf", CONFIRMATION["A"](short), "Confirmation for PO-2026-0102",
-        f"The distributor confirms one {lines[k].part_number} fewer than we ordered.", "PO-2026-0102")
+    add(
+        "confirmation-one-short.pdf",
+        CONFIRMATION["A"](short),
+        "Confirmation for PO-2026-0102",
+        f"The distributor confirms one {lines[k].part_number} fewer than we ordered.",
+        "PO-2026-0102",
+    )
 
     # A clean confirmation, then its goods: the delivery note repeats a serial booked on another order.
     good = copy.deepcopy(_by_our_po(orders, "PO-2026-0127"))
-    good.confirmation = Confirmation("DCP/OC/26/7310", good.our_po.our_po_number, list(good.our_po.lines),
-                                     eta=good.customer_po.required_by)
-    add("confirmation-clean.pdf", CONFIRMATION["B"](good), "Confirmation for PO-2026-0127",
-        "Everything confirmed as ordered.", "PO-2026-0127")
+    good.confirmation = Confirmation(
+        "DCP/OC/26/7310", good.our_po.our_po_number, list(good.our_po.lines), eta=good.customer_po.required_by
+    )
+    add(
+        "confirmation-clean.pdf",
+        CONFIRMATION["B"](good),
+        "Confirmation for PO-2026-0127",
+        "Everything confirmed as ordered.",
+        "PO-2026-0127",
+    )
     taken = next(s for o in orders for sh in o.inbound for sl in sh.lines for s in sl.serials)
     ship_lines = []
     for n, ln in enumerate(good.our_po.lines):
@@ -69,10 +89,20 @@ def main() -> None:
     good.inbound = [Shipment("inbound", "DN-DCP-31877", ship_lines)]
     good.tracking = {"DN-DCP-31877": "176-40418822"}
     good.carrier = replace(good.carrier, short_code="AAF", name="Atlas Air Freight")
-    add("delivery-note.pdf", delivery_note(good, 0), "Delivery note for PO-2026-0127",
-        "Goods in, with serial numbers. One of them is already booked in on another order.", "PO-2026-0127")
-    add("dispatch-email.eml", dispatch_email(good, 0), "Dispatch email for PO-2026-0127",
-        "The same delivery as an email with the serials attached as a CSV file.", "PO-2026-0127")
+    add(
+        "delivery-note.pdf",
+        delivery_note(good, 0),
+        "Delivery note for PO-2026-0127",
+        "Goods in, with serial numbers. One of them is already booked in on another order.",
+        "PO-2026-0127",
+    )
+    add(
+        "dispatch-email.eml",
+        dispatch_email(good, 0),
+        "Dispatch email for PO-2026-0127",
+        "The same delivery as an email with the serials attached as a CSV file.",
+        "PO-2026-0127",
+    )
 
     (OUT / "samples.json").write_text(json.dumps(samples, indent=1) + "\n", encoding="utf-8", newline="\n")
     print(f"{len(samples)} samples in {OUT}")
