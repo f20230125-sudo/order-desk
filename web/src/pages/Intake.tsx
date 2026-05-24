@@ -174,6 +174,7 @@ function Tray({ onFile, busy }: { onFile: (file: File) => void; busy: boolean })
         <input
           ref={input}
           type="file"
+          aria-label="Choose a PDF or .eml file"
           accept=".pdf,.eml,application/pdf,message/rfc822"
           hidden
           onChange={(e) => {
