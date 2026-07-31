@@ -255,6 +255,12 @@ def test_deep_links_get_the_app_and_unknown_api_paths_get_json(client):
     assert client.get("/api/nope").get_json()["error"]["code"] == "not_found"
     r = client.get("/orders/42")
     assert r.status_code in (200, 503)  # 503 only when the web app has not been built
+    if r.status_code == 200:
+        # built files are served as themselves, and nothing outside public/ is reachable
+        assert client.get("/favicon.svg").mimetype == "image/svg+xml"
+        assert client.get("/index.html").mimetype == "text/html"
+        assert client.get("/../app.py").status_code in (200, 404)  # normalised to /app.py: the shell
+        assert b"create_app" not in client.get("/%2e%2e/app.py").data
 
 
 def test_writes_are_rate_limited(client, monkeypatch):
