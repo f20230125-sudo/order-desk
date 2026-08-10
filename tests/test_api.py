@@ -1,12 +1,17 @@
 """The API end to end against a seeded test database: what the screens and a curl user can do."""
 
 import io
+import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 
 import pytest
 
 from app import create_app
 from backend.check.model import Confirmation
+from backend.db.conn import write_tx
+from backend.models import GoodsInIn
+from backend.orders import run_checks
 from synth.generate import documents_for
 from synth.render_pdf import confirmation_a
 from synth.scenario import build
@@ -272,3 +277,159 @@ def test_writes_are_rate_limited(client, monkeypatch):
         for _ in range(5)
     ]
     assert codes[:3] == [200, 200, 200] and 429 in codes[3:]
+
+
+@pytest.fixture
+def goods_order(db):
+    from test_db_rules import _chain
+
+    from backend.api.intake import _save_confirmation, _save_goods_in
+    from backend.models import ConfirmationIn
+
+    _, _, _, order, po = _chain(db)
+    db.execute(
+        "insert into customer_order_line (order_id, line_no, part_number, description, qty, unit_price) "
+        "values (%s, 1, 'PER760-XS2', 'Server', 2, 100)",
+        (order,),
+    )
+    db.execute(
+        "insert into purchase_order_line (po_id, line_no, part_number, description, qty, unit_cost) "
+        "values (%s, 1, 'PER760-XS2', 'Server', 2, 100)",
+        (po,),
+    )
+    _save_confirmation(
+        db,
+        ConfirmationIn(
+            kind="vendor_confirmation",
+            order_id=order,
+            confirmation_no="CONF-1",
+            referenced_po="PO-2026-0001",
+            lines=[
+                {
+                    "part_number": "PER770-XS2",
+                    "description": "Server",
+                    "qty": 2,
+                    "unit_price": "100",
+                    "substitutes_part": "PER760-XS2",
+                }
+            ],
+        ),
+    )
+    goods = GoodsInIn(
+        kind="shipment_email",
+        order_id=order,
+        delivery_note_no="DN-TEST",
+        lines=[{"part_number": "PER770-XS2", "qty": 2, "serials": ["SERIAL1", "SERIAL2"]}],
+    )
+    _save_goods_in(db, goods)
+    run_checks(db, order, "ops")
+    db.execute(
+        "update discrepancy set status = 'accepted', resolved_at = now(), resolved_by_role = 'sales', "
+        "resolution_note = 'Customer approved.' where customer_order_id = %s and code = 'SUBSTITUTION'",
+        (order,),
+    )
+    db.commit()
+    return order, goods
+
+
+def test_deliver_records_received_substitute_and_serials(db, goods_order):
+    order, _ = goods_order
+    app = create_app(db_kind="test")
+    r = app.test_client().post(f"/api/orders/{order}/deliver", headers=OPS)
+    assert r.status_code == 201, r.get_json()
+    lines = db.execute(
+        "select sl.part_number, sl.qty, sl.serials_as_documented from shipment_line sl "
+        "join shipment s on s.id = sl.shipment_id where s.customer_order_id = %s and s.direction = 'outbound'",
+        (order,),
+    ).fetchall()
+    assert lines == [{"part_number": "PER770-XS2", "qty": 2, "serials_as_documented": ["SERIAL1", "SERIAL2"]}]
+    assert db.execute("select stage from board where id = %s", (order,)).fetchone()["stage"] == "delivered"
+    assert (
+        db.execute(
+            "select code from discrepancy where customer_order_id = %s and status = 'open'", (order,)
+        ).fetchall()
+        == []
+    )
+
+
+@pytest.mark.parametrize("change", ["quantity", "extra", "missing"])
+def test_second_goods_document_rejects_changed_lines(db, goods_order, change):
+    from backend.api.intake import _save_goods_in
+    from backend.errors import ApiError
+
+    order, goods = goods_order
+    data = goods.model_dump()
+    data["kind"] = "delivery_note"
+    if change == "quantity":
+        data["lines"][0]["qty"] = 3
+    elif change == "extra":
+        data["lines"].append({"part_number": "SFP28-SR-25G", "qty": 1})
+    else:
+        data["lines"] = [{"part_number": "SFP28-SR-25G", "qty": 1}]
+    with pytest.raises(ApiError) as exc, write_tx(db, "ops"):
+        _save_goods_in(db, GoodsInIn(**data))
+    assert exc.value.code == "delivery_conflict"
+    assert (
+        db.execute(
+            "select sum(sl.qty) as qty from shipment_line sl join shipment s on s.id = sl.shipment_id "
+            "where s.customer_order_id = %s",
+            (order,),
+        ).fetchone()["qty"]
+        == 2
+    )
+
+
+def test_concurrent_deliveries_create_one_dispatch(db, goods_order):
+    order, _ = goods_order
+    app = create_app(db_kind="test")
+
+    def deliver():
+        with app.test_client() as c:
+            return c.post(f"/api/orders/{order}/deliver", headers=OPS).status_code
+
+    db.execute("select id from customer_order where id = %s for update", (order,))
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        futures = [pool.submit(deliver) for _ in range(2)]
+        try:
+            deadline = time.monotonic() + 10
+            while time.monotonic() < deadline:
+                db.execute("select pg_stat_clear_snapshot()")
+                waiting = db.execute(
+                    "select count(*) as n from pg_stat_activity where application_name = 'order-desk' "
+                    "and pid <> pg_backend_pid() and wait_event_type = 'Lock'"
+                ).fetchone()["n"]
+                if waiting >= 2:
+                    break
+                time.sleep(0.01)
+            assert waiting >= 2
+        finally:
+            db.rollback()
+        assert sorted(f.result(timeout=10) for f in futures) == [201, 409]
+    assert (
+        db.execute(
+            "select count(*) as n from shipment where customer_order_id = %s and direction = 'outbound'",
+            (order,),
+        ).fetchone()["n"]
+        == 1
+    )
+
+
+def test_expired_uploads_still_count_toward_daily_cap(db, monkeypatch):
+    from backend.api import common
+    from backend.errors import ApiError
+
+    app = create_app(db_kind="test")
+    monkeypatch.setattr(common, "db", lambda: db)
+    monkeypatch.setattr(common, "DAILY_UPLOAD_CAP_BYTES", 50)
+    with app.app_context(), db.transaction():
+        common.check_daily_upload_cap(40)
+        db.execute(
+            "insert into pending_upload (kind, filename, mime, sha256, size_bytes, content, extracted, expires_at) "
+            "values ('customer_po', 'a.pdf', 'application/pdf', %s, 40, %s, '{}', now() - interval '1 second')",
+            ("a" * 64, b"test"),
+        )
+        db.execute("delete from pending_upload where expires_at < now()")
+        common.check_daily_upload_cap(1)
+        with pytest.raises(ApiError) as exc:
+            common.check_daily_upload_cap(10)
+        assert exc.value.code == "daily_upload_cap"

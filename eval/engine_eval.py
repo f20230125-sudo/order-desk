@@ -4,7 +4,7 @@
 2. end to end: customer PO, confirmation and goods-in read back from the generated PDFs and emails by the
    extractor, so extraction mistakes count against the result too.
 
-A finding counts as found when its code and part number match a planted problem on the same order.
+A finding counts as found when its code, stage and part number match a planted problem on the same order.
 """
 
 from decimal import Decimal
@@ -14,9 +14,11 @@ from backend.check.model import Confirmation, CustomerPO, Line, OrderBundle, Shi
 from backend.extract.detect import extract
 from synth.catalogue import PRODUCT_BY_PART
 from synth.generate import documents_for
-from synth.scenario import build
+from synth.scenario import PROBLEMS, build
 
 SERIALISED = frozenset(p for p, prod in PRODUCT_BY_PART.items() if prod.serialised)
+PLANTED_STAGE = {kind: stage for kind, (stage, _stops) in PROBLEMS.items()}
+PLANTED_STAGE.update(RECEIPT_SHORT="received", PARTIAL_SHIPMENT="received")
 
 
 def _seen_before(orders, upto: int) -> dict[str, str]:
@@ -118,15 +120,15 @@ def _score(orders, make) -> dict:
     tp = fp = fn = 0
     false_alarms, missed = [], []
     for i, o in enumerate(orders):
-        planted = {(p.code, p.part_number) for p in o.planted}
-        found = {(f.code, f.part_number) for f in check(make(orders, i))}
+        planted = {(p.code, PLANTED_STAGE[p.kind], p.part_number) for p in o.planted}
+        found = {(f.code, f.stage, f.part_number) for f in check(make(orders, i))}
         tp += len(planted & found)
         for x in sorted(found - planted, key=str):
             fp += 1
-            false_alarms.append({"order": o.key, "code": x[0], "part": x[1]})
+            false_alarms.append({"order": o.key, "code": x[0], "stage": x[1], "part": x[2]})
         for x in sorted(planted - found, key=str):
             fn += 1
-            missed.append({"order": o.key, "code": x[0], "part": x[1]})
+            missed.append({"order": o.key, "code": x[0], "stage": x[1], "part": x[2]})
     return {
         "true_positives": tp,
         "false_positives": fp,

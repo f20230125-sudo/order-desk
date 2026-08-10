@@ -2,8 +2,10 @@
 
 from datetime import date
 from decimal import Decimal
+from io import BytesIO
 
 import pytest
+from reportlab.pdfgen import canvas
 
 from backend.extract import fields
 from backend.extract.detect import extract, sniff
@@ -140,3 +142,18 @@ def test_money_and_quantities():
     assert fields.parse_money("12,34.00") is None
     assert fields.parse_money("1.92") == Decimal("1.92")  # looks like money; column alignment decides
     assert fields.parse_int("250") == 250 and fields.parse_int("2.5") is None
+
+
+def test_multipage_pdf_warns_that_extraction_is_incomplete():
+    out = BytesIO()
+    pdf = canvas.Canvas(out)
+    for part in ("PER760-XS2", "VVF-CORE-1Y"):
+        pdf.drawString(40, 800, "Purchase Order")
+        for x, text in ((40, "Part Number"), (200, "Description"), (350, "Qty"), (410, "Unit Price")):
+            pdf.drawString(x, 750, text)
+        for x, text in ((40, part), (200, "Item"), (350, "1"), (410, "100.00")):
+            pdf.drawString(x, 730, text)
+        pdf.showPage()
+    pdf.save()
+    got = extract_pdf(out.getvalue())
+    assert any("incomplete" in w.lower() and "page" in w.lower() for w in got["warnings"])

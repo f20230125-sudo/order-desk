@@ -296,11 +296,14 @@ def deliver(order_id: int):
     """Ops delivers to the customer what was received, with the serial numbers that came in."""
     role = acting_role()
     limit_writes()
-    o = _order_or_404(order_id)
-    if o["stage"] != "received":
-        raise ApiError(409, "not_ready", "Only an order whose goods are all in can go out to the customer.")
     conn = db()
     with write_tx(conn, role):
+        conn.execute("select id from customer_order where id = %s for update", (order_id,)).fetchone()
+        o = _order_or_404(order_id)
+        if o["stage"] != "received":
+            raise ApiError(
+                409, "not_ready", "Only an order whose goods are all in can go out to the customer."
+            )
         number = conn.execute(
             "select 'DO-' || to_char(now(), 'YYMMDD') || '-' || lpad((count(*) + 1)::text, 3, '0') "
             "as n from shipment where direction = 'outbound'"
@@ -310,21 +313,16 @@ def deliver(order_id: int):
             "values ('outbound', %s, %s, now(), now()) returning id",
             (order_id, number),
         ).fetchone()["id"]
-        inbound = {
-            r["part_number"]: list(r["serials"])
-            for r in conn.execute(
-                """select sl.part_number, array_agg(se.serial_no order by se.id) filter (where se.id is not null) as serials
-               from shipment s join shipment_line sl on sl.shipment_id = s.id
-               left join serial se on se.shipment_line_id = sl.id
-               where s.customer_order_id = %s and s.direction = 'inbound' group by 1""",
-                (order_id,),
-            )
-            if r["serials"]
-        }
         for ln in conn.execute(
-            "select * from customer_order_line where order_id = %s order by line_no", (order_id,)
+            """select sl.part_number, sl.qty,
+                      array(select se.serial_no from serial se where se.shipment_line_id = sl.id
+                            and se.direction = 'inbound' order by se.id) as serials
+               from shipment s join shipment_line sl on sl.shipment_id = s.id
+               where s.customer_order_id = %s and s.direction = 'inbound' and s.received_at is not null
+               order by s.id, sl.id""",
+            (order_id,),
         ):
-            serials = inbound.get(ln["part_number"], [])[: ln["qty"]]
+            serials = list(ln["serials"])
             line_id = conn.execute(
                 "insert into shipment_line (shipment_id, part_number, qty, serials_as_documented) "
                 "values (%s, %s, %s, %s) returning id",
@@ -332,8 +330,7 @@ def deliver(order_id: int):
             ).fetchone()["id"]
             for s in serials:
                 conn.execute(
-                    "insert into serial (shipment_line_id, serial_no, direction) values (%s, %s, 'outbound') "
-                    "on conflict do nothing",
+                    "insert into serial (shipment_line_id, serial_no, direction) values (%s, %s, 'outbound')",
                     (line_id, s),
                 )
         result = run_checks(conn, order_id, role)
