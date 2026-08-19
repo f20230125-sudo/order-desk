@@ -85,6 +85,17 @@
   flex-wrap: wrap;
   align-items: baseline;
 }
+.source-head .mono {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.read,
+.lines {
+  min-width: 0;
+}
+.samples .h-sub {
+  margin-top: 0;
+}
 .email mark {
   background: rgba(36, 89, 184, 0.12);
   color: inherit;
@@ -267,6 +278,18 @@ tr.to-check td {
   }
 }
 @media (max-width: 760px) {
+  .read {
+    padding: var(--s4);
+  }
+  .tray {
+    padding: var(--s5) var(--s4);
+  }
+  .field input,
+  .field select,
+  .lines-table input {
+    min-height: 44px;
+    min-width: 0;
+  }
   .field-grid {
     grid-template-columns: 1fr;
   }
@@ -286,5 +309,16 @@ tr.to-check td {
   }
   .lines-table td {
     border: 0;
+  }
+  .lines-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--ink-2);
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: var(--s1);
+  }
+  .confirm-bar .button {
+    white-space: normal;
   }
 }
