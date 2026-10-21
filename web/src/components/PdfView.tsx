@@ -11,6 +11,12 @@ export interface Box {
   active?: boolean;
 }
 
+interface PageSize {
+  width: number;
+  height: number;
+  scale: number;
+}
+
 // Renders every page of a PDF to canvas at the width of its column, and draws boxes over it where values
 // were read. The page stays white in dark mode: it is a document.
 export function PdfView({
@@ -25,10 +31,12 @@ export function PdfView({
   onBoxClick?: (id: string) => void;
 }) {
   const holder = useRef<HTMLDivElement>(null);
-  const [pages, setPages] = useState<{ width: number; height: number; scale: number }[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const doc = useRef<pdfjs.PDFDocumentProxy | null>(null);
   const canvases = useRef<(HTMLCanvasElement | null)[]>([]);
+  const [pages, setPages] = useState<PageSize[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
+  // 1. Load the document and measure its pages.
   useEffect(() => {
     let cancelled = false;
     setError(null);
@@ -39,44 +47,57 @@ export function PdfView({
     task.promise
       .then(async (d) => {
         const width = Math.max(320, (holder.current?.clientWidth ?? 640) - 2);
-        const sizes = [];
+        const sizes: PageSize[] = [];
         for (let n = 1; n <= d.numPages; n++) {
-          const page = await d.getPage(n);
-          const base = page.getViewport({ scale: 1 });
-          const scale = width / base.width;
-          sizes.push({ width, height: base.height * scale, scale });
+          const base = (await d.getPage(n)).getViewport({ scale: 1 });
+          sizes.push({ width, height: (base.height * width) / base.width, scale: width / base.width });
         }
         if (cancelled) return;
+        doc.current = d;
         setPages(sizes);
-        const ratio = window.devicePixelRatio || 1;
-        for (let n = 1; n <= d.numPages; n++) {
-          const canvas = canvases.current[n - 1];
-          if (!canvas) continue;
-          const page = await d.getPage(n);
-          const viewport = page.getViewport({ scale: sizes[n - 1].scale * ratio });
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          await page.render({ canvas, viewport }).promise;
-        }
       })
       .catch(() => !cancelled && setError("This PDF could not be shown."));
     return () => {
       cancelled = true;
+      doc.current = null;
       void task.destroy();
     };
   }, [source]);
+
+  // 2. Once the canvases are on the page, draw into them.
+  useEffect(() => {
+    const d = doc.current;
+    if (!d || pages.length === 0) return;
+    let cancelled = false;
+    const ratio = window.devicePixelRatio || 1;
+    (async () => {
+      for (let n = 1; n <= pages.length; n++) {
+        const canvas = canvases.current[n - 1];
+        if (!canvas || cancelled) continue;
+        const page = await d.getPage(n);
+        const viewport = page.getViewport({ scale: pages[n - 1].scale * ratio });
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvas, viewport }).promise;
+      }
+    })().catch(() => !cancelled && setError("This PDF could not be shown."));
+    return () => {
+      cancelled = true;
+    };
+  }, [pages]);
 
   useEffect(() => {
     const active = holder.current?.querySelector<HTMLElement>(".src-box.active");
     active?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }, [boxes]);
 
+  const anyActive = boxes.some((b) => b.active);
   return (
     <div className="pdf" ref={holder} aria-label={label} role="document">
       {error && <p className="state">{error}</p>}
       {!error && pages.length === 0 && <div className="pdf-page loading" aria-hidden="true" />}
       {pages.map((p, i) => (
-        <div key={i} className="pdf-page" style={{ width: p.width, height: p.height }}>
+        <div key={i} className={`pdf-page${anyActive ? " focusing" : ""}`} style={{ width: p.width, height: p.height }}>
           <canvas ref={(el) => void (canvases.current[i] = el)} style={{ width: p.width, height: p.height }} />
           {boxes
             .filter((b) => b.page === i)

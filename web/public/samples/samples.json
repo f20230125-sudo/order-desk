@@ -1,0 +1,44 @@
+[
+ {
+  "file": "new-customer-po.pdf",
+  "title": "New PO from Darat Medical Centre",
+  "shows": "A customer PO not on the board yet. Every value comes with the box it was read from.",
+  "order": null,
+  "bytes": 3139
+ },
+ {
+  "file": "new-po-unfamiliar-layout.pdf",
+  "title": "New PO from Seven Palms Academy, unfamiliar layout",
+  "shows": "A layout the reader was not written for. Values it is unsure of are marked Check.",
+  "order": null,
+  "bytes": 2655
+ },
+ {
+  "file": "confirmation-one-short.pdf",
+  "title": "Confirmation for PO-2026-0102",
+  "shows": "The distributor confirms one WD22TB4-DK fewer than we ordered.",
+  "order": "PO-2026-0102",
+  "bytes": 2735
+ },
+ {
+  "file": "confirmation-clean.pdf",
+  "title": "Confirmation for PO-2026-0127",
+  "shows": "Everything confirmed as ordered.",
+  "order": "PO-2026-0127",
+  "bytes": 2101
+ },
+ {
+  "file": "delivery-note.pdf",
+  "title": "Delivery note for PO-2026-0127",
+  "shows": "Goods in, with serial numbers. One of them is already booked in on another order.",
+  "order": "PO-2026-0127",
+  "bytes": 2276
+ },
+ {
+  "file": "dispatch-email.eml",
+  "title": "Dispatch email for PO-2026-0127",
+  "shows": "The same delivery as an email with the serials attached as a CSV file.",
+  "order": "PO-2026-0127",
+  "bytes": 1572
+ }
+]

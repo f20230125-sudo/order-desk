@@ -480,17 +480,32 @@ tr.has-problem th {
 .pdf-page canvas {
   display: block;
 }
+/* Every value read gets a faint box; the one being looked at (focused field) is drawn strong. */
 .src-box {
   position: absolute;
-  border: 2px solid #2459b8;
+  border: 1.5px solid rgba(36, 89, 184, 0.55);
   border-radius: 2px;
-  background: rgba(36, 89, 184, 0.06);
+  background: rgba(36, 89, 184, 0.05);
   padding: 0;
   cursor: pointer;
 }
+.focusing .src-box {
+  border-color: rgba(36, 89, 184, 0.25);
+  background: transparent;
+}
+.focusing .src-box.active,
 .src-box.active {
-  border-width: 3px;
-  background: rgba(36, 89, 184, 0.14);
+  border: 2.5px solid #2459b8;
+  background: rgba(36, 89, 184, 0.12);
+  animation: tie 180ms ease-out;
+}
+@keyframes tie {
+  from {
+    clip-path: inset(0 100% 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 .history {
