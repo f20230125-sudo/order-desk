@@ -87,8 +87,9 @@ def _document(conn, kind: str, name: str, data: bytes, order_id: int, role: str)
     mime, extracted = extract(data, kind)
     conn.execute(
         """insert into document (kind, filename, mime, sha256, size_bytes, content, extracted, extractor_version,
-               customer_order_id, uploaded_by_role)
-           values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+               customer_order_id, uploaded_by_role, uploaded_at)
+           values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                   coalesce(nullif(current_setting('app.ts', true), '')::timestamptz, now()))""",
         (
             kind,
             name,

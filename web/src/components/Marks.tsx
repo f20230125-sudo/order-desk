@@ -19,8 +19,9 @@ export function PencilRing({
 }) {
   return (
     <span className={`ring${filled ? " ring-filled" : ""}`} role={label ? "img" : undefined} aria-label={label}>
-      <svg viewBox="0 0 40 28" aria-hidden="true" focusable="false">
-        <path d={RINGS[variant % RINGS.length]} />
+      {/* stretches to whatever it circles; the stroke keeps its weight */}
+      <svg viewBox="0 0 40 28" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d={RINGS[Math.abs(variant) % RINGS.length]} vectorEffect="non-scaling-stroke" />
       </svg>
       {children !== undefined && <span className="ring-text">{children}</span>}
     </span>

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
+import { Explained } from "../components/Explained";
 import { PencilRing, PencilTick } from "../components/Marks";
 import { RouteLine } from "../components/RouteLine";
 import { api, type BoardOrder, type BoardResponse, type Role } from "../lib/api";
@@ -90,7 +91,9 @@ function Row({ o, role, selected, onSelect }: { o: BoardOrder; role: Role; selec
       </td>
       <td className="problem">
         {o.first_problem ? (
-          <span className="pencil-text">{o.first_problem}</span>
+          <span className="pencil-text">
+            <Explained text={o.first_problem} />
+          </span>
         ) : o.notes > 0 ? (
           <span className="quiet">Note: part delivery, balance to follow.</span>
         ) : (
