@@ -4,3 +4,5 @@ extend-exclude = ["web", "public"]
 
 [lint]
 select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+# The formatter keeps code within the line length; the only long lines left are SQL strings.
+ignore = ["E501"]
