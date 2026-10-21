@@ -109,7 +109,7 @@ def _table(
         if wrap_col is not None:
             parts = wrap(cells[wrap_col], wrap_chars)
             cells[wrap_col], extra = parts[0], parts[1:]
-        for (heading, x, align), cell in zip(columns, cells, strict=True):
+        for (_heading, x, align), cell in zip(columns, cells, strict=True):
             doc.text(x, y, cell, right=(align == "r"))
         for k, more in enumerate(extra, start=1):
             doc.text(columns[wrap_col][1], y + k * 10, more, color=GREY)
