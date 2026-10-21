@@ -23,6 +23,7 @@ export function formatDate(value: string | null | undefined): string {
 }
 
 export function days(n: number): string {
+  if (n <= 0) return "today";
   return n === 1 ? "1 day" : `${n} days`;
 }
 

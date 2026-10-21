@@ -2,3 +2,5 @@
 *.pdf binary
 *.png binary
 *.eml text eol=crlf
+# Sample documents are served byte for byte: their fingerprints (sha256) must not change on checkout.
+web/public/samples/** binary

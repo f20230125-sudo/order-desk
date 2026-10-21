@@ -4,7 +4,8 @@ import { PencilRing, PencilTick } from "../components/Marks";
 import { Explained } from "../components/Explained";
 import { PdfView, type Box } from "../components/PdfView";
 import { api, ApiError, type Role } from "../lib/api";
-import { formatDate, formatMoney, days, plural } from "../lib/format";
+import { nextStep } from "../lib/nextStep";
+import { formatDate, formatMoney, days } from "../lib/format";
 import {
   DOC_KIND,
   PROBLEM_TITLE,
@@ -39,46 +40,6 @@ function useOrder(id: string) {
 }
 
 // ------------------------------------------------------------------ next step
-
-interface Step {
-  who: Role | null;
-  text: string;
-  action?: "place-po" | "deliver" | "hand-to-finance" | "settle";
-  intake?: { kind: string; label: string };
-}
-
-function nextStep(d: OrderDetail): Step {
-  const o = d.order;
-  const blocking = d.problems.filter((p) => p.status === "open" && p.severity === "block");
-  if (blocking.length) {
-    const p = blocking[0];
-    const who = problemOwner(p.code);
-    const more = blocking.length > 1 ? ` ${plural(blocking.length - 1, "more problem")} after this one.` : "";
-    return { who, text: `${p.explanation} Settle it before the order moves on.${more}`, action: "settle" };
-  }
-  switch (o.stage) {
-    case "po_received":
-      return { who: "sales", text: "The customer's PO is booked. Place our PO with a distributor to order the goods.", action: "place-po" };
-    case "po_sent":
-      return {
-        who: "ops",
-        text: `Waiting for ${o.distributor_name ?? "the distributor"} to confirm ${o.our_po_number}. Add their confirmation when it arrives.`,
-        intake: { kind: "vendor_confirmation", label: "Add the confirmation" },
-      };
-    case "confirmed":
-      return {
-        who: "ops",
-        text: `Goods ${o.eta ? `expected ${formatDate(o.eta)}` : "on the way"}. Book them in from the delivery note or the dispatch email.`,
-        intake: { kind: "delivery_note", label: "Book in goods" },
-      };
-    case "received":
-      return { who: "ops", text: `All goods are in. Deliver to ${o.customer_name}.`, action: "deliver" };
-    case "delivered":
-      return { who: "finance", text: "The customer signed for the goods. Hand the order to finance for invoicing.", action: "hand-to-finance" };
-    default:
-      return { who: null, text: `Handed to finance on ${formatDate(o.ready_to_invoice_at)}. Nothing left to do here.` };
-  }
-}
 
 function NextStep({ d, onDone }: { d: OrderDetail; onDone: () => void }) {
   const { role } = useRole();
@@ -561,7 +522,7 @@ export function Order() {
           </dl>
           {o.whose_turn && (
             <p className="waiting-line">
-              With <strong>{ROLE_NAME[o.whose_turn]}</strong> for {days(o.days_in_stage)}.
+              With <strong>{ROLE_NAME[o.whose_turn]}</strong> {o.days_in_stage > 0 ? `for ${days(o.days_in_stage)}` : "since today"}.
             </p>
           )}
         </div>

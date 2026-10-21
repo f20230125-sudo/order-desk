@@ -296,16 +296,13 @@ main {
   width: 200px;
 }
 .c-customer {
-  width: 220px;
+  width: 210px;
 }
 .c-where {
-  width: 220px;
-}
-.c-turn {
-  width: 92px;
+  width: 190px;
 }
 .c-waiting {
-  width: 84px;
+  width: 116px;
 }
 .c-value {
   width: 132px;
@@ -440,6 +437,12 @@ tr.order:hover .po {
 .waiting {
   white-space: nowrap;
   color: var(--ink-2);
+}
+.waiting .stamp {
+  margin-right: 6px;
+}
+.waiting .days {
+  display: inline-block;
 }
 .waiting.long {
   color: var(--ink);
@@ -632,7 +635,7 @@ tr.empty td {
     grid-template-columns: 44px 1fr auto;
     grid-template-areas:
       "margin ids turn"
-      "margin customer waiting"
+      "margin customer customer"
       "margin where where"
       "margin problem problem";
     column-gap: var(--s2);
@@ -679,12 +682,9 @@ tr.empty td {
   tr.order .where .stage {
     margin: 0;
   }
-  tr.order .turn {
+  tr.order .waiting {
     grid-area: turn;
     text-align: right;
-  }
-  tr.order .waiting {
-    grid-area: waiting;
   }
   tr.order .problem {
     grid-area: problem;
