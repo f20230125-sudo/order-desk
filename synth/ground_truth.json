@@ -1,0 +1,6196 @@
+{
+ "documents": {
+  "O01-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O01",
+   "fields": {
+    "po_number": "GCB-PO-946115",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "10500.00",
+    "vat_amount": "525.00",
+    "total": "11025.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "210.00"
+    }
+   ]
+  },
+  "O01-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O01",
+   "fields": {
+    "po_number": "GCB-PO-946115",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "10500.00",
+    "vat_amount": "525.00",
+    "total": "11025.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "210.00"
+    }
+   ]
+  },
+  "O02-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O02",
+   "fields": {
+    "po_number": "GCB-PO-301493",
+    "po_date": "2026-09-30",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100274611900003",
+    "subtotal": "214330.00",
+    "vat_amount": "10716.50",
+    "total": "225046.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3615.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "45550.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DP4400-24T",
+     "qty": 1,
+     "unit_price": "148190.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "6130.00"
+    }
+   ]
+  },
+  "O02-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O02",
+   "fields": {
+    "po_number": "GCB-PO-301493",
+    "po_date": "2026-09-30",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100274611900003",
+    "subtotal": "214330.00",
+    "vat_amount": "10716.50",
+    "total": "225046.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3615.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "45550.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DP4400-24T",
+     "qty": 1,
+     "unit_price": "148190.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "6130.00"
+    }
+   ]
+  },
+  "O02-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O02",
+   "fields": {
+    "confirmation_no": "FVD-SOC-231697",
+    "referenced_po": "PO-2026-0101",
+    "eta": "2026-10-13"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "2982.38"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "37442.10"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DP4400-24T",
+     "qty": 1,
+     "unit_price": "124627.79"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "5443.44"
+    }
+   ]
+  },
+  "O02-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O02",
+   "fields": {
+    "delivery_note_no": "DN-FVD-92668",
+    "referenced_po": "PO-2026-0101",
+    "tracking_number": "176-69245525",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "serials": [
+      "QN7DPHK",
+      "Q8XRREU",
+      "QD82VW2",
+      "Q8T4B98"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "serials": [
+      "7RSCGEA"
+     ]
+    },
+    {
+     "part_number": "DP4400-24T",
+     "qty": 1,
+     "serials": [
+      "PKTM3W4"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "serials": []
+    }
+   ]
+  },
+  "O02-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O02",
+   "fields": {
+    "delivery_note_no": "DN-FVD-92668",
+    "referenced_po": "PO-2026-0101",
+    "tracking_number": "176-69245525"
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "serials": [
+      "QN7DPHK",
+      "Q8XRREU",
+      "QD82VW2",
+      "Q8T4B98"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "serials": [
+      "7RSCGEA"
+     ]
+    },
+    {
+     "part_number": "DP4400-24T",
+     "qty": 1,
+     "serials": [
+      "PKTM3W4"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "serials": []
+    }
+   ]
+  },
+  "O03-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O03",
+   "fields": {
+    "po_number": "BAIS-26-4644",
+    "po_date": "2026-10-17",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100163008400003",
+    "subtotal": "98620.00",
+    "vat_amount": "4931.00",
+    "total": "103551.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "unit_price": "1150.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 150,
+     "unit_price": "140.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "P2425H-MON",
+     "qty": 25,
+     "unit_price": "935.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER460-T1",
+     "qty": 3,
+     "unit_price": "10305.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "SYM-SEP-USR-1Y",
+     "qty": 2,
+     "unit_price": "165.00"
+    }
+   ]
+  },
+  "O03-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O03",
+   "fields": {
+    "po_number": "BAIS-26-4644",
+    "po_date": "2026-10-17",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100163008400003",
+    "subtotal": "98620.00",
+    "vat_amount": "4931.00",
+    "total": "103551.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "unit_price": "1150.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 150,
+     "unit_price": "140.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "P2425H-MON",
+     "qty": 25,
+     "unit_price": "935.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER460-T1",
+     "qty": 3,
+     "unit_price": "10305.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "SYM-SEP-USR-1Y",
+     "qty": 2,
+     "unit_price": "165.00"
+    }
+   ]
+  },
+  "O04-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O04",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/3686",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100311740200003",
+    "subtotal": "658040.00",
+    "vat_amount": "32902.00",
+    "total": "690942.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 250,
+     "unit_price": "620.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "unit_price": "1920.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5760.00"
+    }
+   ]
+  },
+  "O04-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O04",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/3686",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100311740200003",
+    "subtotal": "658040.00",
+    "vat_amount": "32902.00",
+    "total": "690942.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 250,
+     "unit_price": "620.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "unit_price": "1920.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5760.00"
+    }
+   ]
+  },
+  "O05-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O05",
+   "fields": {
+    "po_number": "MCB-PO-407533",
+    "po_date": "2026-10-08",
+    "required_by": "2026-11-07",
+    "buyer_trn": "100690332100003",
+    "subtotal": "156085.00",
+    "vat_amount": "7804.25",
+    "total": "163889.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "9595.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "43860.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "190.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3760.00"
+    }
+   ]
+  },
+  "O05-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O05",
+   "fields": {
+    "po_number": "MCB-PO-407533",
+    "po_date": "2026-10-08",
+    "required_by": "2026-11-07",
+    "buyer_trn": "100690332100003",
+    "subtotal": "156085.00",
+    "vat_amount": "7804.25",
+    "total": "163889.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "9595.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "43860.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "190.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3760.00"
+    }
+   ]
+  },
+  "O05-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O05",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/4163",
+    "referenced_po": "PO-2026-0103",
+    "eta": "2026-10-19"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "7829.52"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "39430.14"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "165.87"
+    },
+    {
+     "line_no": 4,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3203.52"
+    }
+   ]
+  },
+  "O05-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O05",
+   "fields": {
+    "delivery_note_no": "DN-DCP-19413",
+    "referenced_po": "PO-2026-0103",
+    "tracking_number": "SG9657307338",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "79KBPA2",
+      "7WAZ76M"
+     ]
+    },
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "serials": [
+      "Q56VZZC",
+      "QVBY7PA",
+      "QCSNUW4",
+      "QL575HF",
+      "QCMXCT3",
+      "QKMW4TZ",
+      "QK2P2K4",
+      "QNPMVEN"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "serials": []
+    },
+    {
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "serials": []
+    }
+   ]
+  },
+  "O05-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O05",
+   "fields": {
+    "delivery_note_no": "DN-DCP-19413",
+    "referenced_po": "PO-2026-0103",
+    "tracking_number": "SG9657307338"
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "79KBPA2",
+      "7WAZ76M"
+     ]
+    },
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "serials": [
+      "Q56VZZC",
+      "QVBY7PA",
+      "QCSNUW4",
+      "QL575HF",
+      "QCMXCT3",
+      "QKMW4TZ",
+      "QK2P2K4",
+      "QNPMVEN"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "serials": []
+    },
+    {
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "serials": []
+    }
+   ]
+  },
+  "O06-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O06",
+   "fields": {
+    "po_number": "QLG4543015053",
+    "po_date": "2026-10-11",
+    "required_by": "2026-11-25",
+    "buyer_trn": "100735019600003",
+    "subtotal": "256120.00",
+    "vat_amount": "12806.00",
+    "total": "268926.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "SFP28-SR-25G",
+     "qty": 4,
+     "unit_price": "610.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "33120.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 10,
+     "unit_price": "17520.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SVC-INSTALL-D1",
+     "qty": 4,
+     "unit_price": "3060.00"
+    }
+   ]
+  },
+  "O06-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O06",
+   "fields": {
+    "po_number": "QLG4543015053",
+    "po_date": "2026-10-11",
+    "required_by": "2026-11-25",
+    "buyer_trn": "100735019600003",
+    "subtotal": "256120.00",
+    "vat_amount": "12806.00",
+    "total": "268926.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "SFP28-SR-25G",
+     "qty": 4,
+     "unit_price": "610.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "33120.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 10,
+     "unit_price": "17520.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SVC-INSTALL-D1",
+     "qty": 4,
+     "unit_price": "3060.00"
+    }
+   ]
+  },
+  "O06-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O06",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/5008",
+    "referenced_po": "PO-2026-0104",
+    "eta": "2026-10-25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "SFP28-SR-25G",
+     "qty": 4,
+     "unit_price": "517.89"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "27655.20"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 10,
+     "unit_price": "15487.68"
+    }
+   ]
+  },
+  "O07-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O07",
+   "fields": {
+    "po_number": "SPAC-26-5113",
+    "po_date": "2026-10-08",
+    "required_by": "2026-10-29",
+    "buyer_trn": "100845120700003",
+    "subtotal": "261360.00",
+    "vat_amount": "13068.00",
+    "total": "274428.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 40,
+     "unit_price": "6310.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "unit_price": "140.00"
+    }
+   ]
+  },
+  "O07-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O07",
+   "fields": {
+    "po_number": "SPAC-26-5113",
+    "po_date": "2026-10-08",
+    "required_by": "2026-10-29",
+    "buyer_trn": "100845120700003",
+    "subtotal": "261360.00",
+    "vat_amount": "13068.00",
+    "total": "274428.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 40,
+     "unit_price": "6310.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "unit_price": "140.00"
+    }
+   ]
+  },
+  "O07-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O07",
+   "fields": {
+    "confirmation_no": "CTS-CONF-39657",
+    "referenced_po": "PO-2026-0111",
+    "eta": "2026-10-21"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 40,
+     "unit_price": "5319.33"
+    },
+    {
+     "line_no": 2,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "unit_price": "112.84"
+    }
+   ]
+  },
+  "O07-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O07",
+   "fields": {
+    "delivery_note_no": "DN-CTS-11676",
+    "referenced_po": "PO-2026-0105",
+    "tracking_number": "SLX014685044AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 40,
+     "serials": [
+      "L55CVVG",
+      "LVPW3AA",
+      "LMNVQVJ",
+      "LRLGLBX",
+      "LKAWEUL",
+      "LU9R4JK",
+      "LCE2DPG",
+      "L2UXKWV",
+      "LS8RUMJ",
+      "L95YXTA",
+      "LYYNG37",
+      "LKAFA6R",
+      "LHYQ4UW",
+      "LPWXTKK",
+      "L82H84R",
+      "LS33NJ3",
+      "LGANUQV",
+      "LLB29A3",
+      "L32MDJH",
+      "LEMXYH3",
+      "LJCXAZA",
+      "L32NQB2",
+      "L5FH7J9",
+      "LTWZ5R2",
+      "L45NA89",
+      "L7UR5N8",
+      "LPVSSRB",
+      "L7B7PP7",
+      "LHWJ2J2",
+      "LMCPU4G",
+      "L4CUEG7",
+      "LBZCC55",
+      "L4HQ4HE",
+      "LEMYJXC",
+      "L9RBQDB",
+      "LYPQ2TG",
+      "LG2HRMJ",
+      "LAXTWAH",
+      "LLMVT8S",
+      "LRG3HHS"
+     ]
+    },
+    {
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "serials": []
+    }
+   ]
+  },
+  "O07-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O07",
+   "fields": {
+    "delivery_note_no": "DN-CTS-11676",
+    "referenced_po": "PO-2026-0105",
+    "tracking_number": "SLX014685044AE"
+   },
+   "lines": [
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 40,
+     "serials": [
+      "L55CVVG",
+      "LVPW3AA",
+      "LMNVQVJ",
+      "LRLGLBX",
+      "LKAWEUL",
+      "LU9R4JK",
+      "LCE2DPG",
+      "L2UXKWV",
+      "LS8RUMJ",
+      "L95YXTA",
+      "LYYNG37",
+      "LKAFA6R",
+      "LHYQ4UW",
+      "LPWXTKK",
+      "L82H84R",
+      "LS33NJ3",
+      "LGANUQV",
+      "LLB29A3",
+      "L32MDJH",
+      "LEMXYH3",
+      "LJCXAZA",
+      "L32NQB2",
+      "L5FH7J9",
+      "LTWZ5R2",
+      "L45NA89",
+      "L7UR5N8",
+      "LPVSSRB",
+      "L7B7PP7",
+      "LHWJ2J2",
+      "LMCPU4G",
+      "L4CUEG7",
+      "LBZCC55",
+      "L4HQ4HE",
+      "LEMYJXC",
+      "L9RBQDB",
+      "LYPQ2TG",
+      "LG2HRMJ",
+      "LAXTWAH",
+      "LLMVT8S",
+      "LRG3HHS"
+     ]
+    },
+    {
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "serials": []
+    }
+   ]
+  },
+  "O08-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O08",
+   "fields": {
+    "po_number": "SPAC-26-3254",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100845120700003",
+    "subtotal": "483530.00",
+    "vat_amount": "24176.50",
+    "total": "507706.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON",
+     "qty": 20,
+     "unit_price": "905.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "unit_price": "10295.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 25,
+     "unit_price": "16970.00"
+    }
+   ]
+  },
+  "O08-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O08",
+   "fields": {
+    "po_number": "SPAC-26-3254",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100845120700003",
+    "subtotal": "483530.00",
+    "vat_amount": "24176.50",
+    "total": "507706.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON",
+     "qty": 20,
+     "unit_price": "905.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "unit_price": "10295.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 25,
+     "unit_price": "16970.00"
+    }
+   ]
+  },
+  "O08-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O08",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/6428",
+    "referenced_po": "PO-2026-0106",
+    "eta": "2026-10-16"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON2",
+     "qty": 20,
+     "unit_price": "776.49",
+     "substitutes_part": "P2425H-MON"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "unit_price": "8637.51"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 25,
+     "unit_price": "15103.30"
+    }
+   ]
+  },
+  "O08-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O08",
+   "fields": {
+    "delivery_note_no": "DN-DCP-77061",
+    "referenced_po": "PO-2026-0106",
+    "tracking_number": "176-93692873",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "P2425H-MON2",
+     "qty": 20,
+     "serials": [
+      "NZ868H5",
+      "NWNGRTM",
+      "NY9FUSH",
+      "NHFH5M8",
+      "NR4HST2",
+      "NTHUH28",
+      "NUTC9LQ",
+      "NW2RT9P",
+      "N9W4XGB",
+      "NBLBKTM",
+      "NDBK59A",
+      "NN73YXF",
+      "NWD5DDE",
+      "NRKVGQJ",
+      "NNNZD73",
+      "N6SNPG4",
+      "NHHGCHC",
+      "N2F7BZN",
+      "N77LUW5",
+      "N7UNA5Z"
+     ]
+    },
+    {
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "serials": [
+      "5MNPEGP",
+      "5NRTAU7",
+      "5QM5P5A",
+      "5F36AD8"
+     ]
+    },
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 25,
+     "serials": [
+      "GJJTL48",
+      "GG286N9",
+      "GT5K95G",
+      "GYJYXJC",
+      "GZ7K9DX",
+      "G3SZE9T",
+      "GX96FRX",
+      "G5TTXUF",
+      "GCMTDTF",
+      "GPFU4RM",
+      "GQSTP5V",
+      "GDTPJ7N",
+      "GLPVBSG",
+      "GXFDY64",
+      "GACNFHW",
+      "GVW6B7K",
+      "GBPQ9WS",
+      "GA73Y9Q",
+      "GU6JM4Y",
+      "GRXRSRS",
+      "G3BF9QR",
+      "GS2AHDZ",
+      "GZ3JNS3",
+      "GMFFKYT",
+      "GCRKCNL"
+     ]
+    }
+   ]
+  },
+  "O08-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O08",
+   "fields": {
+    "delivery_note_no": "DN-DCP-77061",
+    "referenced_po": "PO-2026-0106",
+    "tracking_number": "176-93692873"
+   },
+   "lines": [
+    {
+     "part_number": "P2425H-MON2",
+     "qty": 20,
+     "serials": [
+      "NZ868H5",
+      "NWNGRTM",
+      "NY9FUSH",
+      "NHFH5M8",
+      "NR4HST2",
+      "NTHUH28",
+      "NUTC9LQ",
+      "NW2RT9P",
+      "N9W4XGB",
+      "NBLBKTM",
+      "NDBK59A",
+      "NN73YXF",
+      "NWD5DDE",
+      "NRKVGQJ",
+      "NNNZD73",
+      "N6SNPG4",
+      "NHHGCHC",
+      "N2F7BZN",
+      "N77LUW5",
+      "N7UNA5Z"
+     ]
+    },
+    {
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "serials": [
+      "5MNPEGP",
+      "5NRTAU7",
+      "5QM5P5A",
+      "5F36AD8"
+     ]
+    },
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 25,
+     "serials": [
+      "GJJTL48",
+      "GG286N9",
+      "GT5K95G",
+      "GYJYXJC",
+      "GZ7K9DX",
+      "G3SZE9T",
+      "GX96FRX",
+      "G5TTXUF",
+      "GCMTDTF",
+      "GPFU4RM",
+      "GQSTP5V",
+      "GDTPJ7N",
+      "GLPVBSG",
+      "GXFDY64",
+      "GACNFHW",
+      "GVW6B7K",
+      "GBPQ9WS",
+      "GA73Y9Q",
+      "GU6JM4Y",
+      "GRXRSRS",
+      "G3BF9QR",
+      "GS2AHDZ",
+      "GZ3JNS3",
+      "GMFFKYT",
+      "GCRKCNL"
+     ]
+    }
+   ]
+  },
+  "O09-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O09",
+   "fields": {
+    "po_number": "DMC/IT/PO/1973",
+    "po_date": "2026-10-10",
+    "required_by": "2026-11-07",
+    "buyer_trn": "100902774500003",
+    "subtotal": "80520.00",
+    "vat_amount": "4026.00",
+    "total": "84546.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "26840.00"
+    }
+   ]
+  },
+  "O09-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O09",
+   "fields": {
+    "po_number": "DMC/IT/PO/1973",
+    "po_date": "2026-10-10",
+    "required_by": "2026-11-07",
+    "buyer_trn": "100902774500003",
+    "subtotal": "80520.00",
+    "vat_amount": "4026.00",
+    "total": "84546.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "26840.00"
+    }
+   ]
+  },
+  "O09-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O09",
+   "fields": {
+    "confirmation_no": "CTS-CONF-79236",
+    "referenced_po": "PO-2026-0107",
+    "eta": "2026-10-19"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "23243.44"
+    }
+   ]
+  },
+  "O09-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O09",
+   "fields": {
+    "delivery_note_no": "DN-CTS-79152",
+    "referenced_po": "PO-2026-0107",
+    "tracking_number": "SG2815817151",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "serials": [
+      "6YCU3ME",
+      "6NHWBRT",
+      "6J7ETDM"
+     ]
+    }
+   ]
+  },
+  "O09-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O09",
+   "fields": {
+    "delivery_note_no": "DN-CTS-79152",
+    "referenced_po": "PO-2026-0107",
+    "tracking_number": "SG2815817151"
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "serials": [
+      "6YCU3ME",
+      "6NHWBRT",
+      "6J7ETDM"
+     ]
+    }
+   ]
+  },
+  "O10-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O10",
+   "fields": {
+    "po_number": "MCB-PO-767398",
+    "po_date": "2026-10-17",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100690332100003",
+    "subtotal": "127750.00",
+    "vat_amount": "6387.50",
+    "total": "134137.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "9290.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3860.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "42220.00"
+    }
+   ]
+  },
+  "O10-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O10",
+   "fields": {
+    "po_number": "MCB-PO-767398",
+    "po_date": "2026-10-17",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100690332100003",
+    "subtotal": "127750.00",
+    "vat_amount": "6387.50",
+    "total": "134137.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "9290.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3860.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "42220.00"
+    }
+   ]
+  },
+  "O10-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O10",
+   "fields": {
+    "confirmation_no": "CTS-CONF-55585",
+    "referenced_po": "PO-2026-0108",
+    "eta": "2026-10-23"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "unit_price": "8295.97"
+    },
+    {
+     "line_no": 2,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3446.98"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "36266.98"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SFP28-SR-25G",
+     "qty": 1,
+     "unit_price": "552.00"
+    }
+   ]
+  },
+  "O10-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O10",
+   "fields": {
+    "delivery_note_no": "DN-CTS-15175",
+    "referenced_po": "PO-2026-0108",
+    "tracking_number": "176-54331603",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 3,
+     "serials": [
+      "QT6GAMC",
+      "QW2PW6U",
+      "Q5LC3AQ"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "7G8VUSF",
+      "7ZNGZ7H"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "serials": []
+    }
+   ]
+  },
+  "O10-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O10",
+   "fields": {
+    "delivery_note_no": "DN-CTS-15175",
+    "referenced_po": "PO-2026-0108",
+    "tracking_number": "176-54331603"
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 3,
+     "serials": [
+      "QT6GAMC",
+      "QW2PW6U",
+      "Q5LC3AQ"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "7G8VUSF",
+      "7ZNGZ7H"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 3,
+     "serials": []
+    }
+   ]
+  },
+  "O11-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O11",
+   "fields": {
+    "po_number": "GCB-PO-140669",
+    "po_date": "2026-10-02",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100274611900003",
+    "subtotal": "71635.00",
+    "vat_amount": "3581.75",
+    "total": "75216.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "6050.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 1,
+     "unit_price": "47435.00"
+    }
+   ]
+  },
+  "O11-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O11",
+   "fields": {
+    "po_number": "GCB-PO-140669",
+    "po_date": "2026-10-02",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100274611900003",
+    "subtotal": "71635.00",
+    "vat_amount": "3581.75",
+    "total": "75216.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "6050.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 1,
+     "unit_price": "47435.00"
+    }
+   ]
+  },
+  "O11-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O11",
+   "fields": {
+    "confirmation_no": "FVD-SOC-542609",
+    "referenced_po": "PO-2026-0149",
+    "eta": "2026-10-16"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5118.30"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 1,
+     "unit_price": "42312.02"
+    }
+   ]
+  },
+  "O11-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O11",
+   "fields": {
+    "delivery_note_no": "DN-FVD-20416",
+    "referenced_po": "PO-2026-0109",
+    "tracking_number": "176-93409066",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "ME5024-12T",
+     "qty": 1,
+     "serials": [
+      "ML2DKPY"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "serials": []
+    }
+   ]
+  },
+  "O11-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O11",
+   "fields": {
+    "delivery_note_no": "DN-FVD-20416",
+    "referenced_po": "PO-2026-0109",
+    "tracking_number": "176-93409066"
+   },
+   "lines": [
+    {
+     "part_number": "ME5024-12T",
+     "qty": 1,
+     "serials": [
+      "ML2DKPY"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "serials": []
+    }
+   ]
+  },
+  "O12-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O12",
+   "fields": {
+    "po_number": "GCB-PO-502629",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100274611900003",
+    "subtotal": "14640.00",
+    "vat_amount": "732.00",
+    "total": "15372.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3660.00"
+    }
+   ]
+  },
+  "O12-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O12",
+   "fields": {
+    "po_number": "GCB-PO-502629",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100274611900003",
+    "subtotal": "14640.00",
+    "vat_amount": "732.00",
+    "total": "15372.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3660.00"
+    }
+   ]
+  },
+  "O13-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O13",
+   "fields": {
+    "po_number": "QLG4518838277",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100735019600003",
+    "subtotal": "696670.00",
+    "vat_amount": "34833.50",
+    "total": "731503.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "16745.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 2,
+     "unit_price": "600.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER660-XS1",
+     "qty": 1,
+     "unit_price": "25670.00"
+    }
+   ]
+  },
+  "O13-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O13",
+   "fields": {
+    "po_number": "QLG4518838277",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100735019600003",
+    "subtotal": "696670.00",
+    "vat_amount": "34833.50",
+    "total": "731503.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "16745.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 2,
+     "unit_price": "600.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER660-XS1",
+     "qty": 1,
+     "unit_price": "25670.00"
+    }
+   ]
+  },
+  "O13-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O13",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/6549",
+    "referenced_po": "PO-2026-0110",
+    "eta": "2026-10-21"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "13781.14"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25GX",
+     "qty": 2,
+     "unit_price": "519.60",
+     "substitutes_part": "SFP28-SR-25G"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER660-XS1",
+     "qty": 1,
+     "unit_price": "22794.96"
+    }
+   ]
+  },
+  "O14-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O14",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4451",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-13",
+    "buyer_trn": "100311740200003",
+    "subtotal": "821095.00",
+    "vat_amount": "41054.75",
+    "total": "862149.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 2,
+     "unit_price": "26005.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "2080.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "202555.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SFP28-SR-25G",
+     "qty": 8,
+     "unit_price": "600.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "9435.00"
+    }
+   ]
+  },
+  "O14-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O14",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4451",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-13",
+    "buyer_trn": "100311740200003",
+    "subtotal": "821095.00",
+    "vat_amount": "41054.75",
+    "total": "862149.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 2,
+     "unit_price": "26005.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "2080.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "202555.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SFP28-SR-25G",
+     "qty": 8,
+     "unit_price": "600.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "9435.00"
+    }
+   ]
+  },
+  "O14-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O14",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/9137",
+    "referenced_po": "PO-2026-0111",
+    "eta": "2026-10-26"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 2,
+     "unit_price": "20908.02"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "1865.76"
+    },
+    {
+     "line_no": 3,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "165487.44"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SFP28-SR-25G",
+     "qty": 8,
+     "unit_price": "511.80"
+    },
+    {
+     "line_no": 5,
+     "part_number": "RSA-SID-700-50",
+     "qty": 4,
+     "unit_price": "7642.35"
+    }
+   ]
+  },
+  "O15-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O15",
+   "fields": {
+    "po_number": "SPAC-26-0387",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-03",
+    "buyer_trn": "100845120700003",
+    "subtotal": "411440.00",
+    "vat_amount": "20572.00",
+    "total": "432012.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 2,
+     "unit_price": "10120.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 60,
+     "unit_price": "6520.00"
+    }
+   ]
+  },
+  "O15-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O15",
+   "fields": {
+    "po_number": "SPAC-26-0387",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-03",
+    "buyer_trn": "100845120700003",
+    "subtotal": "411440.00",
+    "vat_amount": "20572.00",
+    "total": "432012.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 2,
+     "unit_price": "10120.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 60,
+     "unit_price": "6520.00"
+    }
+   ]
+  },
+  "O15-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O15",
+   "fields": {
+    "confirmation_no": "CTS-CONF-70567",
+    "referenced_po": "PO-2026-0112",
+    "eta": "2026-10-11"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "GB10-PMAX",
+     "qty": 2,
+     "unit_price": "8298.40"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 60,
+     "unit_price": "5809.32"
+    }
+   ]
+  },
+  "O15-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O15",
+   "fields": {
+    "delivery_note_no": "DN-CTS-27906",
+    "referenced_po": "PO-2026-0112",
+    "tracking_number": "SG3894055433",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 2,
+     "serials": [
+      "GXFX544",
+      "GXHY7QL"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 60,
+     "serials": [
+      "LHQEAR5",
+      "LE2GHDN",
+      "LQ4KKDW",
+      "LRUF59E",
+      "LBZ32HZ",
+      "LHG7J9D",
+      "LXRKZ2N",
+      "LYH5U3S",
+      "L8PX9CV",
+      "LLTLG4C",
+      "LLFHK45",
+      "LBPXPJL",
+      "L2TVBZ5",
+      "LTNX8UF",
+      "LTWU9DB",
+      "LCWH8G9",
+      "LK3SJ7W",
+      "LJBQ5LU",
+      "L5YZ54C",
+      "LPZNX6S",
+      "LFSPQDL",
+      "LZ2ASKJ",
+      "L6DMD36",
+      "LS3NSRW",
+      "L4VDE8R",
+      "L7DA8SY",
+      "L5A9ZL6",
+      "L8K5JPK",
+      "LHXAKH6",
+      "LYYDCS9",
+      "LDANWUX",
+      "LNHEGWJ",
+      "L7CE6DA",
+      "L87C7QK",
+      "LS2FQMX",
+      "LDMBHPU",
+      "LXKAD46",
+      "LZB5HLB",
+      "LQTXZP8",
+      "LDRN3AH",
+      "LHA5LEV",
+      "LVS2RJ9",
+      "LFEVPUP",
+      "LTPNBC4",
+      "LFULYRF",
+      "L4X297C",
+      "LYLJUXJ",
+      "LKX769Z",
+      "LWHVGQY",
+      "LHAVX4S",
+      "LBHB6Z9",
+      "LEXW3U4",
+      "LCKC6HT",
+      "LW9WE5E",
+      "LERRTJ6",
+      "LPBP9YY",
+      "LKE2SAF",
+      "LU7J3BJ",
+      "LYB4YAA",
+      "LEQ4F2Q"
+     ]
+    }
+   ]
+  },
+  "O15-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O15",
+   "fields": {
+    "delivery_note_no": "DN-CTS-27906",
+    "referenced_po": "PO-2026-0112",
+    "tracking_number": "SG3894055433"
+   },
+   "lines": [
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 2,
+     "serials": [
+      "GXFX544",
+      "GXHY7QL"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 60,
+     "serials": [
+      "LHQEAR5",
+      "LE2GHDN",
+      "LQ4KKDW",
+      "LRUF59E",
+      "LBZ32HZ",
+      "LHG7J9D",
+      "LXRKZ2N",
+      "LYH5U3S",
+      "L8PX9CV",
+      "LLTLG4C",
+      "LLFHK45",
+      "LBPXPJL",
+      "L2TVBZ5",
+      "LTNX8UF",
+      "LTWU9DB",
+      "LCWH8G9",
+      "LK3SJ7W",
+      "LJBQ5LU",
+      "L5YZ54C",
+      "LPZNX6S",
+      "LFSPQDL",
+      "LZ2ASKJ",
+      "L6DMD36",
+      "LS3NSRW",
+      "L4VDE8R",
+      "L7DA8SY",
+      "L5A9ZL6",
+      "L8K5JPK",
+      "LHXAKH6",
+      "LYYDCS9",
+      "LDANWUX",
+      "LNHEGWJ",
+      "L7CE6DA",
+      "L87C7QK",
+      "LS2FQMX",
+      "LDMBHPU",
+      "LXKAD46",
+      "LZB5HLB",
+      "LQTXZP8",
+      "LDRN3AH",
+      "LHA5LEV",
+      "LVS2RJ9",
+      "LFEVPUP",
+      "LTPNBC4",
+      "LFULYRF",
+      "L4X297C",
+      "LYLJUXJ",
+      "LKX769Z",
+      "LWHVGQY",
+      "LHAVX4S",
+      "LBHB6Z9",
+      "LEXW3U4",
+      "LCKC6HT",
+      "LW9WE5E",
+      "LERRTJ6",
+      "LPBP9YY",
+      "LKE2SAF",
+      "LU7J3BJ",
+      "LYB4YAA",
+      "LEQ4F2Q"
+     ]
+    }
+   ]
+  },
+  "O16-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O16",
+   "fields": {
+    "po_number": "DMC/IT/PO/7833",
+    "po_date": "2026-10-06",
+    "required_by": "2026-11-03",
+    "buyer_trn": "100902774500003",
+    "subtotal": "426020.00",
+    "vat_amount": "21301.00",
+    "total": "447321.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DP4400-24T",
+     "qty": 2,
+     "unit_price": "163010.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "50000.00"
+    }
+   ]
+  },
+  "O16-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O16",
+   "fields": {
+    "po_number": "DMC/IT/PO/7833",
+    "po_date": "2026-10-06",
+    "required_by": "2026-11-03",
+    "buyer_trn": "100902774500003",
+    "subtotal": "426020.00",
+    "vat_amount": "21301.00",
+    "total": "447321.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DP4400-24T",
+     "qty": 2,
+     "unit_price": "163010.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "50000.00"
+    }
+   ]
+  },
+  "O16-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O16",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/4876",
+    "referenced_po": "PO-2026-0113",
+    "eta": "2026-10-18"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DP4400-24T",
+     "qty": 2,
+     "unit_price": "135787.33"
+    },
+    {
+     "line_no": 2,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "40800.00"
+    }
+   ]
+  },
+  "O16-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O16",
+   "fields": {
+    "delivery_note_no": "DN-DCP-32915",
+    "referenced_po": "PO-2026-0113",
+    "tracking_number": "176-03016488",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "DP4400-24T",
+     "qty": 2,
+     "serials": [
+      "PDU696B"
+     ]
+    },
+    {
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "serials": [
+      "MT2PEQK",
+      "M4GVJEM"
+     ]
+    }
+   ]
+  },
+  "O16-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O16",
+   "fields": {
+    "delivery_note_no": "DN-DCP-32915",
+    "referenced_po": "PO-2026-0113",
+    "tracking_number": "176-03016488"
+   },
+   "lines": [
+    {
+     "part_number": "DP4400-24T",
+     "qty": 2,
+     "serials": [
+      "PDU696B"
+     ]
+    },
+    {
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "serials": [
+      "MT2PEQK",
+      "M4GVJEM"
+     ]
+    }
+   ]
+  },
+  "O17-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O17",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/9909",
+    "po_date": "2026-10-18",
+    "required_by": "2026-12-02",
+    "buyer_trn": "100311740200003",
+    "subtotal": "350325.00",
+    "vat_amount": "17516.25",
+    "total": "367841.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 50,
+     "unit_price": "1960.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 2,
+     "unit_price": "630.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 50,
+     "unit_price": "560.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "44535.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "8985.00"
+    }
+   ]
+  },
+  "O17-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O17",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/9909",
+    "po_date": "2026-10-18",
+    "required_by": "2026-12-02",
+    "buyer_trn": "100311740200003",
+    "subtotal": "350325.00",
+    "vat_amount": "17516.25",
+    "total": "367841.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 50,
+     "unit_price": "1960.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 2,
+     "unit_price": "630.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 50,
+     "unit_price": "560.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "44535.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "8985.00"
+    }
+   ]
+  },
+  "O18-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O18",
+   "fields": {
+    "po_number": "SPAC-26-0955",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-28",
+    "buyer_trn": "100845120700003",
+    "subtotal": "777850.00",
+    "vat_amount": "38892.50",
+    "total": "816742.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "unit_price": "10775.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "1195.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "18070.00"
+    }
+   ]
+  },
+  "O18-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O18",
+   "fields": {
+    "po_number": "SPAC-26-0955",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-28",
+    "buyer_trn": "100845120700003",
+    "subtotal": "777850.00",
+    "vat_amount": "38892.50",
+    "total": "816742.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 4,
+     "unit_price": "10775.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "1195.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "18070.00"
+    }
+   ]
+  },
+  "O18-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O18",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/6323",
+    "referenced_po": "PO-2026-0115",
+    "eta": "2026-10-22"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 3,
+     "unit_price": "9255.73"
+    },
+    {
+     "line_no": 2,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "965.56"
+    },
+    {
+     "line_no": 3,
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "unit_price": "15540.20"
+    }
+   ]
+  },
+  "O18-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O18",
+   "fields": {
+    "delivery_note_no": "DN-DCP-91228",
+    "referenced_po": "PO-2026-0115",
+    "tracking_number": "176-03757834",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER460-T1",
+     "qty": 2,
+     "serials": [
+      "5YH7BBC",
+      "5KXR2BB"
+     ]
+    },
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "serials": [
+      "KM2XPF6",
+      "K4DT5GQ",
+      "KBKZ7JY",
+      "K9AUX49",
+      "KTKNNHN",
+      "KMP9T8D",
+      "KWCDTF3",
+      "KRVFVRV",
+      "KTU9TBT",
+      "KLN3J7V"
+     ]
+    },
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "serials": [
+      "GZC9P9C",
+      "GTXTDXQ",
+      "GFPH7ZD",
+      "G22REYT",
+      "GBF5RTA",
+      "GHVMEJ4",
+      "GZ7WBN7",
+      "G4UL559",
+      "GGL3HBF",
+      "G8T76H8",
+      "G2VRZ3G",
+      "G8P4D7T",
+      "GFB8DGD",
+      "GSQXJJK",
+      "GUW4VW9",
+      "GHL9TTV",
+      "GQLZTG5",
+      "GC2MQLN",
+      "GRRTZ3K",
+      "GCU5QLA",
+      "GX4646D",
+      "GAS5BL5",
+      "GHSKJKP",
+      "GNEAFJE",
+      "GKVJ6MJ",
+      "GVDLMBU",
+      "GHTARND",
+      "GHL42GJ",
+      "GB5JBWS",
+      "G4BR8PY",
+      "GXFAAHL",
+      "GHNZPMY",
+      "GLXW56G",
+      "G4KASYX",
+      "GR73DL9",
+      "GQYB82K",
+      "GZNFVYD",
+      "GUGSWSG",
+      "G6S6PJU",
+      "G6K8Y8C"
+     ]
+    }
+   ]
+  },
+  "O18-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O18",
+   "fields": {
+    "delivery_note_no": "DN-DCP-91228",
+    "referenced_po": "PO-2026-0115",
+    "tracking_number": "176-03757834"
+   },
+   "lines": [
+    {
+     "part_number": "PER460-T1",
+     "qty": 2,
+     "serials": [
+      "5YH7BBC",
+      "5KXR2BB"
+     ]
+    },
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "serials": [
+      "KM2XPF6",
+      "K4DT5GQ",
+      "KBKZ7JY",
+      "K9AUX49",
+      "KTKNNHN",
+      "KMP9T8D",
+      "KWCDTF3",
+      "KRVFVRV",
+      "KTU9TBT",
+      "KLN3J7V"
+     ]
+    },
+    {
+     "part_number": "GB10-PMAX",
+     "qty": 40,
+     "serials": [
+      "GZC9P9C",
+      "GTXTDXQ",
+      "GFPH7ZD",
+      "G22REYT",
+      "GBF5RTA",
+      "GHVMEJ4",
+      "GZ7WBN7",
+      "G4UL559",
+      "GGL3HBF",
+      "G8T76H8",
+      "G2VRZ3G",
+      "G8P4D7T",
+      "GFB8DGD",
+      "GSQXJJK",
+      "GUW4VW9",
+      "GHL9TTV",
+      "GQLZTG5",
+      "GC2MQLN",
+      "GRRTZ3K",
+      "GCU5QLA",
+      "GX4646D",
+      "GAS5BL5",
+      "GHSKJKP",
+      "GNEAFJE",
+      "GKVJ6MJ",
+      "GVDLMBU",
+      "GHTARND",
+      "GHL42GJ",
+      "GB5JBWS",
+      "G4BR8PY",
+      "GXFAAHL",
+      "GHNZPMY",
+      "GLXW56G",
+      "G4KASYX",
+      "GR73DL9",
+      "GQYB82K",
+      "GZNFVYD",
+      "GUGSWSG",
+      "G6S6PJU",
+      "G6K8Y8C"
+     ]
+    }
+   ]
+  },
+  "O19-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O19",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4412",
+    "po_date": "2026-10-12",
+    "required_by": "2026-11-09",
+    "buyer_trn": "100311740200003",
+    "subtotal": "282160.00",
+    "vat_amount": "14108.00",
+    "total": "296268.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "27260.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 100,
+     "unit_price": "615.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 24,
+     "unit_price": "640.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 64,
+     "unit_price": "1930.00"
+    }
+   ]
+  },
+  "O19-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O19",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4412",
+    "po_date": "2026-10-12",
+    "required_by": "2026-11-09",
+    "buyer_trn": "100311740200003",
+    "subtotal": "282160.00",
+    "vat_amount": "14108.00",
+    "total": "296268.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "27260.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 100,
+     "unit_price": "615.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 24,
+     "unit_price": "640.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 64,
+     "unit_price": "1930.00"
+    }
+   ]
+  },
+  "O19-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O19",
+   "fields": {
+    "confirmation_no": "CTS-CONF-58396",
+    "referenced_po": "PO-2026-0116",
+    "eta": "2026-10-25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "23634.42"
+    },
+    {
+     "line_no": 2,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 100,
+     "unit_price": "509.84"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 24,
+     "unit_price": "547.20"
+    }
+   ]
+  },
+  "O20-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O20",
+   "fields": {
+    "po_number": "GCB-PO-230557",
+    "po_date": "2026-10-06",
+    "required_by": "2026-11-05",
+    "buyer_trn": "100274611900003",
+    "subtotal": "83095.00",
+    "vat_amount": "4154.75",
+    "total": "87249.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "46465.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "unit_price": "6105.00"
+    }
+   ]
+  },
+  "O20-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O20",
+   "fields": {
+    "po_number": "GCB-PO-230557",
+    "po_date": "2026-10-06",
+    "required_by": "2026-11-05",
+    "buyer_trn": "100274611900003",
+    "subtotal": "83095.00",
+    "vat_amount": "4154.75",
+    "total": "87249.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "46465.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "unit_price": "6105.00"
+    }
+   ]
+  },
+  "O20-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O20",
+   "fields": {
+    "confirmation_no": "CTS-CONF-30984",
+    "referenced_po": "PO-2026-0117",
+    "eta": "2026-10-19"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "40378.09"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "unit_price": "5545.91"
+    }
+   ]
+  },
+  "O20-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O20",
+   "fields": {
+    "delivery_note_no": "DN-CTS-73387",
+    "referenced_po": "PO-2026-0117",
+    "tracking_number": "SG1759953731",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "serials": [
+      "7US88P4"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "serials": []
+    }
+   ]
+  },
+  "O20-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O20",
+   "fields": {
+    "delivery_note_no": "DN-CTS-73387",
+    "referenced_po": "PO-2026-0117",
+    "tracking_number": "SG1759953731"
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "serials": [
+      "7US88P4"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "serials": []
+    }
+   ]
+  },
+  "O21-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O21",
+   "fields": {
+    "po_number": "DMC/IT/PO/3479",
+    "po_date": "2026-10-03",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100902774500003",
+    "subtotal": "128000.00",
+    "vat_amount": "6400.00",
+    "total": "134400.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 20,
+     "unit_price": "6400.00"
+    }
+   ]
+  },
+  "O21-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O21",
+   "fields": {
+    "po_number": "DMC/IT/PO/3479",
+    "po_date": "2026-10-03",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100902774500003",
+    "subtotal": "128000.00",
+    "vat_amount": "6400.00",
+    "total": "134400.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 20,
+     "unit_price": "6400.00"
+    }
+   ]
+  },
+  "O21-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O21",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/3529",
+    "referenced_po": "PO-2026-0118",
+    "eta": "2026-10-12"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 20,
+     "unit_price": "5651.20"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "unit_price": "5120.00"
+    }
+   ]
+  },
+  "O21-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O21",
+   "fields": {
+    "delivery_note_no": "DN-DCP-18907",
+    "referenced_po": "PO-2026-0118",
+    "tracking_number": "SLX211072282AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 20,
+     "serials": [
+      "LNTR8MF",
+      "LFQE7Y3",
+      "LHB64QP",
+      "LC9LYCK",
+      "L5BVD93",
+      "LFJ6RMZ",
+      "LAADAUM",
+      "LYDPY6T",
+      "L6NJQC3",
+      "LRDL6FD",
+      "LXZN5UY",
+      "LLR5FPH",
+      "L7EMA8Q",
+      "LR4778A",
+      "L67GTPN",
+      "LZ45ETK",
+      "L24JCCF",
+      "LF7PK38",
+      "LMRDZTL",
+      "LKUC8HA"
+     ]
+    }
+   ]
+  },
+  "O21-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O21",
+   "fields": {
+    "delivery_note_no": "DN-DCP-18907",
+    "referenced_po": "PO-2026-0118",
+    "tracking_number": "SLX211072282AE"
+   },
+   "lines": [
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 20,
+     "serials": [
+      "LNTR8MF",
+      "LFQE7Y3",
+      "LHB64QP",
+      "LC9LYCK",
+      "L5BVD93",
+      "LFJ6RMZ",
+      "LAADAUM",
+      "LYDPY6T",
+      "L6NJQC3",
+      "LRDL6FD",
+      "LXZN5UY",
+      "LLR5FPH",
+      "L7EMA8Q",
+      "LR4778A",
+      "L67GTPN",
+      "LZ45ETK",
+      "L24JCCF",
+      "LF7PK38",
+      "LMRDZTL",
+      "LKUC8HA"
+     ]
+    }
+   ]
+  },
+  "O22-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O22",
+   "fields": {
+    "po_number": "DMC/IT/PO/9076",
+    "po_date": "2026-10-11",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100902774500003",
+    "subtotal": "10800.00",
+    "vat_amount": "540.00",
+    "total": "11340.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "unit_price": "900.00"
+    }
+   ]
+  },
+  "O22-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O22",
+   "fields": {
+    "po_number": "DMC/IT/PO/9076",
+    "po_date": "2026-10-11",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100902774500003",
+    "subtotal": "10800.00",
+    "vat_amount": "540.00",
+    "total": "11340.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "unit_price": "900.00"
+    }
+   ]
+  },
+  "O22-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O22",
+   "fields": {
+    "confirmation_no": "CTS-CONF-46434",
+    "referenced_po": "PO-2026-0119",
+    "eta": "2026-11-12"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "unit_price": "749.70"
+    }
+   ]
+  },
+  "O22-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O22",
+   "fields": {
+    "delivery_note_no": "DN-CTS-59972",
+    "referenced_po": "PO-2026-0119",
+    "tracking_number": "176-71561509",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "serials": [
+      "NEK2P9E",
+      "NLRPAKE",
+      "NUPBEKJ",
+      "NECDBF9",
+      "NDMQK3J",
+      "ND47QXL",
+      "NLKU6PX",
+      "NWKM6ZA",
+      "NRSUM2N",
+      "NW42YKU",
+      "NQTNP43",
+      "NRSMPNF"
+     ]
+    }
+   ]
+  },
+  "O22-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O22",
+   "fields": {
+    "delivery_note_no": "DN-CTS-59972",
+    "referenced_po": "PO-2026-0119",
+    "tracking_number": "176-71561509"
+   },
+   "lines": [
+    {
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "serials": [
+      "NEK2P9E",
+      "NLRPAKE",
+      "NUPBEKJ",
+      "NECDBF9",
+      "NDMQK3J",
+      "ND47QXL",
+      "NLKU6PX",
+      "NWKM6ZA",
+      "NRSUM2N",
+      "NW42YKU",
+      "NQTNP43",
+      "NRSMPNF"
+     ]
+    }
+   ]
+  },
+  "O23-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O23",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4748",
+    "po_date": "2026-10-08",
+    "required_by": "2026-11-05",
+    "buyer_trn": "100311740200003",
+    "subtotal": "534320.00",
+    "vat_amount": "26716.00",
+    "total": "561036.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "unit_price": "25610.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 12,
+     "unit_price": "35990.00"
+    }
+   ]
+  },
+  "O23-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O23",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/4748",
+    "po_date": "2026-10-08",
+    "required_by": "2026-11-05",
+    "buyer_trn": "100311740200003",
+    "subtotal": "534320.00",
+    "vat_amount": "26716.00",
+    "total": "561036.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "unit_price": "25610.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 12,
+     "unit_price": "35990.00"
+    }
+   ]
+  },
+  "O23-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O23",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/2870",
+    "referenced_po": "PO-2026-0120",
+    "eta": "2026-10-15"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "unit_price": "22792.90"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 12,
+     "unit_price": "30123.63"
+    }
+   ]
+  },
+  "O23-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O23",
+   "fields": {
+    "delivery_note_no": "DN-DCP-64663",
+    "referenced_po": "PO-2026-0120",
+    "tracking_number": "SLX566456641AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "serials": [
+      "6TC5N8U",
+      "6T3BB52",
+      "6WMYNHT",
+      "654JPK8"
+     ]
+    },
+    {
+     "part_number": "S5248F-ON",
+     "qty": 12,
+     "serials": [
+      "SJ3SF7C",
+      "SJRGEAQ",
+      "SC7U662",
+      "S4LKLB4",
+      "SH8HTFU",
+      "SPML36P",
+      "SD2ARA8",
+      "S4RL8KG",
+      "S85WSA2",
+      "S2NJFFP",
+      "SWRD897",
+      "S33684L"
+     ]
+    }
+   ]
+  },
+  "O23-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O23",
+   "fields": {
+    "delivery_note_no": "DN-DCP-64663",
+    "referenced_po": "PO-2026-0120",
+    "tracking_number": "SLX566456641AE"
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "serials": [
+      "6TC5N8U",
+      "6T3BB52",
+      "6WMYNHT",
+      "654JPK8"
+     ]
+    },
+    {
+     "part_number": "S5248F-ON",
+     "qty": 12,
+     "serials": [
+      "SJ3SF7C",
+      "SJRGEAQ",
+      "SC7U662",
+      "S4LKLB4",
+      "SH8HTFU",
+      "SPML36P",
+      "SD2ARA8",
+      "S4RL8KG",
+      "S85WSA2",
+      "S2NJFFP",
+      "SWRD897",
+      "S33684L"
+     ]
+    }
+   ]
+  },
+  "O24-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O24",
+   "fields": {
+    "po_number": "GCB-PO-695806",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100274611900003",
+    "subtotal": "348600.00",
+    "vat_amount": "17430.00",
+    "total": "366030.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "47750.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "unit_price": "5690.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "46175.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 100,
+     "unit_price": "195.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3690.00"
+    }
+   ]
+  },
+  "O24-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O24",
+   "fields": {
+    "po_number": "GCB-PO-695806",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100274611900003",
+    "subtotal": "348600.00",
+    "vat_amount": "17430.00",
+    "total": "366030.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "47750.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 6,
+     "unit_price": "5690.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "46175.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 100,
+     "unit_price": "195.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3690.00"
+    }
+   ]
+  },
+  "O25-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O25",
+   "fields": {
+    "po_number": "GCB-PO-328933",
+    "po_date": "2026-10-03",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "390750.00",
+    "vat_amount": "19537.50",
+    "total": "410287.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "1990.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "46125.00"
+    }
+   ]
+  },
+  "O25-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O25",
+   "fields": {
+    "po_number": "GCB-PO-328933",
+    "po_date": "2026-10-03",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "390750.00",
+    "vat_amount": "19537.50",
+    "total": "410287.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "1990.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "46125.00"
+    }
+   ]
+  },
+  "O25-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O25",
+   "fields": {
+    "confirmation_no": "CTS-CONF-49522",
+    "referenced_po": "PO-2026-0122",
+    "eta": "2026-10-13"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "unit_price": "1683.54"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "40590.00"
+    }
+   ]
+  },
+  "O25-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O25",
+   "fields": {
+    "delivery_note_no": "DN-CTS-23746",
+    "referenced_po": "PO-2026-0122",
+    "tracking_number": "SLX361079742AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "7DE3W2U",
+      "K4DT5GQ"
+     ]
+    },
+    {
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "serials": []
+    }
+   ]
+  },
+  "O25-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O25",
+   "fields": {
+    "delivery_note_no": "DN-CTS-23746",
+    "referenced_po": "PO-2026-0122",
+    "tracking_number": "SLX361079742AE"
+   },
+   "lines": [
+    {
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "serials": [
+      "7DE3W2U",
+      "K4DT5GQ"
+     ]
+    },
+    {
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 150,
+     "serials": []
+    }
+   ]
+  },
+  "O26-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O26",
+   "fields": {
+    "po_number": "QLG4573494166",
+    "po_date": "2026-09-28",
+    "required_by": "2026-10-28",
+    "buyer_trn": "100735019600003",
+    "subtotal": "291650.00",
+    "vat_amount": "14582.50",
+    "total": "306232.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 40,
+     "unit_price": "1260.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "6180.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 25,
+     "unit_price": "140.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 150,
+     "unit_price": "555.00"
+    }
+   ]
+  },
+  "O26-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O26",
+   "fields": {
+    "po_number": "QLG4573494166",
+    "po_date": "2026-09-28",
+    "required_by": "2026-10-28",
+    "buyer_trn": "100735019600003",
+    "subtotal": "291650.00",
+    "vat_amount": "14582.50",
+    "total": "306232.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 40,
+     "unit_price": "1260.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "6180.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 25,
+     "unit_price": "140.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 150,
+     "unit_price": "555.00"
+    }
+   ]
+  },
+  "O26-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O26",
+   "fields": {
+    "confirmation_no": "FVD-SOC-268566",
+    "referenced_po": "PO-2026-0123",
+    "eta": "2026-10-09"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 40,
+     "unit_price": "1118.88"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "5296.26"
+    },
+    {
+     "line_no": 3,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 25,
+     "unit_price": "124.46"
+    },
+    {
+     "line_no": 4,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 150,
+     "unit_price": "497.84"
+    }
+   ]
+  },
+  "O26-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O26",
+   "fields": {
+    "delivery_note_no": "DN-FVD-45510",
+    "referenced_po": "PO-2026-0123",
+    "tracking_number": "SG7415282127",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 40,
+     "serials": [
+      "KM7DP5R",
+      "KQM7HFG",
+      "KDTJV3N",
+      "KDJHRGX",
+      "KKPLK5E",
+      "K6WV3U9",
+      "KH6VHF9",
+      "KR47MJ4",
+      "K7M59KT",
+      "K2QNCD2",
+      "KS26QMZ",
+      "KR3QK3R",
+      "KFU5CC8",
+      "KXX6WAN",
+      "KJEDJ6D",
+      "KUURA2A",
+      "KAEVPT8",
+      "KT7NAXS",
+      "KJTB3H9",
+      "KB2PFSW",
+      "KRDGN7W",
+      "K2K2WVN",
+      "KP8B4EM",
+      "KFLRPN7",
+      "KZ7EGUG",
+      "KC8WFHZ",
+      "KR9PY3U",
+      "KBPQL59",
+      "KN3X73J",
+      "KQQVAVQ",
+      "KWL3KV2",
+      "KLNL7GP",
+      "K8JEMJG",
+      "KZ5F5MQ",
+      "KECMTKA",
+      "KD3J2VS",
+      "KHA95GX",
+      "KZKEBXM",
+      "KUGJFAG",
+      "K9VKD2V"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "serials": [
+      "LUHZYU3",
+      "LZ3U7AL",
+      "LG3ZLG2",
+      "L8PQP82",
+      "LENV7CD",
+      "LRFH96W",
+      "LEHVMZB",
+      "LF7B2RF",
+      "L7NEVCH",
+      "LAU3MVT",
+      "L7TT8WP",
+      "LKNK9GZ",
+      "LLVABBW",
+      "LMZFG9W",
+      "LT5ARFT",
+      "LW7E9HH",
+      "LRLRRBP",
+      "LPDPU39",
+      "LCJYYSU",
+      "LYWU8QZ",
+      "L9VFD43",
+      "LAEQFKE",
+      "LGH3NSR",
+      "LTFPSL8",
+      "L39MHDY"
+     ]
+    },
+    {
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 25,
+     "serials": []
+    },
+    {
+     "part_number": "VVF-CORE-1Y",
+     "qty": 150,
+     "serials": []
+    }
+   ]
+  },
+  "O26-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O26",
+   "fields": {
+    "delivery_note_no": "DN-FVD-45510",
+    "referenced_po": "PO-2026-0123",
+    "tracking_number": "SG7415282127"
+   },
+   "lines": [
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 40,
+     "serials": [
+      "KM7DP5R",
+      "KQM7HFG",
+      "KDTJV3N",
+      "KDJHRGX",
+      "KKPLK5E",
+      "K6WV3U9",
+      "KH6VHF9",
+      "KR47MJ4",
+      "K7M59KT",
+      "K2QNCD2",
+      "KS26QMZ",
+      "KR3QK3R",
+      "KFU5CC8",
+      "KXX6WAN",
+      "KJEDJ6D",
+      "KUURA2A",
+      "KAEVPT8",
+      "KT7NAXS",
+      "KJTB3H9",
+      "KB2PFSW",
+      "KRDGN7W",
+      "K2K2WVN",
+      "KP8B4EM",
+      "KFLRPN7",
+      "KZ7EGUG",
+      "KC8WFHZ",
+      "KR9PY3U",
+      "KBPQL59",
+      "KN3X73J",
+      "KQQVAVQ",
+      "KWL3KV2",
+      "KLNL7GP",
+      "K8JEMJG",
+      "KZ5F5MQ",
+      "KECMTKA",
+      "KD3J2VS",
+      "KHA95GX",
+      "KZKEBXM",
+      "KUGJFAG",
+      "K9VKD2V"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "serials": [
+      "LUHZYU3",
+      "LZ3U7AL",
+      "LG3ZLG2",
+      "L8PQP82",
+      "LENV7CD",
+      "LRFH96W",
+      "LEHVMZB",
+      "LF7B2RF",
+      "L7NEVCH",
+      "LAU3MVT",
+      "L7TT8WP",
+      "LKNK9GZ",
+      "LLVABBW",
+      "LMZFG9W",
+      "LT5ARFT",
+      "LW7E9HH",
+      "LRLRRBP",
+      "LPDPU39",
+      "LCJYYSU",
+      "LYWU8QZ",
+      "L9VFD43",
+      "LAEQFKE",
+      "LGH3NSR",
+      "LTFPSL8",
+      "L39MHDY"
+     ]
+    },
+    {
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 25,
+     "serials": []
+    },
+    {
+     "part_number": "VVF-CORE-1Y",
+     "qty": 150,
+     "serials": []
+    }
+   ]
+  },
+  "O27-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O27",
+   "fields": {
+    "po_number": "MCB-PO-972214",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100690332100003",
+    "subtotal": "252310.00",
+    "vat_amount": "12615.50",
+    "total": "264925.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5585.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 64,
+     "unit_price": "2075.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "48585.00"
+    }
+   ]
+  },
+  "O27-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O27",
+   "fields": {
+    "po_number": "MCB-PO-972214",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100690332100003",
+    "subtotal": "252310.00",
+    "vat_amount": "12615.50",
+    "total": "264925.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5585.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 64,
+     "unit_price": "2075.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "48585.00"
+    }
+   ]
+  },
+  "O28-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O28",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/0895",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-10",
+    "buyer_trn": "100311740200003",
+    "subtotal": "234770.00",
+    "vat_amount": "11738.50",
+    "total": "246508.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PST500T-25",
+     "qty": 2,
+     "unit_price": "117385.00"
+    }
+   ]
+  },
+  "O28-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O28",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/0895",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-10",
+    "buyer_trn": "100311740200003",
+    "subtotal": "234770.00",
+    "vat_amount": "11738.50",
+    "total": "246508.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PST500T-25",
+     "qty": 2,
+     "unit_price": "117385.00"
+    }
+   ]
+  },
+  "O28-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O28",
+   "fields": {
+    "confirmation_no": "FVD-SOC-869371",
+    "referenced_po": "PO-2026-0124",
+    "eta": "2026-10-26"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PST500T-25",
+     "qty": 2,
+     "unit_price": "116352.02"
+    }
+   ]
+  },
+  "O28-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O28",
+   "fields": {
+    "delivery_note_no": "DN-FVD-79762",
+    "referenced_po": "PO-2026-0124",
+    "tracking_number": "176-91245431",
+    "marked_partial": true
+   },
+   "lines": [
+    {
+     "part_number": "PST500T-25",
+     "qty": 1,
+     "serials": [
+      "FBGXH7G"
+     ]
+    }
+   ]
+  },
+  "O28-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O28",
+   "fields": {
+    "delivery_note_no": "DN-FVD-79762",
+    "referenced_po": "PO-2026-0124",
+    "tracking_number": "176-91245431"
+   },
+   "lines": [
+    {
+     "part_number": "PST500T-25",
+     "qty": 1,
+     "serials": [
+      "FBGXH7G"
+     ]
+    }
+   ]
+  },
+  "O29-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O29",
+   "fields": {
+    "po_number": "MCB-PO-978760",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-28",
+    "buyer_trn": "100690332100003",
+    "subtotal": "148375.00",
+    "vat_amount": "74187.50",
+    "total": "222562.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3875.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 2,
+     "unit_price": "8770.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "205.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "5535.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "42025.00"
+    }
+   ]
+  },
+  "O29-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O29",
+   "fields": {
+    "po_number": "MCB-PO-978760",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-28",
+    "buyer_trn": "100690332100003",
+    "subtotal": "148375.00",
+    "vat_amount": "74187.50",
+    "total": "222562.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3875.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 2,
+     "unit_price": "8770.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "205.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "5535.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "42025.00"
+    }
+   ]
+  },
+  "O29-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O29",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/2375",
+    "referenced_po": "PO-2026-0125",
+    "eta": "2026-10-26"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "QLE2772-HBA",
+     "qty": 8,
+     "unit_price": "3185.25"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 2,
+     "unit_price": "7735.14"
+    },
+    {
+     "line_no": 3,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 50,
+     "unit_price": "165.03"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 1,
+     "unit_price": "4699.22"
+    },
+    {
+     "line_no": 5,
+     "part_number": "PER760-XS2",
+     "qty": 2,
+     "unit_price": "35763.28"
+    }
+   ]
+  },
+  "O29-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O29",
+   "fields": {
+    "delivery_note_no": "DN-DCP-86313",
+    "referenced_po": "PO-2026-0125",
+    "tracking_number": "SLX388008125AE",
+    "marked_partial": true
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "serials": [
+      "Q8HK8ZQ",
+      "QXZNEHB",
+      "Q7VVLRW",
+      "QJZXA3B"
+     ]
+    }
+   ]
+  },
+  "O29-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O29",
+   "fields": {
+    "delivery_note_no": "DN-DCP-86313",
+    "referenced_po": "PO-2026-0125",
+    "tracking_number": "SLX388008125AE"
+   },
+   "lines": [
+    {
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "serials": [
+      "Q8HK8ZQ",
+      "QXZNEHB",
+      "Q7VVLRW",
+      "QJZXA3B"
+     ]
+    }
+   ]
+  },
+  "O30-customer-po-L4.pdf": {
+   "kind": "customer_po",
+   "layout": "L4",
+   "order": "O30",
+   "fields": {
+    "po_number": "QLG4581591431",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-11",
+    "buyer_trn": "100735019600003",
+    "subtotal": "324730.00",
+    "vat_amount": "16236.50",
+    "total": "340966.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "unit_price": "135.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 8,
+     "unit_price": "34445.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 24,
+     "unit_price": "610.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER660-XS1",
+     "qty": 1,
+     "unit_price": "25890.00"
+    }
+   ]
+  },
+  "O30-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O30",
+   "fields": {
+    "po_number": "QLG4581591431",
+    "po_date": "2026-10-14",
+    "required_by": "2026-11-11",
+    "buyer_trn": "100735019600003",
+    "subtotal": "324730.00",
+    "vat_amount": "16236.50",
+    "total": "340966.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "CUP-DEX-USR-1Y",
+     "qty": 64,
+     "unit_price": "135.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 8,
+     "unit_price": "34445.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 24,
+     "unit_price": "610.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER660-XS1",
+     "qty": 1,
+     "unit_price": "25890.00"
+    }
+   ]
+  },
+  "O31-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O31",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/5777",
+    "po_date": "2026-10-19",
+    "required_by": "2026-11-18",
+    "buyer_trn": "100311740200003",
+    "subtotal": "127220.00",
+    "vat_amount": "6361.00",
+    "total": "133581.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "SFP28-SR-25G",
+     "qty": 12,
+     "unit_price": "665.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "32640.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER660-XS1",
+     "qty": 2,
+     "unit_price": "26980.00"
+    }
+   ]
+  },
+  "O31-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O31",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/5777",
+    "po_date": "2026-10-19",
+    "required_by": "2026-11-18",
+    "buyer_trn": "100311740200003",
+    "subtotal": "127220.00",
+    "vat_amount": "6361.00",
+    "total": "133581.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "SFP28-SR-25G",
+     "qty": 12,
+     "unit_price": "665.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "32640.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PER660-XS1",
+     "qty": 2,
+     "unit_price": "26980.00"
+    }
+   ]
+  },
+  "O32-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O32",
+   "fields": {
+    "po_number": "SPAC-26-1229",
+    "po_date": "2026-10-06",
+    "required_by": "2026-10-27",
+    "buyer_trn": "100845120700003",
+    "subtotal": "12600.00",
+    "vat_amount": "630.00",
+    "total": "13230.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "1260.00"
+    }
+   ]
+  },
+  "O32-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O32",
+   "fields": {
+    "po_number": "SPAC-26-1229",
+    "po_date": "2026-10-06",
+    "required_by": "2026-10-27",
+    "buyer_trn": "100845120700003",
+    "subtotal": "12600.00",
+    "vat_amount": "630.00",
+    "total": "13230.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "1260.00"
+    }
+   ]
+  },
+  "O32-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O32",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/8906",
+    "referenced_po": "PO-2026-0128",
+    "eta": "2026-10-17"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "WD22TB4-DK",
+     "qty": 10,
+     "unit_price": "1036.98"
+    }
+   ]
+  },
+  "O32-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O32",
+   "fields": {
+    "delivery_note_no": "DN-DCP-54803",
+    "referenced_po": "PO-2026-0128",
+    "tracking_number": "SLX586534456AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 11,
+     "serials": [
+      "KP4S9ES",
+      "KKQ5LNS",
+      "KTE47L7",
+      "KECHDUE",
+      "KTMKM3R",
+      "KKVPMSL",
+      "KRH8B3X",
+      "KMU7D4Y",
+      "KMR3TLC",
+      "KH3HZB5",
+      "K9UDKBS"
+     ]
+    }
+   ]
+  },
+  "O32-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O32",
+   "fields": {
+    "delivery_note_no": "DN-DCP-54803",
+    "referenced_po": "PO-2026-0128",
+    "tracking_number": "SLX586534456AE"
+   },
+   "lines": [
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 11,
+     "serials": [
+      "KP4S9ES",
+      "KKQ5LNS",
+      "KTE47L7",
+      "KECHDUE",
+      "KTMKM3R",
+      "KKVPMSL",
+      "KRH8B3X",
+      "KMU7D4Y",
+      "KMR3TLC",
+      "KH3HZB5",
+      "K9UDKBS"
+     ]
+    }
+   ]
+  },
+  "O33-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O33",
+   "fields": {
+    "po_number": "SPA/PROC/2026/5827",
+    "po_date": "2026-10-12",
+    "required_by": "2026-11-11",
+    "buyer_trn": "100527904800003",
+    "subtotal": "117660.00",
+    "vat_amount": "5883.00",
+    "total": "123543.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "24245.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "8985.00"
+    }
+   ]
+  },
+  "O33-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O33",
+   "fields": {
+    "po_number": "SPA/PROC/2026/5827",
+    "po_date": "2026-10-12",
+    "required_by": "2026-11-11",
+    "buyer_trn": "100527904800003",
+    "subtotal": "117660.00",
+    "vat_amount": "5883.00",
+    "total": "123543.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "24245.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "8985.00"
+    }
+   ]
+  },
+  "O33-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O33",
+   "fields": {
+    "confirmation_no": "FVD-SOC-507910",
+    "referenced_po": "PO-2026-0129",
+    "eta": "2026-10-25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER660-XS1",
+     "qty": 3,
+     "unit_price": "21238.62"
+    },
+    {
+     "line_no": 2,
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "unit_price": "7556.39"
+    }
+   ]
+  },
+  "O33-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O33",
+   "fields": {
+    "delivery_note_no": "DN-FVD-12858",
+    "referenced_po": "PO-2026-0129",
+    "tracking_number": "SLX275949370AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "serials": [
+      "6694RZK",
+      "6NMK2WT",
+      "6U4A8MZ",
+      "69W4FS7"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "serials": []
+    }
+   ]
+  },
+  "O33-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O33",
+   "fields": {
+    "delivery_note_no": "DN-FVD-12858",
+    "referenced_po": "PO-2026-0129",
+    "tracking_number": "SLX275949370AE"
+   },
+   "lines": [
+    {
+     "part_number": "PER660-XS1",
+     "qty": 4,
+     "serials": [
+      "6694RZK",
+      "6NMK2WT",
+      "6U4A8MZ",
+      "69W4FS7"
+     ]
+    },
+    {
+     "part_number": "RSA-SID-700-50",
+     "qty": 5,
+     "serials": []
+    }
+   ]
+  },
+  "O34-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O34",
+   "fields": {
+    "po_number": "BAIS-26-9585",
+    "po_date": "2026-10-03",
+    "required_by": "2026-10-31",
+    "buyer_trn": "100163008400003",
+    "subtotal": "272995.00",
+    "vat_amount": "13649.75",
+    "total": "286644.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 1,
+     "unit_price": "11095.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "6750.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "unit_price": "1215.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PRE3680-WS",
+     "qty": 5,
+     "unit_price": "13770.00"
+    }
+   ]
+  },
+  "O34-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O34",
+   "fields": {
+    "po_number": "BAIS-26-9585",
+    "po_date": "2026-10-03",
+    "required_by": "2026-10-31",
+    "buyer_trn": "100163008400003",
+    "subtotal": "272995.00",
+    "vat_amount": "13649.75",
+    "total": "286644.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 1,
+     "unit_price": "11095.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "6750.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "unit_price": "1215.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PRE3680-WS",
+     "qty": 5,
+     "unit_price": "13770.00"
+    }
+   ]
+  },
+  "O34-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O34",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/4356",
+    "referenced_po": "PO-2026-0130",
+    "eta": "2026-11-08"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER460-T1",
+     "qty": 1,
+     "unit_price": "9530.61"
+    },
+    {
+     "line_no": 2,
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "unit_price": "5818.50"
+    },
+    {
+     "line_no": 3,
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "unit_price": "1078.92"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PRE3680-WS",
+     "qty": 5,
+     "unit_price": "11621.88"
+    }
+   ]
+  },
+  "O34-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O34",
+   "fields": {
+    "delivery_note_no": "DN-DCP-18735",
+    "referenced_po": "PO-2026-0130",
+    "tracking_number": "SLX257492423AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "PER460-T1",
+     "qty": 1,
+     "serials": [
+      "5J2MWXG"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "serials": [
+      "LQ83H3J",
+      "LHYCZ5J",
+      "L3AJWKJ",
+      "LG9V5NP",
+      "LY95A43",
+      "L6MXFXS",
+      "LA3TQUT",
+      "LE6JWN2",
+      "LJTVV3Z",
+      "LSTZTP9",
+      "LTEF2LL",
+      "L7FKHFW",
+      "L4ML64M",
+      "L35FXPL",
+      "L26BJUU",
+      "L7NLHL8",
+      "L5XSDTC",
+      "LDEGMJN",
+      "LMCLT3H",
+      "LKWL5BS",
+      "LZNYMRU",
+      "LNQBG37",
+      "LF7SN7A",
+      "L88VG59",
+      "LKB4A5Z"
+     ]
+    },
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "serials": [
+      "KR95CXA",
+      "KF8HQPZ",
+      "KDMASAQ",
+      "K2A949J",
+      "K94QWE4",
+      "KDCMGGS",
+      "K6HR24P",
+      "KXWTHJL",
+      "KV5ZUQ5",
+      "K22YN93",
+      "KWD5AWG",
+      "KSUCQG5",
+      "KQJRN4U",
+      "K8PN232",
+      "KJ44W4J",
+      "KSNDA44",
+      "KP3VTQ9",
+      "KZJV8DC",
+      "KXJNLYD",
+      "KCHX5UZ"
+     ]
+    },
+    {
+     "part_number": "PRE3680-WS",
+     "qty": 5,
+     "serials": [
+      "WDRV5PD",
+      "WNJBUW6",
+      "WNXEW4Q",
+      "W8BNE4R",
+      "WW7G4SQ"
+     ]
+    }
+   ]
+  },
+  "O34-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O34",
+   "fields": {
+    "delivery_note_no": "DN-DCP-18735",
+    "referenced_po": "PO-2026-0130",
+    "tracking_number": "SLX257492423AE"
+   },
+   "lines": [
+    {
+     "part_number": "PER460-T1",
+     "qty": 1,
+     "serials": [
+      "5J2MWXG"
+     ]
+    },
+    {
+     "part_number": "LAT7450-I7",
+     "qty": 25,
+     "serials": [
+      "LQ83H3J",
+      "LHYCZ5J",
+      "L3AJWKJ",
+      "LG9V5NP",
+      "LY95A43",
+      "L6MXFXS",
+      "LA3TQUT",
+      "LE6JWN2",
+      "LJTVV3Z",
+      "LSTZTP9",
+      "LTEF2LL",
+      "L7FKHFW",
+      "L4ML64M",
+      "L35FXPL",
+      "L26BJUU",
+      "L7NLHL8",
+      "L5XSDTC",
+      "LDEGMJN",
+      "LMCLT3H",
+      "LKWL5BS",
+      "LZNYMRU",
+      "LNQBG37",
+      "LF7SN7A",
+      "L88VG59",
+      "LKB4A5Z"
+     ]
+    },
+    {
+     "part_number": "WD22TB4-DK",
+     "qty": 20,
+     "serials": [
+      "KR95CXA",
+      "KF8HQPZ",
+      "KDMASAQ",
+      "K2A949J",
+      "K94QWE4",
+      "KDCMGGS",
+      "K6HR24P",
+      "KXWTHJL",
+      "KV5ZUQ5",
+      "K22YN93",
+      "KWD5AWG",
+      "KSUCQG5",
+      "KQJRN4U",
+      "K8PN232",
+      "KJ44W4J",
+      "KSNDA44",
+      "KP3VTQ9",
+      "KZJV8DC",
+      "KXJNLYD",
+      "KCHX5UZ"
+     ]
+    },
+    {
+     "part_number": "PRE3680-WS",
+     "qty": 5,
+     "serials": [
+      "WDRV5PD",
+      "WNJBUW6",
+      "WNXEW4Q",
+      "W8BNE4R",
+      "WW7G4SQ"
+     ]
+    }
+   ]
+  },
+  "O35-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O35",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/5657",
+    "po_date": "2026-10-02",
+    "required_by": "2026-11-16",
+    "buyer_trn": "100311740200003",
+    "subtotal": "398240.00",
+    "vat_amount": "19912.00",
+    "total": "418152.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "199120.00"
+    }
+   ]
+  },
+  "O35-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O35",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/5657",
+    "po_date": "2026-10-02",
+    "required_by": "2026-11-16",
+    "buyer_trn": "100311740200003",
+    "subtotal": "398240.00",
+    "vat_amount": "19912.00",
+    "total": "418152.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "199120.00"
+    }
+   ]
+  },
+  "O35-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O35",
+   "fields": {
+    "confirmation_no": "CTS-CONF-64792",
+    "referenced_po": "PO-2026-0131",
+    "eta": "2026-10-15"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "unit_price": "167659.04"
+    }
+   ]
+  },
+  "O35-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O35",
+   "fields": {
+    "delivery_note_no": "DN-CTS-14018",
+    "referenced_po": "PO-2026-0131",
+    "tracking_number": "SG1010556786",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "serials": [
+      "DB74YJF"
+     ]
+    }
+   ]
+  },
+  "O35-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O35",
+   "fields": {
+    "delivery_note_no": "DN-CTS-14018",
+    "referenced_po": "PO-2026-0131",
+    "tracking_number": "SG1010556786"
+   },
+   "lines": [
+    {
+     "part_number": "DD6400-64T",
+     "qty": 2,
+     "serials": [
+      "DB74YJF"
+     ]
+    }
+   ]
+  },
+  "O36-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O36",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8394",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100311740200003",
+    "subtotal": "189455.00",
+    "vat_amount": "9472.75",
+    "total": "198927.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "unit_price": "189455.00"
+    }
+   ]
+  },
+  "O36-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O36",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8394",
+    "po_date": "2026-10-13",
+    "required_by": "2026-11-12",
+    "buyer_trn": "100311740200003",
+    "subtotal": "189455.00",
+    "vat_amount": "9472.75",
+    "total": "198927.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "unit_price": "189455.00"
+    }
+   ]
+  },
+  "O37-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O37",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8471",
+    "po_date": "2026-09-26",
+    "required_by": "2026-10-24",
+    "buyer_trn": "100311740200003",
+    "subtotal": "1366470.00",
+    "vat_amount": "68323.50",
+    "total": "1434793.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "unit_price": "2075.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 16,
+     "unit_price": "655.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "S5248F-ON",
+     "qty": 24,
+     "unit_price": "34885.00"
+    }
+   ]
+  },
+  "O37-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O37",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8471",
+    "po_date": "2026-09-26",
+    "required_by": "2026-10-24",
+    "buyer_trn": "100311740200003",
+    "subtotal": "1366470.00",
+    "vat_amount": "68323.50",
+    "total": "1434793.50"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "unit_price": "2075.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 16,
+     "unit_price": "655.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "S5248F-ON",
+     "qty": 24,
+     "unit_price": "34885.00"
+    }
+   ]
+  },
+  "O37-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O37",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/6117",
+    "referenced_po": "PO-2026-0133",
+    "eta": "2026-10-06"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "unit_price": "1747.15"
+    },
+    {
+     "line_no": 2,
+     "part_number": "SFP28-SR-25G",
+     "qty": 16,
+     "unit_price": "586.23"
+    },
+    {
+     "line_no": 3,
+     "part_number": "S5248F-ON",
+     "qty": 24,
+     "unit_price": "28431.28"
+    }
+   ]
+  },
+  "O37-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O37",
+   "fields": {
+    "delivery_note_no": "DN-DCP-42186",
+    "referenced_po": "PO-2026-0133",
+    "tracking_number": "176-96969502",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "SFP28-SR-25G",
+     "qty": 16,
+     "serials": [
+      "XC56DFB",
+      "XJT7R7M",
+      "X97MZT5",
+      "X3JGGGB",
+      "XEF764P",
+      "XWY88EW",
+      "X9DHT9H",
+      "XYMWAMQ",
+      "XTQYY7J",
+      "XUGD8BL",
+      "XZSW7QW",
+      "XHKMW2U",
+      "X4VVG3X",
+      "X4QEARR",
+      "XJPBECV",
+      "KR3QK3R"
+     ]
+    },
+    {
+     "part_number": "S5248F-ON",
+     "qty": 24,
+     "serials": [
+      "SC9E2P4",
+      "SSYMWS7",
+      "SETHDCN",
+      "SKMFCXZ",
+      "S7KMWWU",
+      "STVN9T2",
+      "SRT6ZS4",
+      "SS5T7YM",
+      "SN7CGQE",
+      "SCLXV8F",
+      "SXQAMAE",
+      "SAUN3W9",
+      "S3C7WCW",
+      "SDJAQ4A",
+      "SBVQQMP",
+      "S4E8KTD",
+      "SK4PWQS",
+      "SWET5BL",
+      "SE9YR8T",
+      "SZ7C2RB",
+      "S3XSNV2",
+      "SY95248",
+      "SZPNGYD",
+      "SP5D6L9"
+     ]
+    },
+    {
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "serials": []
+    }
+   ]
+  },
+  "O37-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "CSV",
+   "order": "O37",
+   "fields": {
+    "delivery_note_no": "DN-DCP-42186",
+    "referenced_po": "PO-2026-0133",
+    "tracking_number": "176-96969502"
+   },
+   "lines": [
+    {
+     "part_number": "SFP28-SR-25G",
+     "qty": 16,
+     "serials": [
+      "XC56DFB",
+      "XJT7R7M",
+      "X97MZT5",
+      "X3JGGGB",
+      "XEF764P",
+      "XWY88EW",
+      "X9DHT9H",
+      "XYMWAMQ",
+      "XTQYY7J",
+      "XUGD8BL",
+      "XZSW7QW",
+      "XHKMW2U",
+      "X4VVG3X",
+      "X4QEARR",
+      "XJPBECV",
+      "KR3QK3R"
+     ]
+    },
+    {
+     "part_number": "S5248F-ON",
+     "qty": 24,
+     "serials": [
+      "SC9E2P4",
+      "SSYMWS7",
+      "SETHDCN",
+      "SKMFCXZ",
+      "S7KMWWU",
+      "STVN9T2",
+      "SRT6ZS4",
+      "SS5T7YM",
+      "SN7CGQE",
+      "SCLXV8F",
+      "SXQAMAE",
+      "SAUN3W9",
+      "S3C7WCW",
+      "SDJAQ4A",
+      "SBVQQMP",
+      "S4E8KTD",
+      "SK4PWQS",
+      "SWET5BL",
+      "SE9YR8T",
+      "SZ7C2RB",
+      "S3XSNV2",
+      "SY95248",
+      "SZPNGYD",
+      "SP5D6L9"
+     ]
+    },
+    {
+     "part_number": "COH-DP-1TB-3Y",
+     "qty": 250,
+     "serials": []
+    }
+   ]
+  },
+  "O38-customer-po-L3.pdf": {
+   "kind": "customer_po",
+   "layout": "L3",
+   "order": "O38",
+   "fields": {
+    "po_number": "SPAC-26-0535",
+    "po_date": "2026-10-17",
+    "required_by": "2026-12-01",
+    "buyer_trn": "100845120700003",
+    "subtotal": "89820.00",
+    "vat_amount": "4491.00",
+    "total": "94311.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 12,
+     "unit_price": "6565.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "unit_price": "920.00"
+    }
+   ]
+  },
+  "O38-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O38",
+   "fields": {
+    "po_number": "SPAC-26-0535",
+    "po_date": "2026-10-17",
+    "required_by": "2026-12-01",
+    "buyer_trn": "100845120700003",
+    "subtotal": "89820.00",
+    "vat_amount": "4491.00",
+    "total": "94311.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 12,
+     "unit_price": "6565.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "P2425H-MON",
+     "qty": 12,
+     "unit_price": "920.00"
+    }
+   ]
+  },
+  "O38-confirmation-B.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "B",
+   "order": "O38",
+   "fields": {
+    "confirmation_no": "DCP/OC/26/9650",
+    "referenced_po": "PO-2026-0134",
+    "eta": "2026-10-27"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "LAT7450-I7",
+     "qty": 12,
+     "unit_price": "5416.13"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PRE3680-WS",
+     "qty": 12,
+     "unit_price": "814.20"
+    }
+   ]
+  },
+  "O39-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O39",
+   "fields": {
+    "po_number": "MCB-PO-569338",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100690332100003",
+    "subtotal": "116505.00",
+    "vat_amount": "5825.25",
+    "total": "122430.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "46125.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3645.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5950.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SYM-SEP-USR-1Y",
+     "qty": 200,
+     "unit_price": "160.00"
+    }
+   ]
+  },
+  "O39-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O39",
+   "fields": {
+    "po_number": "MCB-PO-569338",
+    "po_date": "2026-10-15",
+    "required_by": "2026-11-14",
+    "buyer_trn": "100690332100003",
+    "subtotal": "116505.00",
+    "vat_amount": "5825.25",
+    "total": "122430.25"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "PER760-XS2",
+     "qty": 1,
+     "unit_price": "46125.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "QLE2772-HBA",
+     "qty": 4,
+     "unit_price": "3645.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 4,
+     "unit_price": "5950.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "SYM-SEP-USR-1Y",
+     "qty": 200,
+     "unit_price": "160.00"
+    }
+   ]
+  },
+  "O40-customer-po-L2.pdf": {
+   "kind": "customer_po",
+   "layout": "L2",
+   "order": "O40",
+   "fields": {
+    "po_number": "GCB-PO-397122",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "136995.00",
+    "vat_amount": "6849.75",
+    "total": "143844.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 100,
+     "unit_price": "200.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 3,
+     "unit_price": "6225.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "49160.00"
+    }
+   ]
+  },
+  "O40-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O40",
+   "fields": {
+    "po_number": "GCB-PO-397122",
+    "po_date": "2026-10-18",
+    "required_by": "2026-11-17",
+    "buyer_trn": "100274611900003",
+    "subtotal": "136995.00",
+    "vat_amount": "6849.75",
+    "total": "143844.75"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "FP-DLP-ENT-1Y",
+     "qty": 100,
+     "unit_price": "200.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 3,
+     "unit_price": "6225.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "ME5024-12T",
+     "qty": 2,
+     "unit_price": "49160.00"
+    }
+   ]
+  },
+  "O41-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O41",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8568",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100311740200003",
+    "subtotal": "468800.00",
+    "vat_amount": "23440.00",
+    "total": "492340.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "32715.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "unit_price": "203200.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "unit_price": "5615.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "47235.00"
+    }
+   ]
+  },
+  "O41-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O41",
+   "fields": {
+    "po_number": "AWMS/PROC/2026/8568",
+    "po_date": "2026-10-04",
+    "required_by": "2026-11-01",
+    "buyer_trn": "100311740200003",
+    "subtotal": "468800.00",
+    "vat_amount": "23440.00",
+    "total": "492340.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "32715.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "unit_price": "203200.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "unit_price": "5615.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "47235.00"
+    }
+   ]
+  },
+  "O41-confirmation-A.pdf": {
+   "kind": "vendor_confirmation",
+   "layout": "A",
+   "order": "O41",
+   "fields": {
+    "confirmation_no": "FVD-SOC-910310",
+    "referenced_po": "PO-2026-0135",
+    "eta": "2026-10-20"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "unit_price": "27153.45"
+    },
+    {
+     "line_no": 2,
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "unit_price": "166014.40"
+    },
+    {
+     "line_no": 3,
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "unit_price": "4772.75"
+    },
+    {
+     "line_no": 4,
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "unit_price": "42180.86"
+    }
+   ]
+  },
+  "O41-delivery-note-1.pdf": {
+   "kind": "delivery_note",
+   "layout": "DN",
+   "order": "O41",
+   "fields": {
+    "delivery_note_no": "DN-FVD-81126",
+    "referenced_po": "PO-2026-0135",
+    "tracking_number": "SLX068612512AE",
+    "marked_partial": false
+   },
+   "lines": [
+    {
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "serials": [
+      "SKWAZB8",
+      "SJTCHNL"
+     ]
+    },
+    {
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "serials": [
+      "DULH9LS"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "serials": [
+      "7DB8NVS",
+      "7UHTZTR",
+      "7VVLHA2",
+      "7ZJZTMA"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "serials": []
+    }
+   ]
+  },
+  "O41-dispatch-1.eml": {
+   "kind": "shipment_email",
+   "layout": "BODY",
+   "order": "O41",
+   "fields": {
+    "delivery_note_no": "DN-FVD-81126",
+    "referenced_po": "PO-2026-0135",
+    "tracking_number": "SLX068612512AE"
+   },
+   "lines": [
+    {
+     "part_number": "S5248F-ON",
+     "qty": 2,
+     "serials": [
+      "SKWAZB8",
+      "SJTCHNL"
+     ]
+    },
+    {
+     "part_number": "DD6400-64T",
+     "qty": 1,
+     "serials": [
+      "DULH9LS"
+     ]
+    },
+    {
+     "part_number": "PER760-XS2",
+     "qty": 4,
+     "serials": [
+      "7DB8NVS",
+      "7UHTZTR",
+      "7VVLHA2",
+      "7ZJZTMA"
+     ]
+    },
+    {
+     "part_number": "PS-PRO-3Y-NBD",
+     "qty": 2,
+     "serials": []
+    }
+   ]
+  },
+  "O42-customer-po-L1.pdf": {
+   "kind": "customer_po",
+   "layout": "L1",
+   "order": "O42",
+   "fields": {
+    "po_number": "SPA/PROC/2026/3599",
+    "po_date": "2026-10-20",
+    "required_by": "2026-11-19",
+    "buyer_trn": "100527904800003",
+    "subtotal": "439630.00",
+    "vat_amount": "219815.00",
+    "total": "659445.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 4,
+     "unit_price": "9350.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 3,
+     "unit_price": "44920.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 8,
+     "unit_price": "635.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 50,
+     "unit_price": "605.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "PST500T-25",
+     "qty": 2,
+     "unit_price": "116070.00"
+    }
+   ]
+  },
+  "O42-customer-po-L5.pdf": {
+   "kind": "customer_po",
+   "layout": "L5",
+   "order": "O42",
+   "fields": {
+    "po_number": "SPA/PROC/2026/3599",
+    "po_date": "2026-10-20",
+    "required_by": "2026-11-19",
+    "buyer_trn": "100527904800003",
+    "subtotal": "439630.00",
+    "vat_amount": "219815.00",
+    "total": "659445.00"
+   },
+   "lines": [
+    {
+     "line_no": 1,
+     "part_number": "RSA-SID-700-50",
+     "qty": 4,
+     "unit_price": "9350.00"
+    },
+    {
+     "line_no": 2,
+     "part_number": "PER760-XS2",
+     "qty": 3,
+     "unit_price": "44920.00"
+    },
+    {
+     "line_no": 3,
+     "part_number": "SFP28-SR-25G",
+     "qty": 8,
+     "unit_price": "635.00"
+    },
+    {
+     "line_no": 4,
+     "part_number": "VVF-CORE-1Y",
+     "qty": 50,
+     "unit_price": "605.00"
+    },
+    {
+     "line_no": 5,
+     "part_number": "PST500T-25",
+     "qty": 2,
+     "unit_price": "116070.00"
+    }
+   ]
+  }
+ },
+ "orders": {
+  "O01": {
+   "stage": "po_received",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O02": {
+   "stage": "ready_to_invoice",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O03": {
+   "stage": "po_sent",
+   "customer": "Bayt Al Ilm Schools",
+   "layout": "L3",
+   "planted": []
+  },
+  "O04": {
+   "stage": "po_received",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": []
+  },
+  "O05": {
+   "stage": "delivered",
+   "customer": "Marjan Commercial Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O06": {
+   "stage": "confirmed",
+   "customer": "Qasr Logistics Group",
+   "layout": "L4",
+   "planted": [
+    {
+     "kind": "MISSING_LINE",
+     "code": "MISSING_LINE",
+     "part_number": "SVC-INSTALL-D1"
+    }
+   ]
+  },
+  "O07": {
+   "stage": "received",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "PO_REF",
+     "code": "PO_REF",
+     "part_number": null
+    }
+   ]
+  },
+  "O08": {
+   "stage": "received",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "SUBSTITUTION",
+     "code": "SUBSTITUTION",
+     "part_number": "P2425H-MON"
+    }
+   ]
+  },
+  "O09": {
+   "stage": "received",
+   "customer": "Darat Medical Centre",
+   "layout": "L4",
+   "planted": []
+  },
+  "O10": {
+   "stage": "confirmed",
+   "customer": "Marjan Commercial Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "EXTRA_LINE",
+     "code": "EXTRA_LINE",
+     "part_number": "SFP28-SR-25G"
+    },
+    {
+     "kind": "RECEIPT_SHORT",
+     "code": "QTY_SHORT",
+     "part_number": "QLE2772-HBA"
+    }
+   ]
+  },
+  "O11": {
+   "stage": "ready_to_invoice",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "PO_REF",
+     "code": "PO_REF",
+     "part_number": null
+    }
+   ]
+  },
+  "O12": {
+   "stage": "po_received",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O13": {
+   "stage": "confirmed",
+   "customer": "Qasr Logistics Group",
+   "layout": "L4",
+   "planted": [
+    {
+     "kind": "SUBSTITUTION",
+     "code": "SUBSTITUTION",
+     "part_number": "SFP28-SR-25G"
+    }
+   ]
+  },
+  "O14": {
+   "stage": "confirmed",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "QTY_SHORT",
+     "code": "QTY_SHORT",
+     "part_number": "RSA-SID-700-50"
+    }
+   ]
+  },
+  "O15": {
+   "stage": "delivered",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "PART_MISMATCH",
+     "code": "PART_MISMATCH",
+     "part_number": "PER460-T1"
+    }
+   ]
+  },
+  "O16": {
+   "stage": "ready_to_invoice",
+   "customer": "Darat Medical Centre",
+   "layout": "L4",
+   "planted": [
+    {
+     "kind": "SERIAL_COUNT",
+     "code": "SERIAL_COUNT",
+     "part_number": "DP4400-24T"
+    }
+   ]
+  },
+  "O17": {
+   "stage": "po_sent",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": []
+  },
+  "O18": {
+   "stage": "confirmed",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "QTY_SHORT",
+     "code": "QTY_SHORT",
+     "part_number": "PER460-T1"
+    },
+    {
+     "kind": "RECEIPT_SHORT",
+     "code": "QTY_SHORT",
+     "part_number": "PER460-T1"
+    }
+   ]
+  },
+  "O19": {
+   "stage": "confirmed",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "MISSING_LINE",
+     "code": "MISSING_LINE",
+     "part_number": "COH-DP-1TB-3Y"
+    }
+   ]
+  },
+  "O20": {
+   "stage": "delivered",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "PRICE_DIFF",
+     "code": "PRICE_DIFF",
+     "part_number": "PS-PRO-3Y-NBD"
+    }
+   ]
+  },
+  "O21": {
+   "stage": "delivered",
+   "customer": "Darat Medical Centre",
+   "layout": "L4",
+   "planted": [
+    {
+     "kind": "EXTRA_LINE",
+     "code": "EXTRA_LINE",
+     "part_number": "PS-PRO-3Y-NBD"
+    }
+   ]
+  },
+  "O22": {
+   "stage": "received",
+   "customer": "Darat Medical Centre",
+   "layout": "L4",
+   "planted": [
+    {
+     "kind": "ETA_LATE",
+     "code": "ETA_LATE",
+     "part_number": null
+    }
+   ]
+  },
+  "O23": {
+   "stage": "ready_to_invoice",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": []
+  },
+  "O24": {
+   "stage": "po_sent",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O25": {
+   "stage": "received",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "DUPLICATE_SERIAL",
+     "code": "DUPLICATE_SERIAL",
+     "part_number": "PER760-XS2"
+    }
+   ]
+  },
+  "O26": {
+   "stage": "ready_to_invoice",
+   "customer": "Qasr Logistics Group",
+   "layout": "L4",
+   "planted": []
+  },
+  "O27": {
+   "stage": "po_received",
+   "customer": "Marjan Commercial Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O28": {
+   "stage": "confirmed",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "PRICE_DIFF",
+     "code": "PRICE_DIFF",
+     "part_number": "PST500T-25"
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "PST500T-25"
+    }
+   ]
+  },
+  "O29": {
+   "stage": "confirmed",
+   "customer": "Marjan Commercial Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "VAT_MATH",
+     "code": "VAT_MATH",
+     "part_number": null
+    },
+    {
+     "kind": "PARTIAL_SHIPMENT",
+     "code": "PARTIAL_SHIPMENT",
+     "part_number": "QLE2772-HBA"
+    }
+   ]
+  },
+  "O30": {
+   "stage": "po_sent",
+   "customer": "Qasr Logistics Group",
+   "layout": "L4",
+   "planted": []
+  },
+  "O31": {
+   "stage": "po_sent",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": []
+  },
+  "O32": {
+   "stage": "delivered",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "QTY_OVER",
+     "code": "QTY_OVER",
+     "part_number": "WD22TB4-DK"
+    }
+   ]
+  },
+  "O33": {
+   "stage": "received",
+   "customer": "Sahil Ports Authority",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "QTY_OVER",
+     "code": "QTY_OVER",
+     "part_number": "PER660-XS1"
+    }
+   ]
+  },
+  "O34": {
+   "stage": "ready_to_invoice",
+   "customer": "Bayt Al Ilm Schools",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "ETA_LATE",
+     "code": "ETA_LATE",
+     "part_number": null
+    }
+   ]
+  },
+  "O35": {
+   "stage": "ready_to_invoice",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "SERIAL_COUNT",
+     "code": "SERIAL_COUNT",
+     "part_number": "DD6400-64T"
+    }
+   ]
+  },
+  "O36": {
+   "stage": "po_sent",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": []
+  },
+  "O37": {
+   "stage": "received",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "DUPLICATE_SERIAL",
+     "code": "DUPLICATE_SERIAL",
+     "part_number": "SFP28-SR-25G"
+    }
+   ]
+  },
+  "O38": {
+   "stage": "confirmed",
+   "customer": "Seven Palms Academy",
+   "layout": "L3",
+   "planted": [
+    {
+     "kind": "PART_MISMATCH",
+     "code": "PART_MISMATCH",
+     "part_number": "P2425H-MON"
+    }
+   ]
+  },
+  "O39": {
+   "stage": "po_received",
+   "customer": "Marjan Commercial Bank",
+   "layout": "L2",
+   "planted": [
+    {
+     "kind": "TOTAL_MATH",
+     "code": "TOTAL_MATH",
+     "part_number": null
+    }
+   ]
+  },
+  "O40": {
+   "stage": "po_received",
+   "customer": "Gulf Crescent Bank",
+   "layout": "L2",
+   "planted": []
+  },
+  "O41": {
+   "stage": "delivered",
+   "customer": "Al Waha Municipal Services",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "TOTAL_MATH",
+     "code": "TOTAL_MATH",
+     "part_number": null
+    }
+   ]
+  },
+  "O42": {
+   "stage": "po_sent",
+   "customer": "Sahil Ports Authority",
+   "layout": "L1",
+   "planted": [
+    {
+     "kind": "VAT_MATH",
+     "code": "VAT_MATH",
+     "part_number": null
+    }
+   ]
+  }
+ }
+}
