@@ -1,0 +1,710 @@
+/* Order Desk. Rules from DESIGN.md: the table is the page; red is an open problem and nothing else;
+   identifiers are mono and nothing else is; 0 and 2 px corners, rings are the only round shapes. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 15px/22px var(--sans);
+  font-variant-numeric: tabular-nums;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: var(--s4);
+  top: -48px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--s2) var(--s3);
+  z-index: 10;
+}
+.skip:focus {
+  top: var(--s2);
+}
+
+.mono,
+.po,
+kbd {
+  font-family: var(--mono);
+  font-variant-numeric: normal;
+}
+
+kbd {
+  font-size: 11px;
+  line-height: 16px;
+  padding: 0 5px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  color: var(--ink-2);
+  background: transparent;
+}
+
+.quiet {
+  color: var(--ink-3);
+}
+
+.num {
+  text-align: right;
+}
+
+/* ------------------------------------------------------------------ header */
+
+.top {
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+.top-inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--s5);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+}
+.wordmark {
+  font-weight: 800;
+  font-stretch: 68%;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.role {
+  display: flex;
+  align-items: center;
+}
+.role-label {
+  color: var(--ink-2);
+  font-size: 13px;
+  margin-right: var(--s2);
+}
+.role button {
+  font: 600 13px/18px var(--sans);
+  padding: 6px 12px;
+  border: 1px solid var(--rule-strong);
+  margin-left: -1px;
+  background: var(--sheet);
+  color: var(--ink);
+  cursor: pointer;
+  min-height: 32px;
+}
+.role button:first-of-type {
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+.role button:last-of-type {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.role button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  position: relative;
+}
+.top-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font: 600 14px/20px var(--sans);
+  padding: 7px 14px;
+  min-height: 36px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--sheet);
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.button.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.button.primary kbd {
+  color: var(--paper);
+  border-color: color-mix(in srgb, var(--paper) 45%, transparent);
+}
+.theme {
+  font: 500 13px/18px var(--sans);
+  color: var(--ink-2);
+  background: none;
+  border: 0;
+  padding: 8px 4px;
+  min-height: 36px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 4px;
+}
+.link {
+  font: inherit;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+main {
+  outline: none;
+}
+.page {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: var(--s6) var(--s5) var(--s5);
+}
+.foot {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: var(--s5);
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------------ board head + filters */
+
+.board-head h1 {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 72%;
+  font-size: 34px;
+  line-height: 36px;
+  letter-spacing: -0.015em;
+}
+.lede {
+  margin: var(--s2) 0 0;
+  font-size: 17px;
+  line-height: 24px;
+  max-width: 68ch;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3) var(--s5);
+  margin: var(--s5) 0 var(--s3);
+}
+.search {
+  position: relative;
+  flex: 0 1 440px;
+  display: flex;
+  align-items: center;
+}
+.search kbd {
+  position: absolute;
+  left: 10px;
+  pointer-events: none;
+}
+.search input {
+  width: 100%;
+  font: 400 15px/20px var(--sans);
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 9px 12px 9px 36px;
+  min-height: 40px;
+}
+.search input::placeholder {
+  color: var(--ink-3);
+}
+.select {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.select select {
+  font: 500 14px/20px var(--sans);
+  color: var(--ink);
+  background: var(--sheet);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  min-height: 40px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 40px;
+}
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--ink);
+}
+
+/* ------------------------------------------------------------------ the pad */
+
+.pad {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--sheet);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule-strong);
+  font-size: 14px;
+  line-height: 20px;
+}
+.c-margin {
+  width: 52px;
+}
+.c-ids {
+  width: 200px;
+}
+.c-customer {
+  width: 220px;
+}
+.c-where {
+  width: 220px;
+}
+.c-turn {
+  width: 92px;
+}
+.c-waiting {
+  width: 84px;
+}
+.c-value {
+  width: 132px;
+}
+.pad thead th {
+  font-weight: 600;
+  font-stretch: 75%;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-align: left;
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+}
+.pad thead th.num {
+  text-align: right;
+}
+.pad td,
+.pad tbody th {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  text-align: left;
+  font-weight: 400;
+}
+/* column rules, like the pad */
+.pad td + td,
+.pad th + td,
+.pad td + th {
+  border-left: 1px solid var(--rule);
+}
+
+.band th {
+  padding: 22px 10px 8px !important;
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule-strong) !important;
+  border-left: 0 !important;
+}
+tbody:first-of-type .band th,
+thead + tbody .band th {
+  padding-top: 14px !important;
+}
+.band .count {
+  display: inline-block;
+  min-width: 22px;
+  margin-left: 6px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.band .link {
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: var(--s3);
+}
+.band.mine th {
+  font-size: 17px;
+}
+
+tr.order {
+  cursor: pointer;
+}
+tr.order:hover td,
+tr.order:hover th {
+  background: var(--select);
+}
+tr.order.selected td,
+tr.order.selected th {
+  background: var(--select);
+}
+tr.order.selected .margin {
+  box-shadow: inset 3px 0 0 var(--ink);
+}
+
+.margin {
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 8px 4px !important;
+}
+
+.ids .po {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  word-break: break-all;
+}
+tr.order:hover .po {
+  text-decoration: underline;
+}
+.sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.sub.mono {
+  font-size: 12px;
+}
+.customer {
+  font-weight: 500;
+}
+.customer .sub {
+  font-weight: 400;
+}
+
+.where {
+  white-space: nowrap;
+}
+.where .stage {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+
+.stamp {
+  display: inline-block;
+  font-weight: 700;
+  font-stretch: 80%;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 2px 7px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+
+.waiting {
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+.waiting.long {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.problem {
+  max-width: 0; /* let the column take the remaining width and wrap */
+}
+/* The sentence is ink: the red ring in the margin carries the signal, the words carry the detail. */
+.pencil-text {
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.value {
+  white-space: nowrap;
+}
+
+tr.ghost td {
+  height: 57px;
+  border-bottom: 1px solid var(--rule);
+}
+tr.empty td {
+  color: var(--ink-3);
+  padding: 16px 10px;
+}
+
+.keys {
+  margin: var(--s3) 0 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.keys kbd {
+  margin: 0 2px;
+}
+.keys kbd + kbd {
+  margin-left: 0;
+}
+
+.state {
+  padding: var(--s5);
+  background: var(--sheet);
+  border-top: 2px solid var(--ink);
+}
+.state.error p {
+  margin: 0 0 var(--s3);
+}
+
+/* ------------------------------------------------------------------ pencil marks and the route line */
+
+.ring {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 28px;
+  color: var(--pencil);
+}
+.ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ring path {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ring-text {
+  position: relative;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+}
+.tick {
+  display: inline-block;
+  width: 20px;
+  height: 17px;
+}
+.tick svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.tick path {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.route {
+  display: block;
+  overflow: visible;
+}
+.route-done {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.route-todo {
+  stroke: var(--ink-3);
+  stroke-width: 1.6;
+  stroke-dasharray: 2 3.5;
+  stroke-linecap: round;
+}
+.station-done {
+  fill: var(--ink);
+}
+.station-todo {
+  fill: var(--sheet);
+  stroke: var(--ink-3);
+  stroke-width: 1.4;
+}
+.station-current {
+  fill: var(--sheet);
+  stroke: var(--ink);
+  stroke-width: 2.4;
+}
+.station-problem {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------------ phone */
+
+@media (max-width: 760px) {
+  .top-inner {
+    height: auto;
+    flex-wrap: wrap;
+    padding: var(--s3) var(--s4);
+    gap: var(--s3);
+  }
+  .role {
+    order: 3;
+    width: 100%;
+  }
+  .role button {
+    flex: 1;
+    min-height: 44px;
+  }
+  .top-actions .button kbd,
+  .keys {
+    display: none;
+  }
+  .page {
+    padding: var(--s5) var(--s4);
+  }
+  .board-head h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .filters {
+    gap: var(--s3);
+  }
+  .search {
+    flex: 1 1 100%;
+  }
+  .search input,
+  .select select {
+    min-height: 44px;
+  }
+
+  /* the pad becomes one block per order */
+  .pad colgroup,
+  .pad thead {
+    display: none;
+  }
+  .pad,
+  .pad tbody,
+  .pad tr {
+    display: block;
+  }
+  .band th {
+    display: block;
+    padding: 18px 4px 8px !important;
+  }
+  tr.order {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    grid-template-areas:
+      "margin ids turn"
+      "margin customer waiting"
+      "margin where where"
+      "margin problem problem";
+    column-gap: var(--s2);
+    padding: var(--s3) var(--s2) var(--s3) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  tr.order td,
+  tr.order th {
+    border: 0 !important;
+    padding: 2px 0 !important;
+    background: transparent !important;
+  }
+  tr.order.selected,
+  tr.order:hover {
+    background: var(--select);
+  }
+  tr.order.selected .margin {
+    box-shadow: none;
+  }
+  tr.order.selected {
+    box-shadow: inset 3px 0 0 var(--ink);
+  }
+  tr.order .margin {
+    grid-area: margin;
+    vertical-align: top !important;
+    padding-top: 2px !important;
+  }
+  tr.order .ids {
+    grid-area: ids;
+  }
+  tr.order .customer {
+    grid-area: customer;
+  }
+  tr.order .customer .sub {
+    display: none;
+  }
+  tr.order .where {
+    grid-area: where;
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+    padding-top: 6px !important;
+  }
+  tr.order .where .stage {
+    margin: 0;
+  }
+  tr.order .turn {
+    grid-area: turn;
+    text-align: right;
+  }
+  tr.order .waiting {
+    grid-area: waiting;
+  }
+  tr.order .problem {
+    grid-area: problem;
+    max-width: none;
+  }
+  tr.order .problem .quiet {
+    display: none;
+  }
+  tr.order .value {
+    display: none;
+  }
+  tr.ghost,
+  tr.empty {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
