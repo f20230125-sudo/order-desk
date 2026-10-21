@@ -16,13 +16,17 @@ from psycopg.rows import dict_row
 from backend.config import ROLES, database_url
 
 
-def connect(kind: str = "pooled") -> psycopg.Connection:
+def connect(kind: str = "pooled", autocommit: bool = False) -> psycopg.Connection:
+    """autocommit=True for web requests: each read stands alone, and every write block opened with
+    write_tx() / conn.transaction() is a real transaction (not a savepoint inside an implicit one that
+    would never be committed)."""
     return psycopg.connect(
         database_url(kind),
         row_factory=dict_row,
         prepare_threshold=None,
         connect_timeout=15,
         application_name="order-desk",
+        autocommit=autocommit,
     )
 
 
