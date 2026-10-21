@@ -94,6 +94,7 @@ class SynthOrder:
     planted: list[Planted] = field(default_factory=list)
     contact: str = ""
     deliver_to: str = ""
+    today: date = TODAY  # the day the documents are dated against
 
 
 def money(x) -> Decimal:
@@ -175,8 +176,11 @@ def plan_problems(rng: random.Random, stages: list[str], per_code: int = 2) -> l
     return plan
 
 
-def build(seed: int = 2027) -> list[SynthOrder]:
+def build(seed: int = 2027, today: date = TODAY) -> list[SynthOrder]:
+    """The same seed gives the same orders. `today` only moves the dates: the evaluation keeps TODAY so its
+    numbers are reproducible; the database seed passes the real date so the demo never looks stale."""
     rng = random.Random(seed)
+    TODAY = today  # noqa: N806 (shadows the module default on purpose)
     stages = [s for s, n in STAGE_COUNTS.items() for _ in range(n)]
     rng.shuffle(stages)
     problem_plan = plan_problems(rng, stages)
@@ -246,6 +250,7 @@ def build(seed: int = 2027) -> list[SynthOrder]:
             planted.append(Planted("TOTAL_MATH", "TOTAL_MATH", None))
 
         order = SynthOrder(
+            today=TODAY,
             key=f"O{i:02d}",
             customer=customer,
             distributor=distributor,
