@@ -7,6 +7,7 @@ import pytest
 
 from backend.db.conn import write_tx
 from backend.db.migrate import MigrationError, migrate
+from backend.orders import run_checks
 
 pytestmark = pytest.mark.db
 
@@ -181,3 +182,111 @@ def test_migrate_is_idempotent_and_refuses_edited_files(db, tmp_path, monkeypatc
             (checksum(MIGRATIONS / "001_core.sql"),),
         )
         db.commit()
+
+
+def _confirmed_order(db, price=100):
+    _, _, _, order, po = _chain(db)
+    db.execute(
+        "insert into customer_order_line (order_id, line_no, part_number, description, qty, unit_price) "
+        "values (%s, 1, 'PER760-XS2', 'Server', 1, 100)",
+        (order,),
+    )
+    db.execute(
+        "insert into purchase_order_line (po_id, line_no, part_number, description, qty, unit_cost) "
+        "values (%s, 1, 'PER760-XS2', 'Server', 1, 100)",
+        (po,),
+    )
+    conf = db.execute(
+        "insert into vendor_confirmation (po_id, confirmation_no, referenced_po, eta) "
+        "values (%s, 'CONF-1', 'PO-2026-0001', '2026-10-25') returning id",
+        (po,),
+    ).fetchone()["id"]
+    db.execute(
+        "insert into vendor_confirmation_line (confirmation_id, line_no, part_number, description, qty, unit_cost) "
+        "values (%s, 1, 'PER760-XS2', 'Server', 1, %s)",
+        (conf, price),
+    )
+    return order, po, conf
+
+
+@pytest.mark.parametrize("status", ["accepted", "fixed"])
+def test_changed_evidence_reopens_resolved_problem(db, status):
+    order, _, conf = _confirmed_order(db, price=110)
+    run_checks(db, order, "ops")
+    db.execute(
+        "update discrepancy set status = %s, resolved_at = now(), resolved_by_role = 'sales', "
+        "resolution_note = 'Agreed at 110.' where customer_order_id = %s",
+        (status, order),
+    )
+    assert run_checks(db, order, "ops")["opened"] == 0
+    db.execute("update vendor_confirmation_line set unit_cost = 200 where confirmation_id = %s", (conf,))
+    assert run_checks(db, order, "ops")["opened"] == 1
+    row = db.execute("select * from discrepancy where customer_order_id = %s", (order,)).fetchone()
+    assert row["status"] == "open" and row["found"] == "200.00"
+    assert row["resolved_at"] is row["resolved_by_role"] is row["resolution_note"] is None
+
+
+@pytest.mark.parametrize("accepted", [False, True])
+def test_problem_reopens_after_disappearing(db, accepted):
+    order, _, conf = _confirmed_order(db, price=110)
+    run_checks(db, order, "ops")
+    if accepted:
+        db.execute(
+            "update discrepancy set status = 'accepted', resolved_at = now(), resolved_by_role = 'sales', "
+            "resolution_note = 'Agreed at 110.' where customer_order_id = %s",
+            (order,),
+        )
+    db.execute("update vendor_confirmation_line set unit_cost = 100 where confirmation_id = %s", (conf,))
+    run_checks(db, order, "ops")
+    db.execute("update vendor_confirmation_line set unit_cost = 110 where confirmation_id = %s", (conf,))
+    assert run_checks(db, order, "ops")["opened"] == 1
+    assert (
+        db.execute("select status from discrepancy where customer_order_id = %s", (order,)).fetchone()[
+            "status"
+        ]
+        == "open"
+    )
+
+
+@pytest.mark.parametrize("direction", ["inbound", "outbound"])
+def test_surplus_one_part_cannot_complete_another(db, direction):
+    order, po, _ = _confirmed_order(db)
+    db.execute(
+        "insert into customer_order_line (order_id, line_no, part_number, description, qty, unit_price) "
+        "values (%s, 2, 'VVF-CORE-1Y', 'Licence', 10, 10)",
+        (order,),
+    )
+    ship = db.execute(
+        "insert into shipment (direction, customer_order_id, po_id, received_at) "
+        "values (%s, %s, %s, now()) returning id",
+        (direction, order, po),
+    ).fetchone()["id"]
+    db.execute(
+        "insert into shipment_line (shipment_id, part_number, qty) values (%s, 'PER760-XS2', 11)",
+        (ship,),
+    )
+    assert db.execute("select stage from board where id = %s", (order,)).fetchone()["stage"] == "confirmed"
+    db.execute(
+        "insert into shipment_line (shipment_id, part_number, qty) values (%s, 'VVF-CORE-1Y', 10)",
+        (ship,),
+    )
+    want = "received" if direction == "inbound" else "delivered"
+    assert db.execute("select stage from board where id = %s", (order,)).fetchone()["stage"] == want
+
+
+def test_board_eta_comes_from_latest_confirmation(db):
+    order, po, conf = _confirmed_order(db)
+    db.execute(
+        "insert into vendor_confirmation (po_id, confirmation_no, referenced_po, eta, confirmed_at) "
+        "select po_id, 'CONF-2', referenced_po, '2026-11-05', confirmed_at "
+        "from vendor_confirmation where id = %s",
+        (conf,),
+    )
+    assert (
+        db.execute("select eta from board where id = %s", (order,)).fetchone()["eta"].isoformat()
+        == "2026-11-05"
+    )
+    db.execute(
+        "update vendor_confirmation set eta = null where po_id = %s and confirmation_no = 'CONF-2'", (po,)
+    )
+    assert db.execute("select eta from board where id = %s", (order,)).fetchone()["eta"] is None

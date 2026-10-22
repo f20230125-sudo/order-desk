@@ -6,6 +6,7 @@ on serverless instances that share no disk), and the same file is never taken tw
 
 import hashlib
 import json
+from collections import Counter
 
 import psycopg
 from flask import Blueprint, Response, jsonify, request
@@ -91,7 +92,6 @@ def upload():
                 "filename": seen["filename"],
             },
         )
-    check_daily_upload_cap(len(data))
     try:
         _mime, extracted = extract(data, kind)
     except Exception as exc:  # a damaged or unusual file: say so instead of failing the request
@@ -103,6 +103,7 @@ def upload():
     kind = extracted["kind"]
     filename = (file.filename or "document")[:120]
     with write_tx(conn, role):
+        check_daily_upload_cap(len(data))
         conn.execute("delete from pending_upload where expires_at < now()")
         pending = conn.execute(
             """insert into pending_upload (kind, filename, mime, sha256, size_bytes, content, extracted)
@@ -269,6 +270,19 @@ def _save_goods_in(conn, d) -> int:
     ).fetchone()
     if existing:
         ship_id = existing["id"]
+        stored = conn.execute(
+            "select part_number, sum(qty) as qty from shipment_line where shipment_id = %s group by part_number",
+            (ship_id,),
+        ).fetchall()
+        quantities = Counter()
+        for ln in d.lines:
+            quantities[ln.part_number] += ln.qty
+        if quantities != Counter({r["part_number"]: r["qty"] for r in stored}):
+            raise ApiError(
+                409,
+                "delivery_conflict",
+                "This delivery is already recorded with different parts or quantities. Check both documents.",
+            )
         conn.execute(
             "update shipment set tracking_number = coalesce(tracking_number, %s), "
             "marked_partial = marked_partial or %s where id = %s",

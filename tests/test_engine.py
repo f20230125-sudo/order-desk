@@ -199,3 +199,62 @@ def test_explanations_are_plain_sentences_without_em_dashes():
     b.confirmations[0].eta = date(2026, 11, 5)
     for f in check(b):
         assert f.explanation.endswith(".") and "—" not in f.explanation
+
+
+def test_each_duplicate_serial_keeps_its_own_finding():
+    b = clean()
+    b.serials_seen_elsewhere = {"7AAAA01": "DN-1", "7AAAA02": "DN-2"}
+    found = [f for f in check(b) if f.code == "DUPLICATE_SERIAL"]
+    assert {f.found for f in found} == {"7AAAA01", "7AAAA02"}
+    assert len({f.fingerprint for f in found}) == 2
+
+
+@pytest.mark.parametrize("confirmed", [True, False])
+def test_inbound_quantities_add_repeated_parts(confirmed):
+    b = clean()
+    b.our_po.lines = [replace(SERVER, qty=2), replace(SERVER, line_no=2, qty=3), LICENCE]
+    b.confirmations[0].lines = list(b.our_po.lines)
+    if not confirmed:
+        b.confirmations = []
+    b.shipments[0].lines[0] = ShipmentLine("PER760-XS2", 5, [f"SERIAL{i}" for i in range(5)])
+    assert [f for f in check(b) if f.stage == "received"] == []
+
+
+def test_unexpected_inbound_part_is_reported():
+    b = clean()
+    b.shipments[0].lines.append(ShipmentLine("SFP28-SR-25G", 2))
+    [f] = check(b)
+    assert (f.code, f.stage, f.part_number) == ("EXTRA_LINE", "received", "SFP28-SR-25G")
+    assert f.found == "2 x SFP28-SR-25G"
+
+
+def test_approved_substitute_fulfils_customer_delivery():
+    b = clean()
+    b.confirmations[0].lines[0] = replace(
+        b.confirmations[0].lines[0], part_number="PER770-XS2", substitutes_part="PER760-XS2"
+    )
+    b.shipments[0].lines[0].part_number = "PER770-XS2"
+    b.shipments[1].lines[0].part_number = "PER770-XS2"
+    b.approved_substitutions = {"PER770-XS2": "PER760-XS2"}
+    assert [f for f in check(b) if f.stage == "delivered"] == []
+    b.approved_substitutions = {}
+    assert any(f.code == "QTY_SHORT" and f.stage == "delivered" for f in check(b))
+
+
+def test_eval_counts_shortfalls_at_each_stage():
+    from eval.engine_eval import _score, bundle_from_truth
+    from synth.scenario import build
+
+    orders = [o for o in build() if o.key == "O18"]
+
+    def missing_receipt(orders, i):
+        b = bundle_from_truth(orders, i)
+        for sl in b.shipments[0].lines:
+            sl.qty = sum(x.qty for x in b.confirmations[-1].lines if x.part_number == sl.part_number)
+        return b
+
+    score = _score(orders, missing_receipt)
+    assert score["missed"] == 1
+    assert score["missed_list"] == [
+        {"order": "O18", "code": "QTY_SHORT", "stage": "received", "part": "PER460-T1"}
+    ]

@@ -73,16 +73,18 @@ def limit_writes(cost: int = 1) -> None:
 
 
 def check_daily_upload_cap(size: int) -> None:
-    used = (
+    usage = (
         db()
         .execute(
-            """select coalesce((select sum(size_bytes) from pending_upload where created_at > now() - interval '1 day'), 0)
-                + coalesce((select sum(size_bytes) from document where uploaded_by_role <> 'system'
-                            and uploaded_at > now() - interval '1 day'), 0) as used"""
+            """insert into upload_usage (day, size_bytes)
+               select (now() at time zone 'UTC')::date, %s where %s <= %s
+               on conflict (day) do update set size_bytes = upload_usage.size_bytes + excluded.size_bytes
+               where upload_usage.size_bytes + excluded.size_bytes <= %s returning size_bytes""",
+            (size, size, DAILY_UPLOAD_CAP_BYTES, DAILY_UPLOAD_CAP_BYTES),
         )
-        .fetchone()["used"]
+        .fetchone()
     )
-    if used + size > DAILY_UPLOAD_CAP_BYTES:
+    if usage is None:
         raise ApiError(
             507, "daily_upload_cap", "The demo has taken its daily share of uploads. It resets overnight."
         )

@@ -69,3 +69,4 @@ class OrderBundle:
     serialised_parts: frozenset[str] = frozenset()
     # serial -> where else it has been booked (another order or shipment), for duplicate detection
     serials_seen_elsewhere: dict[str, str] = field(default_factory=dict)
+    approved_substitutions: dict[str, str] = field(default_factory=dict)  # received part -> customer part
