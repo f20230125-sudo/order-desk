@@ -570,7 +570,69 @@ tr.has-problem th {
     left: -24px;
   }
   .match {
-    min-width: 720px;
+    min-width: 0;
+  }
+  .match,
+  .match tbody,
+  .match tfoot,
+  .match tr {
+    display: block;
+  }
+  .match thead {
+    display: table-header-group;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .match th[scope="row"] {
+    display: block;
+    width: 100%;
+    padding: var(--s3) var(--s2);
+    overflow-wrap: anywhere;
+  }
+  .match tbody tr:not(.explain) td {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--s2);
+    border-left: 0;
+    padding: var(--s2);
+  }
+  .match .mobile-cell-label {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .match tr.explain td {
+    display: block;
+    padding: var(--s3) var(--s2) !important;
+    overflow-wrap: anywhere;
+  }
+  .match tfoot td {
+    display: block;
+    border-left: 0;
+  }
+  .match .totals {
+    gap: var(--s3) var(--s5);
+  }
+  .order-top {
+    gap: var(--s5);
+  }
+  .next {
+    padding: var(--s4);
+  }
+  .next-actions > *,
+  .next-actions select {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .problem-body,
+  .next-text,
+  .history li > span,
+  .ships li {
+    overflow-wrap: anywhere;
   }
   .history li {
     grid-template-columns: 60px minmax(0, 1fr);
@@ -581,7 +643,7 @@ tr.has-problem th {
 }
 
 .ident {
-  white-space: nowrap;
+  overflow-wrap: anywhere;
   font-size: 0.92em;
 }
 .ringed.missing {
