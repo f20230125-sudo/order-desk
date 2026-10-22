@@ -1,15 +1,16 @@
 """Order Desk: Flask API plus the built React app.
 
-Vercel finds `app` here and runs it as one function. Files in public/ (the Vite build) are served by the
-CDN before this function is reached; every other path lands here. Unknown /api paths get a JSON 404 and
-everything else gets the app shell, so a deep link such as /orders/42 opens in the browser.
+Vercel finds `app` here and runs it as one function. Files in public/ (the Vite build) are usually served
+by the CDN before this function is reached, but a deploy built from git has no uploaded public/ for the
+CDN, so this function serves those files too. Unknown /api paths get a JSON 404 and everything else gets
+the app shell, so a deep link such as /orders/42 opens in the browser.
 """
 
 import os
 from pathlib import Path
 
 import psycopg
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify, send_file, send_from_directory
 from werkzeug.exceptions import HTTPException
 
 from backend.api import board, discrepancies, documents, intake, orders
@@ -18,7 +19,8 @@ from backend.config import MAX_UPLOAD_BYTES
 from backend.errors import ApiError
 
 ROOT = Path(__file__).resolve().parent
-INDEX_HTML = ROOT / "public" / "index.html"
+PUBLIC = ROOT / "public"
+INDEX_HTML = PUBLIC / "index.html"
 
 
 def create_app(db_kind: str = "pooled") -> Flask:
@@ -85,6 +87,10 @@ def create_app(db_kind: str = "pooled") -> Flask:
     def spa(path: str):
         if not INDEX_HTML.is_file():
             return "The web app is not built yet: run npm --prefix web run build", 503
+        if path and path != "index.html" and (PUBLIC / path).is_file():
+            # Hashed names under assets/ never change content, so they can be kept for a year.
+            max_age = 31536000 if path.startswith("assets/") else 3600
+            return send_from_directory(PUBLIC, path, max_age=max_age)
         return send_file(INDEX_HTML, max_age=0)
 
     return app

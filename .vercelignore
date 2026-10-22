@@ -1,7 +1,7 @@
 # CLI deploys upload the working folder; leave out what the build never needs.
-# Keep public/ in the upload: for a Flask project Vercel serves only the public/ files that were uploaded
-# (the build overwrites them but does not add new ones). So run `npm --prefix web run build` right before
-# `vercel deploy`: the same lockfile gives the same hashed names on Vercel, and nothing goes missing.
+# Run `npm --prefix web run build` right before `vercel deploy`: an older local public/ with different
+# hashed names reaches the build and the Python step fails on files Vite has since deleted.
+# (A deploy built from git is fine: Flask serves public/ itself when the CDN has no copy.)
 .venv/
 web/node_modules/
 synth/out/

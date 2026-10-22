@@ -20,7 +20,7 @@
   "functions": {
     "app.py": {
       "maxDuration": 30,
-      "excludeFiles": "{web/**,synth/**,eval/**,tests/**,docs/**,public/**,.github/**}"
+      "excludeFiles": "{web/**,synth/**,eval/**,tests/**,docs/**,.github/**}"
     }
   }
 }
