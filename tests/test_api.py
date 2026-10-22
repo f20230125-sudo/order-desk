@@ -86,11 +86,14 @@ def test_writes_need_a_role(client):
 
 
 def test_same_file_twice_is_refused(client):
-    order = build()[0]
-    _name, data, _t = documents_for(order)[0]
+    # The exact bytes of a document already on an order (the seed dates its documents by today's date, so
+    # regenerating one here would make a different file).
+    doc = client.get("/api/orders/1").get_json()["documents"][0]
+    data = client.get(f"/api/documents/{doc['id']}/file").data
     r = _upload(client, data, "again.pdf")
     assert r.status_code == 409
     assert r.get_json()["error"]["code"] == "already_received"
+    assert r.get_json()["error"]["details"]["order_id"] == 1
 
 
 def test_only_pdf_and_email_files(client):
