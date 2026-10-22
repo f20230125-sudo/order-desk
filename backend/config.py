@@ -30,6 +30,13 @@ def _load_env_files() -> None:
 _load_env_files()
 
 
+def clean_setting(value: str, name: str) -> str:
+    value = value.strip().strip("\"'").strip()
+    if value.startswith(name + "="):
+        value = value[len(name) + 1 :].strip().strip("\"'").strip()
+    return value
+
+
 def database_url(kind: str = "pooled") -> str:
     """Connection string for the app ("pooled"), for maintenance ("direct") or for tests ("test")."""
     names = {
@@ -38,7 +45,8 @@ def database_url(kind: str = "pooled") -> str:
         "test": ("DATABASE_URL_TEST",),
     }[kind]
     for name in names:
-        value = os.environ.get(name)
+        # Values pasted into a secrets form often carry a newline, quotes or the "NAME=" from a .env line.
+        value = clean_setting(os.environ.get(name, ""), name)
         if value:
             return value
     raise RuntimeError(f"Set {names[0]} (see .env.example)")

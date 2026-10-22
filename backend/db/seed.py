@@ -22,7 +22,7 @@ from urllib.parse import urlparse
 
 import psycopg
 
-from backend.config import database_url
+from backend.config import clean_setting, database_url
 from backend.db.conn import connect, write_tx
 from backend.db.migrate import migrate
 from backend.extract.detect import extract
@@ -307,20 +307,35 @@ def seed(conn: psycopg.Connection, reset: bool = False, today: date | None = Non
     return dict(counts)
 
 
-def _allowed(url: str, test: bool) -> bool:
-    host = urlparse(url).hostname or ""
+def _host(value: str) -> str:
+    """A host name, also when given as a whole connection string or URL."""
+    value = value.lower()
+    return (urlparse(value).hostname or "") if "://" in value else value.rstrip("/")
+
+
+def _refusal(url: str, test: bool) -> str | None:
+    """Why a reset must not run against this database, or None when it may."""
     if test:
-        return True
-    allowed = os.environ.get("ORDER_DESK_RESET_HOST", "")
-    return bool(allowed) and host == allowed
+        return None
+    host = _host(url)
+    allowed = _host(clean_setting(os.environ.get("ORDER_DESK_RESET_HOST", ""), "ORDER_DESK_RESET_HOST"))
+    if not host:
+        return "the database setting is not a postgresql:// connection string"
+    if not allowed:
+        return "set ORDER_DESK_RESET_HOST to this database's host name first"
+    if host != allowed:
+        # Host names are not secret, but a workflow log masks secret values, so give lengths too.
+        return f"ORDER_DESK_RESET_HOST ({len(allowed)} characters) is not this database's host ({len(host)} characters)"
+    return None
 
 
 def main() -> None:
     test = "--test" in sys.argv
     reset = "--reset" in sys.argv
     url = database_url("test" if test else "direct")
-    if reset and not _allowed(url, test):
-        raise SystemExit("refusing to reset: set ORDER_DESK_RESET_HOST to this database's host name first")
+    refusal = _refusal(url, test) if reset else None
+    if refusal:
+        raise SystemExit(f"refusing to reset: {refusal}")
     with connect("test" if test else "direct") as conn:
         migrate(conn)
         # One transaction for the whole reload: visitors see the old data or the new, never half of it.
