@@ -27,7 +27,7 @@ jobs:
           python-version-file: .python-version
           cache: pip
           cache-dependency-path: requirements-dev.txt
-      - run: pip install --only-binary=:all: -r requirements-dev.txt
+      - run: "pip install --only-binary=:all: -r requirements-dev.txt"
       - run: ruff check .
       - run: ruff format --check .
       # Unit tests, the database's own rules, the seed and the API, against a real Postgres.
